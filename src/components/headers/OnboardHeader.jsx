@@ -5,7 +5,7 @@ const OnboardHeader = (props) => {
     <div className="header">
       <div className="doggo-svg">
         <img
-          src={`${process.env.PUBCLIC_URL}/assets/Doggo.svg`}
+          src={`${process.env.PUBLIC_URL}/assets/Doggo.svg`}
           alt="dog-icon"
           className="doggo-icon"
         />
