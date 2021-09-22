@@ -2,7 +2,16 @@ import React from "react";
 
 const OnboardHeader = (props) => {
   return (
-    <div className="header">Doggo</div>
+    <div className="header">
+      <div className="doggo-svg">
+        <img
+          src={`${process.env.PUBCLIC_URL}/assets/Doggo.svg`}
+          alt="dog-icon"
+          className="doggo-icon"
+        />
+      </div>
+      Doggo
+    </div>
   );
 };
 
