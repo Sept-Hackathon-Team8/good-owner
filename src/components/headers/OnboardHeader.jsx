@@ -2,7 +2,7 @@ import React from "react";
 
 const OnboardHeader = (props) => {
   return (
-    <div>Doggo</div>
+    <div className="header">Doggo</div>
   );
 };
 

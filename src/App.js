@@ -5,7 +5,10 @@ import LandingPage from "./pages/landing-page/LandingPage";
 import RegisterPage from "./pages/register-page/RegisterPage";
 import HomePage from "./pages/home-page/HomePage";
 import LoginPage from "./pages/login-page/LoginPage";
-import Task from "./pages/task/Task"
+import Task from "./pages/task-page/Task"
+import Feedback from "./pages/feedback-pages/Feedback"
+import Treat from "./pages/feedback-pages/Treat"
+import Advice from "./pages/feedback-pages/Advice"
 import './App.css';
 
 
@@ -29,6 +32,15 @@ function App() {
         </Route>
         <Route path="/task">
           <Task currentUser={ currentUser } setCurrentUser={ setCurrentUser } />
+        </Route>
+        <Route path="/feedback">
+          <Feedback currentUser={ currentUser } setCurrentUser={ setCurrentUser } />
+        </Route>
+        <Route path="/treat">
+          <Treat currentUser={ currentUser } setCurrentUser={ setCurrentUser } />
+        </Route>
+        <Route path="/advice">
+          <Advice currentUser={ currentUser } setCurrentUser={ setCurrentUser } />
         </Route>
       </Switch>
     </div>
