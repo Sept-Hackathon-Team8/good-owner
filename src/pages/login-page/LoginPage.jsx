@@ -12,8 +12,8 @@ const LoginPage = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.setCurrentUser(user)
-    
-    
+
+
   }
   if(props.currentUser) return <Redirect to={'/home'}/>
 
