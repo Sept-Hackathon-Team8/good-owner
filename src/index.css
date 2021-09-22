@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.header {
+  background-color: #F9C946;
+  height: 124px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.doggo {
+  font-size: 3em;
+  font-weight: bold;
+  
+}
