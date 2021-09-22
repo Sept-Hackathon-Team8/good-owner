@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import { useState } from 'react'
 import LandingPage from "./pages/landing-page/LandingPage";
 import RegisterPage from "./pages/register-page/RegisterPage";
 import HomePage from "./pages/home-page/HomePage";
 import LoginPage from "./pages/login-page/LoginPage";
-import Task from "./pages/task/Task"
+import Task from "./pages/task/Task";
+import { getBreeds } from "./services/breeds";
 import './App.css';
-
 
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
+  const [breeds, setBreeds] = useState([]);
+
+  useEffect(() => {
+    fetchBreeds();
+  }, []);
+
+  const fetchBreeds = async () => {
+    const res = await getBreeds();
+    setBreeds(res);
+  };
+
+  console.log(breeds);
+
+
   return (
     <div className="App">
       <Switch>
