@@ -1,10 +1,10 @@
 import React from "react";
 
-const MainHeader = (props) => {
+const OnboardHeader = (props) => {
     
     return (
       <div>Doggo</div>
     );
   };
   
-  export default MainHeader;
+  export default OnboardHeader;

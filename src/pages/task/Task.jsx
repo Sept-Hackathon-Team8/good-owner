@@ -1,5 +1,5 @@
 import React from "react";
-import UserHeader from "../../components/headers/UserHeader";
+import UserHeader from "../../components/headers/HomeHeader";
 import NextButton from "../../components/next-button/NextButton";
 
 const Task = (props) => {

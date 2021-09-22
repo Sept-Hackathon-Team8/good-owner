@@ -1,10 +1,10 @@
 import React from "react";
 
-const UserHeader = (props) => {
+const HomeHeader = (props) => {
     
     return (
       <div>Doggo</div>
     );
   };
   
-  export default UserHeader;
+  export default HomeHeader;
