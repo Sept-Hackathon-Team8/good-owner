@@ -2,7 +2,9 @@ import React from "react";
 
 const HomeHeader = (props) => {
   return (
-    <div>Doggo</div>
+    <div className="header ">
+      <div className="doggo">Doggo</div>
+    </div>
   );
 };
 
