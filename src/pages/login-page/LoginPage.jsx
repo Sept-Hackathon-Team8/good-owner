@@ -1,13 +1,17 @@
 import React from "react";
 import { useState } from 'react'
 import { Redirect } from 'react-router-dom'
-
+const user = {
+  email: "email",
+  password: "password"
+}
 const LoginPage = (props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.setCurrentUser()
+    props.setCurrentUser(user)
     
     
   }

@@ -1,13 +1,14 @@
 import React from "react";
-import { useHistory } from 'react-router-dom'
+import { Link } from "react-router-dom";
+// import { useHistory } from 'react-router-dom'
 
 
 const Training = (props) => {
-    const history = useHistory() ;
-    const handleClick = (e) => {
-        // e.preventDefault()
-        history.push('/task')
-    }
+    // const history = useHistory() ;
+    // const handleClick = (e) => {
+    //     // e.preventDefault()
+    //     history.push('/task')
+    // }
     return (
       <div className="training">
         <div className="unit">
@@ -27,8 +28,10 @@ const Training = (props) => {
                 Auto Focus
             </div>
         </div>
-        <button onClick={ handleClick }>Start Lesson</button>
         
+        <Link to="/task">
+          <button className="start-lesson">Start Lesson</button>
+        </Link>
      
       </div>
     );
