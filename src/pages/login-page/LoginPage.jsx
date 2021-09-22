@@ -1,33 +1,42 @@
 import React from "react";
+import { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 
-const LoginPage = () => {
+const LoginPage = (props) => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    props.setCurrentUser()
+    
+    
+  }
+  if(props.currentUser) return <Redirect to={'/home'}/>
+
   return (
     <div className="login-page-containter">
       <div className="login-form-container">
         <h2>Login</h2>
-        <form className="login-form"
-        >
-          <div classname="login-username">
-            <label>Username:
+        <form onSubmit={ handleSubmit }className="login-form">
+          <div classname="login-email">
+            <label>Email:</label>
               <input
-                type="text"
-                // value=
+                type="email"
+                value={email}
                 name="username"
-                // onChange=
+                onChange= {e => setEmail(e.target.value)}
               />
-            </label>
           </div>
           <div className="password-username">
-            <label>Password:
+            <label>Password:</label>
               <input
                 type="password"
-                // value=
+                value={ password }
                 name="password"
-                // onChange=
+                onChange={ e => setPassword(e.target.value)}
               />
-            </label>
           </div>
-          <button className="login-button">Login</button>
+          <button type="submit" className="login-button">Login</button>
         </form>
       </div>
     </div>

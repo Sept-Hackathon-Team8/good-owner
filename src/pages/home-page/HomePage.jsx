@@ -1,14 +1,12 @@
 import React from "react";
-import Pets from "../../components/pets/Pets";
-import AddPet from "../../components/add-pet/AddPet";
+import Training from "../../components/training/Training";
+// import AddPet from "../../components/add-pet/AddPet";
 
-const HomePage = () => {
+const HomePage = (props) => {
   return (
     <div className="homepage-container">
-      <h1>Once logged in, you end up here</h1>
-      <h2>Pets</h2>
-      <Pets />
-      <AddPet />
+      <Training />
+   
     </div>
   );
 };
