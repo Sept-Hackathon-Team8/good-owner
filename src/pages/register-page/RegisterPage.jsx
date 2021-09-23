@@ -1,14 +1,5 @@
 import React, { useState } from "react";
 
-const mockuser = {
-  username: "",
-  email: "",
-  password: "",
-  dogName: "",
-  dogAge: "",
-  dogBreed: "",
-};
-
 const RegisterPage = () => {
   const [regData, setRegData] = useState({
     username: "",

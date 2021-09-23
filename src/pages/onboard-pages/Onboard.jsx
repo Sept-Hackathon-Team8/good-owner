@@ -14,8 +14,8 @@ const Onboard = () => {
               First thing's first! Let's...
             </div>
             <div>
-              LOG<br />
-              YOUR<br />
+              LOG<br/>
+              YOUR<br/>
               DOG
             </div>
           </>
@@ -27,12 +27,39 @@ const Onboard = () => {
               What is your dog's name?
             </div>
             <div className="name-form">
-
+              <form
+                className="dogname-form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  console.log('test');
+                }}
+              >
+                <div>
+                  <input
+                    className="dog-name-input"
+                    type="text"
+                    name="dogName"
+                  />
+                </div>
+                <NextButton type="button" count={count} setCount={setCount} />
+              </form>
             </div>
           </>
         );
-    }
-  }
+      case 2:
+        return (
+          <>
+            <div>
+              If we may be so bold, how old is <br />
+              <span className="dog-name-bold">****INSERT DOG NAME HERE*****?</span>
+            </div>
+            <div className="age-dropdown">
+              
+            </div>
+          </>
+        );
+    };
+  };
   console.log(count);
 
   return (
@@ -41,7 +68,11 @@ const Onboard = () => {
       <div className="onboard-body">
         {switchScreen(count)}
       </div>
-      <NextButton count={count} setCount={setCount} />
+        {count % 2 === 0 ? (
+          <NextButton count={count} setCount={setCount} />
+        ) : (
+          ''
+        )}
     </div>
   );
 };
