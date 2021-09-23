@@ -1,45 +1,46 @@
-import React, { useState } from "react";
-import OnboardHeader from "../../components/headers/OnboardHeader";
+import React, { useState, useContext } from 'react';
+import { Redirect } from 'react-router';
+import { DoggoContext } from '../../DoggoContext';
+import OnboardHeader from '../../components/headers/OnboardHeader';
+import { registerUser } from '../../services/auth';
 
 const RegisterPage = () => {
+  const { setCurrentUser, currentUser } = useContext(DoggoContext);
+
   const [regData, setRegData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    dogName: "",
-    dogAge: "",
-    dogBreed: "",
+    // username: '',
+    email: '',
+    password1: '',
+    password2: '',
   });
 
-  const { username, email, password } = regData
+  const { email, password1, password2 } = regData;
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
-    setRegData((prevState) => ({
+    setRegData(prevState => ({
       ...prevState,
       [name]: value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const user = await registerUser(regData);
+    console.log(user);
+    setCurrentUser(user);
+  };
 
-  }
+  if (currentUser) return <Redirect to={'/onboard'} />;
 
-  console.log(regData);
   return (
     <div className="register-page-container">
       <OnboardHeader />
       <h1>Register</h1>
       <div className="register-form-container">
-        <form
-          className="register-form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleSubmit(regData);
-          }}
-        >
+        <form className="register-form" onSubmit={handleSubmit}>
           <div>
-            <label>
+            {/* <label>
               Username:
               <input
                 className="register-input"
@@ -48,7 +49,7 @@ const RegisterPage = () => {
                 name="username"
                 onChange={handleChange}
               />
-            </label>
+            </label> */}
           </div>
           <div>
             <label>
@@ -68,8 +69,25 @@ const RegisterPage = () => {
               <input
                 className="register-input"
                 type="password"
-                value={password}
-                name="password"
+                value={password1}
+                name="password1"
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          <div>
+            {password1 !== password2 ? (
+              <p>Confirmation password does not match</p>
+            ) : (
+              ''
+            )}
+            <label>
+              Confirm password:
+              <input
+                className="register-input"
+                type="password"
+                value={password2}
+                name="password2"
                 onChange={handleChange}
               />
             </label>

@@ -16,7 +16,7 @@ const LoginPage = props => {
     const user = await loginUser({ email, password });
     setCurrentUser(user);
   };
-  if (props.currentUser) return <Redirect to={'/home'} />;
+  if (currentUser) return <Redirect to={'/home'} />;
 
   return (
     <div className="login-page-containter">
