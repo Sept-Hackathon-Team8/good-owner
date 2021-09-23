@@ -63,28 +63,49 @@ code {
   padding: 3px;
   margin: 5px;
 }
-.next {
+.main-next {
   width: 304px;
   height: 49px;
   background-color: #FBD157;
   border-style: none;
   border-radius: 10px
 }
+.start-lesson {
+  width: 222px;
+  height: 49px;
+  background-color: #FBD157;
+  border-style: none;
+  border-radius: 10px;
+  
+}
 .homepage-container, .task-page-container, .landing-page-container {
   height: 100vh;
   display: flex;
   flex-direction: column;
+
+}
+.homepage-container {
+  background-image: url(Images/Doggo_Journey\ _Line.svg);
+  background-repeat: no-repeat;
+  background-position: center top;
 }
 .training {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  /* background-image: url(Images/Doggo_Journey\ _Line.svg); */
 }
 .tasks {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+  width: 375px;
 }
+
 .task-container {
   display: flex;
   flex-direction: column;
+  /* width: 375px; */
+  align-self: center;
+  margin-top: 30px;
 }
 .task {
   display: flex;
@@ -99,9 +120,12 @@ code {
   border-radius: 50%;
   margin-right: 20px
 }
-.task-text {
+.task-title {
   text-align: center;
   font-size: 24px;
   font-weight: 400;
 
+}
+.task-list {
+  width: 375px
 }
