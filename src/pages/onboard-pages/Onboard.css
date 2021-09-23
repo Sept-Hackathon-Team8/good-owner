@@ -1,8 +1,42 @@
 .onboard-text-small {
-  font-size: 32px;
+  font-size: 2em;
 }
 
 .onboard-text-bold {
-  font-size: 32px;
+  font-size: 2em;
   font-weight: bold;
+}
+
+.onboard-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50vh;
+}
+
+.onboard-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.first-container {
+  margin-top: 85px;
+}
+
+#logyourdog {
+  display: flex;
+  font-size: 2.5em;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.name-input-container{
+  margin: 40px;
+}
+
+.img1 {
+  margin-top: 20px;
 }

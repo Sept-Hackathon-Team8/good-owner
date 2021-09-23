@@ -10,7 +10,7 @@ const OnboardNextButton = props => {
   };
 
   return (
-    <button id="ob" type="submit" onClick={handleClick} className="next">
+    <button type="submit" onClick={handleClick} className="next">
       Next
     </button>
   );
