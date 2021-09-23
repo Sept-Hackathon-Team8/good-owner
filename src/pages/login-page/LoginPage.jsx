@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from 'react'
 import { Redirect } from 'react-router-dom'
+import OnboardHeader from "../../components/headers/OnboardHeader";
 const user = {
   email: "email",
   password: "password"
@@ -19,6 +20,7 @@ const LoginPage = (props) => {
 
   return (
     <div className="login-page-containter">
+      <OnboardHeader />
       <div className="login-form-container">
         <h2>Login</h2>
         <form onSubmit={ handleSubmit }className="login-form">
