@@ -1,0 +1,35 @@
+.landing-page-container {
+  background-color: #F9C946;
+  display: flex;
+  height: 100vh;
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-logo-container {
+  margin-top: 20vh;
+}
+
+.landing-doggo {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.register-button, .login-button {
+  width: 304px;
+  height: 49px;
+  background-color: black;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+  color: white;
+  border-style: none;
+  border-radius: 10px;
+  font-size: 17px;
+  margin-top: 2em;
+}
+
+.landing-links {
+  margin-top: 8em;
+}
