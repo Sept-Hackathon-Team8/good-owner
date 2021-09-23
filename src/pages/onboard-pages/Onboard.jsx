@@ -126,11 +126,11 @@ const Onboard = (props) => {
                 >
                   <option value="">select</option>
                   {breedNames.map((breedName, i) => {
-                    return (
-                      <option key={i}>{breedName}</option>
-                    )
-                  })};
+                    return <option key={i}>{breedName}</option>;
+                  })}
+                  ;
                 </select>
+                <NextButton count={count} setCount={setCount} />
               </form>
             </div>
           </>
@@ -142,9 +142,6 @@ const Onboard = (props) => {
   return (
     <div>
       <OnboardHeader />
-
-
-      <NextButton count={count} setCount={setCount} />
 
       <div className="onboard-body">
         {switchScreen(count)}
