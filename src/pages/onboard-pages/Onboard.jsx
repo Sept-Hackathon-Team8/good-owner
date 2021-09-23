@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { DoggoContext } from '../../DoggoContext';
 import OnboardHeader from '../../components/headers/OnboardHeader';
 import OnboardNextButton from '../../components/next-buttons/OnboardNextButton';
@@ -46,6 +47,7 @@ const Onboard = props => {
     const pet = await createPet(petData);
     console.log('this is pet', pet);
     setCurrentPet(pet);
+    setCount(count + 1);
   };
 
   const switchScreen = () => {
@@ -191,38 +193,41 @@ const Onboard = props => {
           <>
             {currentPet ? (
               <div>
-                <p>{currentPet.name}</p>
-                <p>
-                  {breeds.filter(b => b.id === currentPet.breed).pop().name}
-                </p>
-                <img
-                  src={
-                    breeds.filter(b => b.id === currentPet.breed).pop().img_url
-                  }
-                  className="breed-image"
-                  alt="dog-image"
-                />
+                <div>
+                  <p>{currentPet.name}</p>
+                  <p>
+                    {breeds.filter((b) => b.id === currentPet.breed).pop().name}
+                  </p>
+                  <img
+                    src={
+                      breeds.filter((b) => b.id === currentPet.breed).pop()
+                        .img_url
+                    }
+                    className="breed-image"
+                    alt="dog-image"
+                  />
 
-                <p>{currentPet.age}</p>
+                  <p>{currentPet.age}</p>
+                </div>
               </div>
             ) : (
               <div>
                 <h1 className="onboard-text-bold">
-                  {breeds.filter(b => b.id === breed).pop().name}!
+                  {breeds.filter((b) => b.id === breed).pop().name}!
                 </h1>
                 <img
                   className="breed-image"
-                  styleMap={{ maxWidth: '500px' }}
-                  src={breeds.filter(b => b.id === breed).pop().img_url}
+                  styleMap={{ maxWidth: "500px" }}
+                  src={breeds.filter((b) => b.id === breed).pop().img_url}
                   alt=""
                 />
                 <div className="onboard-text-small">
                   We love them!! this is going to be fun.
                   <br />
                 </div>
-                <h3>{name}</h3>
-                <p>{age}</p>
-                <button onClick={handleCreatePet}>Complete</button>
+                {/* <h3>{name}</h3>
+                <p>{age}</p> */}
+                <button onClick={handleCreatePet}>Log Pet</button>
                 {/* The button triggers the event for the creation logic */}
               </div>
             )}
@@ -231,9 +236,14 @@ const Onboard = props => {
       case 7:
         return (
           <>
-            <div>
-
+            <div className="onboard-text-small">
+              We here at Doggo truly believe that there are no bad dogs, but there are inexperienced pet parents. Follow our lead because<br />
+              <span className="onboard-text-bold">{name}</span><br />
+              deserves the best version of you! By the end of our program, we promise that you will be the calm, confident owner you've always wanted to be.
             </div>
+            <Link to="/home">
+              <button className="next">Get Started</button>
+            </Link>
           </>
         );
       default:
