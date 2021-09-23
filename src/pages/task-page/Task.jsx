@@ -5,14 +5,16 @@ import NextButton from "../../components/next-button/NextButton";
 
 const Task = (props) => {
   return (
-    <div className="task-page">
+    <div className="task-page-container">
       <HomeHeader />
-      <h1>Task 1</h1>
-      <img alt="image" src=""/>
-      <p> Instructions</p>
-      <Link to="/feedback">
-        <NextButton />
-      </Link>
+      <div className="task">
+        <h1>Task 1</h1>
+        <img alt="image" src=""/>
+        <p> Instructions</p>
+        <Link to="/feedback">
+          <NextButton />
+        </Link>
+      </div>
     </div>
   );
 };
