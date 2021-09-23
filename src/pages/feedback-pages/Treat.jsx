@@ -1,14 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import HomeHeader from "../../components/headers/HomeHeader";
-import NextButton from "../../components/next-buttons/NextButton";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import HomeHeader from '../../components/headers/HomeHeader';
+import NextButton from '../../components/next-buttons/MainNextButton';
 
-const Treat = (props) => {
+const Treat = props => {
   return (
     <div className="treat-page">
       <HomeHeader />
       <h2>What a good doggo! Here's a treat!</h2>
-      <img alt="image" src=""/>
+      <img alt="image" src="" />
       <Link to="/home">
         <NextButton />
       </Link>
