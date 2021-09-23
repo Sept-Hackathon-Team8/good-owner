@@ -5,10 +5,11 @@ import RegisterPage from "./pages/register-page/RegisterPage";
 import HomePage from "./pages/home-page/HomePage";
 import LoginPage from "./pages/login-page/LoginPage";
 import { getBreeds } from "./services/breeds";
-import Task from "./pages/task-page/Task"
-import Feedback from "./pages/feedback-pages/Feedback"
-import Treat from "./pages/feedback-pages/Treat"
-import Advice from "./pages/feedback-pages/Advice"
+import Task from "./pages/task-page/Task";
+import Feedback from "./pages/feedback-pages/Feedback";
+import Treat from "./pages/feedback-pages/Treat";
+import Advice from "./pages/feedback-pages/Advice";
+import Onboard from "./pages/onboard-pages/Onboard";
 import './App.css';
 
 
@@ -53,7 +54,10 @@ function App() {
           <Treat currentUser={ currentUser } setCurrentUser={ setCurrentUser } />
         </Route>
         <Route path="/advice">
-          <Advice currentUser={ currentUser } setCurrentUser={ setCurrentUser } />
+          <Advice currentUser={currentUser} setCurrentUser={setCurrentUser} />
+        </Route>
+        <Route path="/Onboard">
+          <Onboard />
         </Route>
       </Switch>
     </div>
