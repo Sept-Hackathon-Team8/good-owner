@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const NextButton = (props) => {
+const OnboardNextButton = (props) => {
   const { count, setCount } = props;
 
   const handleClick = (e) => {
@@ -13,4 +13,4 @@ const NextButton = (props) => {
   );
 };
 
-export default NextButton;
+export default OnboardNextButton;
