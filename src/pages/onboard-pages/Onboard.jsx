@@ -110,26 +110,24 @@ const Onboard = props => {
               </span>
             </div>
             <div className="dropdown-container">
-              <form>
-                <div className="age-dropdown">
-                  <select
-                    name="age"
-                    type="text"
-                    value={age}
-                    onChange={handleChange}
-                  >
-                    {ageOptions.map((a, i) => {
-                      return (
-                        <option key={i} value={i}>
-                          {a}
-                        </option>
-                      );
-                    })}
-                    ;
-                  </select>
-                </div>
-                <OnboardNextButton count={count} setCount={setCount} />
-              </form>
+              <div className="age-dropdown">
+                <select
+                  name="age"
+                  type="text"
+                  value={age}
+                  onChange={handleChange}
+                >
+                  {ageOptions.map((a, i) => {
+                    return (
+                      <option key={i} value={i}>
+                        {a}
+                      </option>
+                    );
+                  })}
+                  ;
+                </select>
+              </div>
+              <OnboardNextButton count={count} setCount={setCount} />
             </div>
           </>
         );
@@ -160,55 +158,72 @@ const Onboard = props => {
       case 5:
         return (
           <>
-            {currentPet ? (
-              <div>
-                <p>{currentPet.name}</p>
-                <p>{currentPet.breed}</p>
-                <p>{currentPet.age}</p>
-              </div>
-            ) : (
-              <>
-                <div className="onboard-text-small">
-                  I love that look! What breed is
-                  <br />
-                  <span className="onboard-text-bold">{name}</span>
-                </div>
-                <div className="dropdown-container">
-                  <form>
-                    <select
-                      name="breed"
-                      type="text"
-                      onChange={handleChange}
-                      value={breed}
-                      // value={dogBreed}
-                      // onChange={(e) => setDogBreed(e.target.value)}
-                    >
-                      {breeds.map(({ name, id, parent }, i) => {
-                        return (
-                          <option key={i} value={id}>
-                            {parent ? `${parent.name} ` : ''}
-                            {name}
-                          </option>
-                        );
-                      })}
-                      ;
-                    </select>
-                    <button onClick={handleCreatePet}>Complete</button>
-                  </form>
-                </div>
-              </>
-            )}
+            <div className="onboard-text-small">
+              I love that look! What breed is
+              <br />
+              <span className="onboard-text-bold">{name}</span>
+            </div>
+            <div className="dropdown-container">
+              <select
+                name="breed"
+                type="text"
+                onChange={handleChange}
+                value={breed}
+                // value={dogBreed}
+                // onChange={(e) => setDogBreed(e.target.value)}
+              >
+                {breeds.map(({ name, id, parent }, i) => {
+                  return (
+                    <option key={i} value={id}>
+                      {parent ? `${parent.name} ` : ''}
+                      {name}
+                    </option>
+                  );
+                })}
+                ;
+              </select>
+              <OnboardNextButton count={count} setCount={setCount} />
+            </div>
           </>
         );
       case 6:
         return (
           <>
-            <div>
-              <h1>Confirmation page:</h1>
-              <h3>{name}</h3>
-              <p>{age}</p>
-              <p>{breeds.filter(b => b.id === breed).pop().name}</p>
-            </div>
+            {currentPet ? (
+              <div>
+                <p>{currentPet.name}</p>
+                <p>
+                  {breeds.filter(b => b.id === currentPet.breed).pop().name}
+                </p>
+                <img
+                  src={
+                    breeds.filter(b => b.id === currentPet.breed).pop().img_url
+                  }
+                  alt=""
+                />
+
+                <p>{currentPet.age}</p>
+              </div>
+            ) : (
+              <div>
+                <h1 className="onboard-text-bold">
+                  {breeds.filter(b => b.id === breed).pop().name}!
+                </h1>
+                <img
+                  styleMap={{ maxWidth: '500px' }}
+                  src={breeds.filter(b => b.id === breed).pop().img_url}
+                  alt=""
+                />
+                <div className="onboard-text-small">
+                  We love them!! this is going to be fun.
+                  <br />
+                </div>
+                <h3>{name}</h3>
+                <p>{age}</p>
+                <button onClick={handleCreatePet}>Complete</button>
+                {/* The button triggers the event for the creation logic */}
+              </div>
+            )}
           </>
         );
       default:
