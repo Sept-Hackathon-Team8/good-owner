@@ -1,6 +1,6 @@
 import React from "react";
 
-const NextButton = (props) => {
+const MainNextButton = (props) => {
   return (
     <button className="main-next">
       Next
@@ -8,4 +8,4 @@ const NextButton = (props) => {
   );
 };
 
-export default NextButton;
+export default MainNextButton;
