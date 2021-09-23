@@ -1,10 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { DoggoContext } from '../../DoggoContext';
 import OnboardHeader from '../../components/headers/OnboardHeader';
 import OnboardNextButton from '../../components/next-buttons/OnboardNextButton';
 import { createPet, getBreeds } from '../../services/auth';
-import "./Onboard.css";
+import './Onboard.css';
 
 const Onboard = props => {
   const [breeds, setBreeds] = useState([]);
@@ -14,8 +14,7 @@ const Onboard = props => {
     setBreeds(res);
   };
 
-  const { setCurrentUser, currentUser, currentPet, setCurrentPet } =
-    useContext(DoggoContext);
+  const { currentUser, currentPet, setCurrentPet } = useContext(DoggoContext);
 
   console.log('THIS IS CURRENT USER', currentUser);
   console.log('THIS IS TOKEN', localStorage.getItem('authToken'));
@@ -120,7 +119,7 @@ const Onboard = props => {
                   value={age}
                   onChange={handleChange}
                 >
-                <option value="">select</option>
+                  <option value="">select</option>
                   {ageOptions.map((a, i) => {
                     return (
                       <option key={i} value={i}>
@@ -180,7 +179,7 @@ const Onboard = props => {
                 {breeds.map(({ name, id, parent }, i) => {
                   return (
                     <option key={i} value={id}>
-                      {parent ? `${parent.name} ` : ""}
+                      {parent ? `${parent.name} ` : ''}
                       {name}
                     </option>
                   );
@@ -199,15 +198,15 @@ const Onboard = props => {
                 <div>
                   <p>{currentPet.name}</p>
                   <p>
-                    {breeds.filter((b) => b.id === currentPet.breed).pop().name}
+                    {breeds.filter(b => b.id === currentPet.breed).pop().name}
                   </p>
                   <img
                     src={
-                      breeds.filter((b) => b.id === currentPet.breed).pop()
+                      breeds.filter(b => b.id === currentPet.breed).pop()
                         .img_url
                     }
                     className="breed-image"
-                    alt="dog-image"
+                    alt="dog"
                   />
 
                   <p>{currentPet.age}</p>
@@ -216,12 +215,12 @@ const Onboard = props => {
             ) : (
               <div>
                 <h1 className="onboard-text-bold">
-                  {breeds.filter((b) => b.id === breed).pop().name}!
+                  {breeds.filter(b => b.id === breed).pop().name}!
                 </h1>
                 <img
                   className="breed-image"
-                  styleMap={{ maxWidth: "500px" }}
-                  src={breeds.filter((b) => b.id === breed).pop().img_url}
+                  styleMap={{ maxWidth: '500px' }}
+                  src={breeds.filter(b => b.id === breed).pop().img_url}
                   alt=""
                 />
                 <div className="onboard-text-small">
@@ -240,9 +239,14 @@ const Onboard = props => {
         return (
           <>
             <div className="onboard-text-small">
-              We here at Doggo truly believe that there are no bad dogs, but there are inexperienced pet parents. Follow our lead because<br />
-              <span className="onboard-text-bold">{name}</span><br />
-              deserves the best version of you! By the end of our program, we promise that you will be the calm, confident owner you've always wanted to be.
+              We here at Doggo truly believe that there are no bad dogs, but
+              there are inexperienced pet parents. Follow our lead because
+              <br />
+              <span className="onboard-text-bold">{name}</span>
+              <br />
+              deserves the best version of you! By the end of our program, we
+              promise that you will be the calm, confident owner you've always
+              wanted to be.
             </div>
             <Link to="/home">
               <button className="next">Get Started</button>

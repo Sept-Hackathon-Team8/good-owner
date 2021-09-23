@@ -8,7 +8,7 @@ const Treat = props => {
     <div className="treat-page">
       <HomeHeader />
       <h2>What a good doggo! Here's a treat!</h2>
-      <img alt="image" src="" />
+      <img alt="" src="" />
       <Link to="/home">
         <NextButton />
       </Link>

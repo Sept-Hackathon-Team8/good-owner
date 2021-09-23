@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { DoggoContext } from './DoggoContext';
 import LandingPage from './pages/landing-page/LandingPage';
@@ -19,7 +19,14 @@ function App() {
 
   return (
     <DoggoContext.Provider
-      value={{ currentUser, setCurrentUser, currentPet, setCurrentPet, currentProgress, setCurrentProgress }}
+      value={{
+        currentUser,
+        setCurrentUser,
+        currentPet,
+        setCurrentPet,
+        currentProgress,
+        setCurrentProgress,
+      }}
     >
       <div className="App">
         <Switch>

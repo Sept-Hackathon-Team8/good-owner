@@ -1,17 +1,14 @@
 import React, { useEffect } from 'react';
 
-const TaskSnippet = (taskData, order) => {
-  useEffect(() => {
-    console.log('WHAAAA', taskData);
-  }, []);
+const TaskSnippet = props => {
   return (
     <div className="task">
       <div className="task-image">
-        <p>order {order}</p>
-        <img alt="mark and reward" src={taskData.icon} />
+        <p></p>
+        <img alt="mark and reward" src="" />
       </div>
-      {taskData.order}
-      <div className="task-text">{taskData.name}</div>
+      {/* {taskData.order} */}
+      <div className="task-text"></div>
     </div>
   );
 };
