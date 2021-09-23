@@ -1,14 +1,8 @@
 import React, { useEffect, useContext, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import TaskSnippet from './TaskSnippet';
-import mark from '../../Images/mark.svg';
-import focus from '../../Images/focus.svg';
-import target from '../../Images/target.svg';
-import sit from '../../Images/sit.svg';
 import { DoggoContext } from '../../DoggoContext';
 import tasks from '../../trainingdata.js';
-
-const images = [[mark, focus, target, sit]];
 
 const serverReponseMockData = {
   unit: 1,
@@ -45,8 +39,6 @@ const Training = props => {
   // }
 
   useEffect(() => {
-    console.log('THIS ARE THE IMAGES', images);
-    setImgData(images);
     if (currentProgress) {
       console.log(
         'THIS IS THE UNIT',
@@ -70,14 +62,9 @@ const Training = props => {
         <h1> {unitTitle ? unitTitle : ''} </h1>
       </div>
       <div className="tasks">
-        {imgData.length && unitData.length
+        {unitData.length
           ? unitData.map((taskData, i) => (
-              <TaskSnippet
-                key={i}
-                unitData={taskData}
-                order={i}
-                imgData={imgData}
-              />
+              <TaskSnippet key={i} taskData={taskData} order={i} />
             ))
           : ''}
       </div>
