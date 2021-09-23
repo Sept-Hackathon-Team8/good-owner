@@ -15,6 +15,7 @@ import './App.css';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [currentPet, setCurrentPet] = useState(null);
   const [breeds, setBreeds] = useState([]);
 
   useEffect(() => {
@@ -29,50 +30,37 @@ function App() {
   console.log(breeds);
 
   return (
-    <DoggoContext.Provider value={{ currentUser, setCurrentUser }}>
+    <DoggoContext.Provider
+      value={{ currentUser, setCurrentUser, currentPet, setCurrentPet }}
+    >
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <LandingPage
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-            />
+            <LandingPage />
           </Route>
           <Route path="/register">
-            <RegisterPage
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-            />
+            <RegisterPage />
           </Route>
           <Route path="/home">
-            <HomePage
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-            />
+            <HomePage />
           </Route>
           <Route path="/login">
-            <LoginPage
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-            />
+            <LoginPage />
           </Route>
           <Route path="/task">
-            <Task currentUser={currentUser} setCurrentUser={setCurrentUser} />
+            <Task />
           </Route>
           <Route path="/feedback">
-            <Feedback
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-            />
+            <Feedback />
           </Route>
           <Route path="/treat">
-            <Treat currentUser={currentUser} setCurrentUser={setCurrentUser} />
+            <Treat />
           </Route>
           <Route path="/advice">
-            <Advice currentUser={currentUser} setCurrentUser={setCurrentUser} />
+            <Advice />
           </Route>
           <Route path="/Onboard">
-            <Onboard breeds={breeds}/>
+            <Onboard breeds={breeds} />
           </Route>
         </Switch>
       </div>

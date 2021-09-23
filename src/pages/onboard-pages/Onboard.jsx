@@ -1,16 +1,20 @@
-import React, { useState } from "react";
-import OnboardHeader from "../../components/headers/OnboardHeader";
-import OnboardNextButton from "../../components/next-buttons/OnboardNextButton";
+import React, { useState, useContext } from 'react';
+import { DoggoContext } from '../../DoggoContext';
+import OnboardHeader from '../../components/headers/OnboardHeader';
+import OnboardNextButton from '../../components/next-buttons/OnboardNextButton';
 
-const Onboard = (props) => {
+const Onboard = props => {
+  const { setCurrentUser, currentUser, currentPet, setCurrentPet } =
+    useContext(DoggoContext);
+
   const [count, setCount] = useState(0);
   const { breeds } = props;
-  const breedNames = breeds.map((breed) => breed.name);
+  const breedNames = breeds.map(breed => breed.name);
   const ageOptions = ['< 1', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, '13+'];
 
   /////// testing dog age/name below, DELETE LATER //////
-  const dogAge = '< 1'
-  const dogName = "Ralph"
+  const dogAge = '< 1';
+  const dogName = 'Ralph';
 
   const switchScreen = () => {
     switch (count) {
@@ -21,8 +25,10 @@ const Onboard = (props) => {
               First thing's first! Let's...
             </div>
             <div className="onboard-text-bold">
-              LOG<br/>
-              YOUR<br/>
+              LOG
+              <br />
+              YOUR
+              <br />
               DOG
             </div>
           </>
@@ -30,13 +36,11 @@ const Onboard = (props) => {
       case 1:
         return (
           <>
-            <div className="onboard-text-small">
-              What is your dog's name?
-            </div>
+            <div className="onboard-text-small">What is your dog's name?</div>
             <div className="name-form">
               <form
                 className="dogname-form"
-                onSubmit={(e) => {
+                onSubmit={e => {
                   e.preventDefault();
                   console.log('test');
                 }}
@@ -48,7 +52,11 @@ const Onboard = (props) => {
                     name="dogName"
                   />
                 </div>
-                <OnboardNextButton type="button" count={count} setCount={setCount} />
+                <OnboardNextButton
+                  type="button"
+                  count={count}
+                  setCount={setCount}
+                />
               </form>
             </div>
           </>
@@ -57,9 +65,10 @@ const Onboard = (props) => {
         return (
           <>
             <div className="onboard-text-bold">
-              Hi {dogName}!
-              {/* <img></img> */}
-              <div className="onboard-text-small">We just met you and we love you.</div>
+              Hi {dogName}!{/* <img></img> */}
+              <div className="onboard-text-small">
+                We just met you and we love you.
+              </div>
             </div>
           </>
         );
@@ -68,7 +77,9 @@ const Onboard = (props) => {
           <>
             <div>
               If we may be so bold, how old is <br />
-              <span className="dog-name-bold">****INSERT DOG NAME HERE*****?</span>
+              <span className="dog-name-bold">
+                ****INSERT DOG NAME HERE*****?
+              </span>
             </div>
             <div className="dropdown-container">
               <form>
@@ -81,13 +92,12 @@ const Onboard = (props) => {
                   >
                     <option value="">select</option>
                     {ageOptions.map((age, i) => {
-                      return (
-                        <option key={i}>{age}</option>
-                      )
-                    })};
+                      return <option key={i}>{age}</option>;
+                    })}
+                    ;
                   </select>
                 </div>
-                <OnboardNextButton count={count} setCount={setCount}/>
+                <OnboardNextButton count={count} setCount={setCount} />
               </form>
             </div>
           </>
@@ -96,15 +106,23 @@ const Onboard = (props) => {
         return (
           <>
             <div>
-              <span className="onboard-text-bold">*****INSERT DOG NAME*****</span> is {dogAge}?!
+              <span className="onboard-text-bold">
+                *****INSERT DOG NAME*****
+              </span>{' '}
+              is {dogAge}?!
               {/* <img src="nothing.png">insert image</img> */}
-              {dogAge > 7
-                ? <span>That's {dogAge * 7} in dog years! Middle aged never looked so good!</span>
-                : (dogAge >= 1
-                  ? <span>That's {dogAge * 7} in dog years! Look at you all grown up!</span>
-                  : <span>So many years of tricks and treats ahead of him!</span>
-                )
-              }
+              {dogAge > 7 ? (
+                <span>
+                  That's {dogAge * 7} in dog years! Middle aged never looked so
+                  good!
+                </span>
+              ) : dogAge >= 1 ? (
+                <span>
+                  That's {dogAge * 7} in dog years! Look at you all grown up!
+                </span>
+              ) : (
+                <span>So many years of tricks and treats ahead of him!</span>
+              )}
             </div>
           </>
         );
@@ -138,11 +156,12 @@ const Onboard = (props) => {
       case 6:
         return (
           <>
-            <div>
-            </div>
+            <div></div>
           </>
         );
-    };
+      default:
+      // do nothing
+    }
   };
   console.log(count);
 
@@ -150,15 +169,12 @@ const Onboard = (props) => {
     <div>
       <OnboardHeader />
 
-      <div className="onboard-body">
-        {switchScreen(count)}
-      </div>
-        {count % 2 === 0 ? (
-          <OnboardNextButton count={count} setCount={setCount} />
-        ) : (
-          ''
-        )}
-
+      <div className="onboard-body">{switchScreen(count)}</div>
+      {count % 2 === 0 ? (
+        <OnboardNextButton count={count} setCount={setCount} />
+      ) : (
+        ''
+      )}
     </div>
   );
 };
