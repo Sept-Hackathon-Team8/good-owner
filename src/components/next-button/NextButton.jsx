@@ -1,11 +1,15 @@
 import React from "react";
 
 
-const NextButton = () => {
+const NextButton = (props) => {
+  const { count, setCount } = props;
+
+  const handleClick = (e) => {
+    setCount(count + 1);
+  };
+
   return (
-   
-      <button className="next">Next</button>
-    
+    <button type="submit" onClick={ handleClick } className="next">Next</button>
   );
 };
 
