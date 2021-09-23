@@ -4,6 +4,7 @@ import mark from "../../Images/mark.svg"
 import focus from "../../Images/focus.svg"
 import target from "../../Images/target.svg"
 import sit from "../../Images/sit.svg"
+import ProgressCircle from "../progress-circle/ProgressCircle";
 
 
 const Training = (props) => {
@@ -16,6 +17,7 @@ const Training = (props) => {
           {/* reusable code, create components */}
             <div className="task">
                 <div className="task-image">
+                  {/* <ProgressCircle /> */}
                   <img alt="mark and reward image" src={mark}/>
                 </div>
                 <div className="task-text">
