@@ -15,10 +15,11 @@ import './App.css';
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [currentPet, setCurrentPet] = useState(null);
+  const [currentProgress, setCurrentProgress] = useState(null);
 
   return (
     <DoggoContext.Provider
-      value={{ currentUser, setCurrentUser, currentPet, setCurrentPet }}
+      value={{ currentUser, setCurrentUser, currentPet, setCurrentPet, currentProgress, setCurrentProgress }}
     >
       <div className="App">
         <Switch>
