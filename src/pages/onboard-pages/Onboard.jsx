@@ -135,6 +135,13 @@ const Onboard = (props) => {
             </div>
           </>
         );
+      case 6:
+        return (
+          <>
+            <div>
+            </div>
+          </>
+        );
     };
   };
   console.log(count);
