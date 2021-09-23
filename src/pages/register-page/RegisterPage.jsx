@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 import OnboardHeader from "../../components/headers/OnboardHeader";
 
-const mockuser = {
-  username: "",
-  email: "",
-  password: "",
-  dogName: "",
-  dogAge: "",
-  dogBreed: "",
-};
-
 const RegisterPage = () => {
   const [regData, setRegData] = useState({
     username: "",
