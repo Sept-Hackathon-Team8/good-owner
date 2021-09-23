@@ -104,10 +104,11 @@ const Onboard = props => {
       case 2:
         return (
           <>
-            <div className="onboard-text-bold">
-              <h2>
+            <div>
+              <h2 className="onboard-text-bold">
                 Hi {name}!{/* <img></img> */}
               </h2>
+              <img alt="dog image" src={img2} />
               <div className="onboard-text-small">
                 We just met you and we love you.
               </div>
