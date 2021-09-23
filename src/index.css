@@ -11,15 +11,43 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.header {
+
+.home-header {
   background-color: #F9C946;
   height: 124px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.onboard-header {
+  background-color: #F9C946;
+  height: 124px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  line-height: .75;
+}
 .doggo {
   font-size: 3em;
   font-weight: bold;
+  margin-left: 20px;
+  margin-bottom: 0;
   
+}
+.next {
+  width: 304px;
+  height: 49px;
+  background-color: #FBD157;
+  border-style: none;
+}
+.homepage-container, .task-page-container, .landing-page-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.training, .task {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%
 }
