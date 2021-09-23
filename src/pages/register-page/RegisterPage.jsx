@@ -8,7 +8,6 @@ const RegisterPage = () => {
   const { setCurrentUser, currentUser } = useContext(DoggoContext);
 
   const [regData, setRegData] = useState({
-    // username: '',
     email: '',
     password1: '',
     password2: '',
@@ -40,18 +39,6 @@ const RegisterPage = () => {
       <div className="register-form-container">
         <form className="register-form" onSubmit={handleSubmit}>
           <div>
-            {/* <label>
-              Username:
-              <input
-                className="register-input"
-                type="text"
-                value={username}
-                name="username"
-                onChange={handleChange}
-              />
-            </label> */}
-          </div>
-          <div>
             <label>
               Email:
               <input
@@ -76,11 +63,6 @@ const RegisterPage = () => {
             </label>
           </div>
           <div>
-            {password1 !== password2 ? (
-              <p>Confirmation password does not match</p>
-            ) : (
-              ''
-            )}
             <label>
               Confirm password:
               <input
@@ -91,6 +73,11 @@ const RegisterPage = () => {
                 onChange={handleChange}
               />
             </label>
+            {password1 !== password2 ? (
+              <p>Confirmation password does not match</p>
+            ) : (
+              ''
+            )}
           </div>
           <button className="register-submit">Sign Up</button>
         </form>

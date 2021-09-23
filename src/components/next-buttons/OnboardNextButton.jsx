@@ -1,4 +1,5 @@
 import React from 'react';
+import "./OnboardNextButton.css";
 
 const OnboardNextButton = props => {
   const { count, setCount } = props;
@@ -9,7 +10,7 @@ const OnboardNextButton = props => {
   };
 
   return (
-    <button type="submit" onClick={handleClick} className="next">
+    <button id="ob" type="submit" onClick={handleClick} className="next">
       Next
     </button>
   );
