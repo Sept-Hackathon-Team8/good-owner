@@ -57,7 +57,7 @@ function App() {
           <Advice currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </Route>
         <Route path="/Onboard">
-          <Onboard />
+          <Onboard breeds={breeds} />
         </Route>
       </Switch>
     </div>
