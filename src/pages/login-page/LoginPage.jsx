@@ -3,6 +3,7 @@ import { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import { DoggoContext } from '../../DoggoContext';
 import { loginUser } from '../../services/auth';
+import "./LoginPage.css";
 import OnboardHeader from '../../components/headers/OnboardHeader';
 
 const LoginPage = props => {
@@ -22,27 +23,31 @@ const LoginPage = props => {
     <div className="login-page-containter">
       <OnboardHeader />
       <div className="login-form-container">
-        <h2>Login</h2>
+        {/* <h2>Login</h2> */}
         <form onSubmit={handleSubmit} className="login-form">
           <div classname="login-email">
-            <label>Email:</label>
+            {/* <label>Email:</label> */}
             <input
               type="email"
+              className="login-input"
+              placeholder="Email"
               value={email}
               name="username"
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="password-username">
-            <label>Password:</label>
+            {/* <label>Password:</label> */}
             <input
               type="password"
+              className="login-input"
+              placeholder="Password"
               value={password}
               name="password"
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button type="submit" className="login-button">
+          <button type="submit" className="login-submit">
             Login
           </button>
         </form>

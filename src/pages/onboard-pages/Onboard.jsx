@@ -87,6 +87,7 @@ const Onboard = props => {
                 <input
                   value={name}
                   className="dog-name-input"
+                  placeholder="Your Dog's Name"
                   type="text"
                   name="name"
                   onChange={handleChange}
@@ -103,10 +104,11 @@ const Onboard = props => {
       case 2:
         return (
           <>
-            <div className="onboard-text-bold">
-              <h2>
+            <div>
+              <h2 className="onboard-text-bold">
                 Hi {name}!{/* <img></img> */}
               </h2>
+              <img alt="dog image" src={img2} />
               <div className="onboard-text-small">
                 We just met you and we love you.
               </div>
@@ -116,10 +118,10 @@ const Onboard = props => {
       case 3:
         return (
           <>
-            <div>
+            <div className="bold-container">
               If we may be so bold, how old is <br />
-              <span className="dog-name-bold">
-                {name ? name : 'no name showing'}
+              <span className="onboard-text-bold">
+                {name ? name : 'no name showing'}?
               </span>
             </div>
             <div className="dropdown-container">
@@ -148,19 +150,19 @@ const Onboard = props => {
       case 4:
         return (
           <>
-            <div>
+            <div className="onboard-age">
               <span className="onboard-text-bold">
-                {name ? name : 'no name showing'}
-              </span>{' '}
-              is {age}?!
+                {name ? name : "no name showing"}
+              </span>{" "}
+              <span className="onboard-text-small">is {age}?!</span>
               {/* <img src="nothing.png">insert image</img> */}
               {age > 7 ? (
-                <span>
+                <span className="onboard-text-small">
                   That's {age * 7} in dog years! Middle aged never looked so
                   good!
                 </span>
               ) : age >= 1 ? (
-                <span>
+                <span className="onboard-text-small">
                   That's {age * 7} in dog years! Look at you all grown up!
                 </span>
               ) : (
@@ -240,7 +242,7 @@ const Onboard = props => {
                 </div>
                 {/* <h3>{name}</h3>
                 <p>{age}</p> */}
-                <button onClick={handleCreatePet}>Log Pet</button>
+                <button className="log-dog-button" onClick={handleCreatePet}>Log Pet</button>
                 {/* The button triggers the event for the creation logic */}
               </div>
             )}

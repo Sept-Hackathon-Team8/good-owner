@@ -30,7 +30,6 @@
   font-size: 2.5em;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 40px;
 }
 
 .name-input-container{
@@ -38,5 +37,39 @@
 }
 
 .img1 {
+  margin-top: 20px;
+}
+
+.dog-name-input {
+  width: 280px;
+  height: 41px;
+  border-style: none;
+  border-radius: 15px;
+  background: #F5F4F6;
+}
+
+.dog-name-input::placeholder {
+  padding-left: 12px;
+  color: grey;
+}
+
+.bold-container {
+  margin-top: 20px;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.onboard-age {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.log-dog-button {
+  width: 304px;
+  height: 49px;
+  background-color: #FBD157;
+  border-style: none;
+  border-radius: 10px;
   margin-top: 20px;
 }
