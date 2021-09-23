@@ -114,11 +114,29 @@ code {
   margin: 0px 20px 20px 20px;
 }
 .task-image {
-  width: 52px;
-  height: 52px;
-  border-style: solid;
+  /* width: 52px;
+  height: 52px; */
+  /* border-style: solid; */
   border-radius: 50%;
-  margin-right: 20px
+  margin-right: 20px;
+  position: relative;
+  /* display: inline-block; */
+}
+.image-icon {
+  
+}
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 52;
+  width: 52
+}
+.progress-ring-circle {
+  stroke: gray;
+  stroke-width: 5;
+  fill: transparent;
+  stroke-dasharray: 10 20;
 }
 .task-title {
   text-align: center;
@@ -127,5 +145,9 @@ code {
 
 }
 .task-list {
-  width: 375px
+  width: 300px
+}
+li {
+  text-align: left;
+  margin-bottom: 20px;
 }
