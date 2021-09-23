@@ -78,4 +78,104 @@ const tasks =
         },
         "unit": "1"
     },
+    {
+        "task": "Leash Skills",
+        "icon" : " ",
+        "image": " ",
+        "instructions": [
+            " ", 
+            " ", 
+            " "
+        ],
+        "advice":  {
+            "title": " ",
+            "bullets": [
+                " ", 
+                " ", 
+                " ",
+                " "
+            ]
+        },
+        "unit": " "
+    },
+    {
+        "task": "Loose Leash Walk",
+        "icon" : " ",
+        "image": " ",
+        "instructions": [
+            " ", 
+            " ", 
+            " "
+        ],
+        "advice":  {
+            "title": " ",
+            "bullets": [
+                " ", 
+                " ", 
+                " ",
+                " "
+            ]
+        },
+        "unit": " "
+    },
+    {
+        "task": "Pet/Don't Pet",
+        "icon" : " ",
+        "image": " ",
+        "instructions": [
+            " ", 
+            " ", 
+            " "
+        ],
+        "advice":  {
+            "title": " ",
+            "bullets": [
+                " ", 
+                " ", 
+                " ",
+                " "
+            ]
+        },
+        "unit": " "
+    },
+    {
+        "task": "Handling/Desensitizing",
+        "icon" : " ",
+        "image": " ",
+        "instructions": [
+            " ", 
+            " ", 
+            " "
+        ],
+        "advice":  {
+            "title": " ",
+            "bullets": [
+                " ", 
+                " ", 
+                " ",
+                " "
+            ]
+        },
+        "unit": " "
+    },
+    {
+        "task": "save for template",
+        "icon" : " ",
+        "image": " ",
+        "instructions": [
+            " ", 
+            " ", 
+            " "
+        ],
+        "advice":  {
+            "title": " ",
+            "bullets": [
+                " ", 
+                " ", 
+                " ",
+                " "
+            ]
+        },
+        "unit": " "
+    },
 ]
