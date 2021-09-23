@@ -3,6 +3,7 @@ import { Redirect } from 'react-router';
 import { DoggoContext } from '../../DoggoContext';
 import OnboardHeader from '../../components/headers/OnboardHeader';
 import { registerUser } from '../../services/auth';
+import "./RegisterPage.css";
 
 const RegisterPage = () => {
   const { setCurrentUser, currentUser } = useContext(DoggoContext);
@@ -35,14 +36,15 @@ const RegisterPage = () => {
   return (
     <div className="register-page-container">
       <OnboardHeader />
-      <h1>Register</h1>
+      {/* <h1>Register</h1> */}
       <div className="register-form-container">
         <form className="register-form" onSubmit={handleSubmit}>
-          <div>
+          <div className="email-input">
             <label>
-              Email:
+              {/* Email: */}
               <input
                 className="register-input"
+                placeholder="Email"
                 type="text"
                 value={email}
                 name="email"
@@ -50,11 +52,12 @@ const RegisterPage = () => {
               />
             </label>
           </div>
-          <div>
+          <div className="password-input">
             <label>
-              Password:
+              {/* Password: */}
               <input
                 className="register-input"
+                placeholder="Password"
                 type="password"
                 value={password1}
                 name="password1"
@@ -62,11 +65,12 @@ const RegisterPage = () => {
               />
             </label>
           </div>
-          <div>
+          <div className="password-input">
             <label>
-              Confirm password:
+              {/* Confirm password: */}
               <input
                 className="register-input"
+                placeholder="Re-type Password"
                 type="password"
                 value={password2}
                 name="password2"
@@ -76,10 +80,10 @@ const RegisterPage = () => {
             {password1 !== password2 ? (
               <p>Confirmation password does not match</p>
             ) : (
-              ''
+              ""
             )}
           </div>
-          <button className="register-submit">Sign Up</button>
+          <button className="register-submit">Create Account</button>
         </form>
       </div>
     </div>
