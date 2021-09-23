@@ -119,6 +119,7 @@ const Onboard = props => {
                   value={age}
                   onChange={handleChange}
                 >
+                <option value="">select</option>
                   {ageOptions.map((a, i) => {
                     return (
                       <option key={i} value={i}>
@@ -174,10 +175,11 @@ const Onboard = props => {
                 // value={dogBreed}
                 // onChange={(e) => setDogBreed(e.target.value)}
               >
+                <option value="">select</option>
                 {breeds.map(({ name, id, parent }, i) => {
                   return (
                     <option key={i} value={id}>
-                      {parent ? `${parent.name} ` : ''}
+                      {parent ? `${parent.name} ` : ""}
                       {name}
                     </option>
                   );
@@ -222,7 +224,7 @@ const Onboard = props => {
                   alt=""
                 />
                 <div className="onboard-text-small">
-                  We love them!! this is going to be fun.
+                  We love them!! This is going to be fun.
                   <br />
                 </div>
                 {/* <h3>{name}</h3>
