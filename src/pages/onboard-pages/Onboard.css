@@ -52,3 +52,9 @@
   padding-left: 12px;
   color: grey;
 }
+
+.bold-container {
+  margin-top: 20px;
+  font-size: 2em;
+  margin-bottom: 20px;
+}

@@ -118,10 +118,10 @@ const Onboard = props => {
       case 3:
         return (
           <>
-            <div>
+            <div className="bold-container">
               If we may be so bold, how old is <br />
-              <span className="dog-name-bold">
-                {name ? name : 'no name showing'}
+              <span className="onboard-text-bold">
+                {name ? name : 'no name showing'}?
               </span>
             </div>
             <div className="dropdown-container">
