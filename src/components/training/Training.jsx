@@ -30,7 +30,7 @@ const Training = (props) => {
         </div>
         
         <Link to="/task">
-          <button className="start-lesson">Start Lesson</button>
+          <button className="start-lesson next">Start Lesson</button>
         </Link>
      
       </div>

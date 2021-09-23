@@ -2,8 +2,8 @@ import React from "react";
 
 const HomeHeader = (props) => {
   return (
-    <div className="header ">
-      <div className="doggo">Doggo</div>
+    <div className="home-header">
+      <div className="doggo">DOGGO</div>
     </div>
   );
 };
