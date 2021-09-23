@@ -4,6 +4,7 @@ import { DoggoContext } from '../../DoggoContext';
 import OnboardHeader from '../../components/headers/OnboardHeader';
 import OnboardNextButton from '../../components/next-buttons/OnboardNextButton';
 import { createPet, getBreeds } from '../../services/auth';
+import "./Onboard.css";
 
 const Onboard = props => {
   const [breeds, setBreeds] = useState([]);
@@ -255,7 +256,7 @@ const Onboard = props => {
   console.log(count);
 
   return (
-    <div>
+    <div className="onboard-container">
       <OnboardHeader />
 
       <div className="onboard-body">{switchScreen(count)}</div>
