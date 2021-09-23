@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import OnboardHeader from "../../components/headers/OnboardHeader";
 
 const RegisterPage = () => {
   const [regData, setRegData] = useState({
@@ -27,6 +28,7 @@ const RegisterPage = () => {
   console.log(regData);
   return (
     <div className="register-page-container">
+      <OnboardHeader />
       <h1>Register</h1>
       <div className="register-form-container">
         <form

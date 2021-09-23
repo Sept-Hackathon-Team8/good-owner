@@ -142,6 +142,10 @@ const Onboard = (props) => {
   return (
     <div>
       <OnboardHeader />
+
+
+      <NextButton count={count} setCount={setCount} />
+
       <div className="onboard-body">
         {switchScreen(count)}
       </div>
@@ -150,6 +154,7 @@ const Onboard = (props) => {
         ) : (
           ''
         )}
+
     </div>
   );
 };
