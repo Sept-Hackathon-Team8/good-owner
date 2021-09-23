@@ -87,6 +87,7 @@ const Onboard = props => {
                 <input
                   value={name}
                   className="dog-name-input"
+                  placeholder="Your Dog's Name"
                   type="text"
                   name="name"
                   onChange={handleChange}

@@ -40,3 +40,16 @@
 .img1 {
   margin-top: 20px;
 }
+
+.dog-name-input {
+  width: 280px;
+  height: 41px;
+  border-style: none;
+  border-radius: 15px;
+  background: #F5F4F6;
+}
+
+.dog-name-input::placeholder {
+  padding-left: 12px;
+  color: grey;
+}
