@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import OnboardHeader from "../../components/headers/OnboardHeader";
-import NextButton from "../../components/next-button/NextButton";
+import OnboardNextButton from "../../components/next-buttons/OnboardNextButton";
 
 const Onboard = (props) => {
   const [count, setCount] = useState(0);
@@ -48,7 +48,7 @@ const Onboard = (props) => {
                     name="dogName"
                   />
                 </div>
-                <NextButton type="button" count={count} setCount={setCount} />
+                <OnboardNextButton type="button" count={count} setCount={setCount} />
               </form>
             </div>
           </>
@@ -87,7 +87,7 @@ const Onboard = (props) => {
                     })};
                   </select>
                 </div>
-                <NextButton count={count} setCount={setCount}/>
+                <OnboardNextButton count={count} setCount={setCount}/>
               </form>
             </div>
           </>
@@ -130,7 +130,7 @@ const Onboard = (props) => {
                   })}
                   ;
                 </select>
-                <NextButton count={count} setCount={setCount} />
+                <OnboardNextButton count={count} setCount={setCount} />
               </form>
             </div>
           </>
@@ -147,7 +147,7 @@ const Onboard = (props) => {
         {switchScreen(count)}
       </div>
         {count % 2 === 0 ? (
-          <NextButton count={count} setCount={setCount} />
+          <OnboardNextButton count={count} setCount={setCount} />
         ) : (
           ''
         )}

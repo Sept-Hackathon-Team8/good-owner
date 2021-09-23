@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import HomeHeader from "../../components/headers/HomeHeader";
-import NextButton from "../../components/next-button/NextButton";
+import NextButton from "../../components/next-buttons/NextButton";
 import mark from "../../Images/mark.svg"
 import focus from "../../Images/focus.svg"
 import target from "../../Images/target.svg"

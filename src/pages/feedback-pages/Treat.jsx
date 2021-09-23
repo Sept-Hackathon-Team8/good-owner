@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import HomeHeader from "../../components/headers/HomeHeader";
-import NextButton from "../../components/next-button/NextButton";
+import NextButton from "../../components/next-buttons/NextButton";
 
 const Treat = (props) => {
   return (
