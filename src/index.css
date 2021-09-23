@@ -74,17 +74,24 @@ code {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  
 }
 .training {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .tasks {
   margin-bottom: 60px;
+  width: 375px;
 }
+
 .task-container {
   display: flex;
   flex-direction: column;
+  /* width: 375px; */
+  align-self: center;
+  margin-top: 30px;
 }
 .task {
   display: flex;

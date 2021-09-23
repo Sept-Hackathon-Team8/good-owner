@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import HomeHeader from '../../components/headers/HomeHeader';
 import NextButton from '../../components/next-buttons/MainNextButton';
 import mark from '../../Images/mark.svg';
-import focus from '../../Images/focus.svg';
-import target from '../../Images/target.svg';
-import sit from '../../Images/sit.svg';
+import mark2 from '../../Images/mark2.svg'
+
 
 const Task = props => {
   return (
@@ -21,10 +20,15 @@ const Task = props => {
           <div className="exit-button"></div>
         </div>
         <div className="training-image">
-          <img alt="image" src="" />
+          <img alt="image" src={mark2}/>
         </div>
 
-        <p> Instructions</p>
+        <ul>
+          <li>Sit near your dog. Wait for him to look toward you, while holding a treat behind your back.</li>
+          <li>When he makes eye contact or looks toward your face, mark and reward.</li>
+          <li>Repeat the activity from a standing position.</li>
+        </ul>
+
         <Link to="/feedback">
           <NextButton />
         </Link>

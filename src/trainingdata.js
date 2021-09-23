@@ -1,7 +1,7 @@
 const tasks = 
 [
     {
-        "task": "Mark and Reward",
+        "title": "Mark and Reward",
         "icon" : " ",
         "image": " ",
         "instructions": [
@@ -9,9 +9,9 @@ const tasks =
             "When he makes eye contact or looks toward your face, mark and reward.", 
             "Repeat the activity from a standing position."
         ],
-        "advice":  {
+        "tips":  {
             "title": "Rate of Reinforcement",
-            "bullets": [
+            "text": [
                 "A place can provide rewards like smells, other dogs, or another person.", 
                 "That means the rewards you offer are in competition with the place.", 
                 "Until your dog works around distractions, your rate of reinforcement should be frequent  to keep you and the training session exciting.",
@@ -21,7 +21,7 @@ const tasks =
         "unit": "1"
     },
     {
-        "task": "Automatic Focus",
+        "title": "Automatic Focus",
         "icon" : " ",
         "image": " ",
         "instructions": [
@@ -30,9 +30,9 @@ const tasks =
             "Repeat five times with a treat between your fingers.",
             "Repeat the above steps five times, this time varying your hand and body position."
         ],
-        "advice":  {
+        "tips":  {
             "title": "Rewards From A Dog’s Point of View",
-            "bullets": [
+            "text": [
                 "Make sure you choose something truly rewarding from your dog’s point of view. Rewards can even be praise, a toy, or a chance to play a game — anything your dog loves makes a great reinforcement.", 
                 "If your dog dislikes something, it will decrease his desire to repeat a behavior."
             ]
@@ -40,7 +40,7 @@ const tasks =
         "unit": "1"
     },
     {
-        "task": "Hand Target",
+        "title": "Hand Target",
         "icon" : " ",
         "image": " ",
         "instructions": [
@@ -49,9 +49,9 @@ const tasks =
             "Repeat the steps, except start with a treat in your lure hand and a treat in your opposite hand.",
             "When your dog sits, mark and reward from the hand opposite your lure hand, then release."
         ],
-        "advice":  {
+        "tips":  {
             "title": "Timing",
-            "bullets": [
+            "text": [
                 "If you take too long to deliver the treat, your dog can become confused about what exactly he’s being rewarded for.", 
                 "Using a “marker” — like a whistle or a clicker — when you train can give you incredible precision with your timing."
             ]
@@ -59,7 +59,7 @@ const tasks =
         "unit": "1"
     },
     {
-        "task": "Sit",
+        "title": "Sit",
         "icon" : " ",
         "image": " ",
         "instructions": [
@@ -69,17 +69,19 @@ const tasks =
             "Release the behavior with a command word.",
             "Ask your dog to “Sit” as many times as possible throughout the day."
         ],
-        "advice":  {
+        "tips":  {
             "title": "Add Distance and Increase Value",
-            "bullets": [
+            "text": [
                 "If your dog doesn’t sit when asked because they are too distracted, simply add distance between you and the distraction before trying again.", 
                 "Your other option is to increase the value of the treat reward or consider using toys and play as a reward."
             ]
         },
         "unit": "1"
-    },
+    }
+], 
+[
     {
-        "task": "Leash Skills",
+        "title": "Leash Skills",
         "icon" : " ",
         "image": " ",
         "instructions": [
@@ -87,19 +89,19 @@ const tasks =
             " ", 
             " "
         ],
-        "advice":  {
+        "tips":  {
             "title": " ",
-            "bullets": [
+            "text": [
                 " ", 
                 " ", 
                 " ",
                 " "
             ]
         },
-        "unit": " "
+        "unit": "2"
     },
     {
-        "task": "Loose Leash Walk",
+        "title": "Loose Leash Walk",
         "icon" : " ",
         "image": " ",
         "instructions": [
@@ -107,19 +109,19 @@ const tasks =
             " ", 
             " "
         ],
-        "advice":  {
+        "tips":  {
             "title": " ",
-            "bullets": [
+            "text": [
                 " ", 
                 " ", 
                 " ",
                 " "
             ]
         },
-        "unit": " "
+        "unit": "2"
     },
     {
-        "task": "Pet/Don't Pet",
+        "title": "Pet/Don't Pet",
         "icon" : " ",
         "image": " ",
         "instructions": [
@@ -127,19 +129,19 @@ const tasks =
             " ", 
             " "
         ],
-        "advice":  {
+        "tips":  {
             "title": " ",
-            "bullets": [
+            "text": [
                 " ", 
                 " ", 
                 " ",
                 " "
             ]
         },
-        "unit": " "
+        "unit": "2"
     },
     {
-        "task": "Handling/Desensitizing",
+        "title": "Handling/Desensitizing",
         "icon" : " ",
         "image": " ",
         "instructions": [
@@ -147,35 +149,35 @@ const tasks =
             " ", 
             " "
         ],
-        "advice":  {
+        "tips":  {
             "title": " ",
-            "bullets": [
+            "text": [
                 " ", 
                 " ", 
                 " ",
                 " "
             ]
         },
-        "unit": " "
-    },
-    {
-        "task": "save for template",
-        "icon" : " ",
-        "image": " ",
-        "instructions": [
-            " ", 
-            " ", 
-            " "
-        ],
-        "advice":  {
-            "title": " ",
-            "bullets": [
-                " ", 
-                " ", 
-                " ",
-                " "
-            ]
-        },
-        "unit": " "
-    },
+        "unit": "2"
+    }
 ]
+    // {
+    //     "title": "save for template",
+    //     "icon" : " ",
+    //     "image": " ",
+    //     "instructions": [
+    //         " ", 
+    //         " ", 
+    //         " "
+    //     ],
+    //     "tips":  {
+    //         "title": " ",
+    //         "text": [
+    //             " ", 
+    //             " ", 
+    //             " ",
+    //             " "
+    //         ]
+    //     },
+    //     "unit": " "
+    // },
