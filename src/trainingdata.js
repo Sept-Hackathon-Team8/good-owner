@@ -183,3 +183,4 @@ const tasks =
     //     },
     //     "unit": " "
     // },
+export default tasks
