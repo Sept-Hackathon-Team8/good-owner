@@ -7,7 +7,7 @@ const Onboard = () => {
     <div>
       <OnboardHeader />
 
-      <NextButton count={count} setCount={setCount} />
+      {/* <NextButton count={count} setCount={setCount} /> */}
     </div>
   );
 };

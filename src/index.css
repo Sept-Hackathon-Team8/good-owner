@@ -16,6 +16,7 @@ code {
   background-color: #F9C946;
   height: 124px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -25,29 +26,82 @@ code {
   display: flex;
   justify-content: center;
   align-items: end;
-  line-height: .75;
+  line-height: .80;
+}
+.doggo-home {
+  font-size: 1.8em;
+  font-weight: bold;
 }
 .doggo {
   font-size: 3em;
   font-weight: bold;
-  margin-left: 20px;
+  margin-left: 30px;
   margin-bottom: 0;
   
+}
+.user-progress {
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+.progress {
+  display: flex;
+  flex-direction: row;
+}
+.icon {
+  margin-right: 10px;
+}
+.flame {
+  margin-left: 10px;
+}
+.circle {
+  /* border-style: solid; */
+  border-radius: 100%;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  padding: 3px;
+  margin: 5px;
 }
 .next {
   width: 304px;
   height: 49px;
   background-color: #FBD157;
   border-style: none;
+  border-radius: 10px
 }
 .homepage-container, .task-page-container, .landing-page-container {
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
-.training, .task {
+.training {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 100%
+}
+.tasks {
+  margin-bottom: 60px;
+}
+.task-container {
+  display: flex;
+  flex-direction: column;
+}
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0px 20px 20px 20px;
+}
+.task-image {
+  width: 52px;
+  height: 52px;
+  border-style: solid;
+  border-radius: 50%;
+  margin-right: 20px
+}
+.task-text {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import OnboardHeader from "../../components/headers/OnboardHeader";
 
 const mockuser = {
   username: "",
@@ -36,6 +37,7 @@ const RegisterPage = () => {
   console.log(regData);
   return (
     <div className="register-page-container">
+      <OnboardHeader />
       <h1>Register</h1>
       <div className="register-form-container">
         <form
