@@ -9,21 +9,42 @@ export const loginUser = async loginData => {
 
 export const registerUser = async registerData => {
   const resp = await api.post('/dj-rest-auth/registration/', registerData);
-  localStorage.setItem('authToken', resp.data.token);
-  api.defaults.headers.common.authorization = `Token ${resp.data.token}`;
+  localStorage.setItem('authToken', resp.data.key);
+  api.defaults.headers.common.authorization = `Token ${resp.data.key}`;
   return resp.data.user;
 };
 
-export const verifyUser = async () => {
+export const getBreeds = async () => {
   const token = localStorage.getItem('authToken');
   if (token) {
-    api.defaults.headers.common.authorization = `Token ${token}`;
-    const resp = await api.get('/auth/verify');
+    const resp = await api.get(`/breeds`);
     return resp.data;
   }
-  return null;
 };
 
-export const removeToken = () => {
-  api.defaults.headers.common.authorization = null;
+export const createPet = async petCreationData => {
+  console.log('AAAAA INSIDE CREATE PET');
+  const token = localStorage.getItem('authToken');
+  console.log('THIS IS GET BREEDS TOKEN', token);
+  console.log('THIS IS GET PET DATA', petCreationData);
+  if (token) {
+    api.defaults.headers.common.authorization = `Token ${token}`;
+    const resp = await api.post('/pets/', petCreationData);
+    console.log(resp.data);
+    return resp.data;
+  }
 };
+
+// export const verifyUser = async () => {
+//   const token = localStorage.getItem('authToken');
+//   if (token) {
+//     api.defaults.headers.common.authorization = `Token ${token}`;
+//     const resp = await api.get('/auth/verify');
+//     return resp.data;
+//   }
+//   return null;
+// };
+
+// export const removeToken = () => {
+//   api.defaults.headers.common.authorization = null;
+// };

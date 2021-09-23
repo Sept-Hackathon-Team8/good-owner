@@ -1,20 +1,52 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { DoggoContext } from '../../DoggoContext';
 import OnboardHeader from '../../components/headers/OnboardHeader';
 import OnboardNextButton from '../../components/next-buttons/OnboardNextButton';
+import { createPet, getBreeds } from '../../services/auth';
 
 const Onboard = props => {
+  const [breeds, setBreeds] = useState([]);
+
+  const fetchBreeds = async () => {
+    const res = await getBreeds();
+    setBreeds(res);
+  };
+
   const { setCurrentUser, currentUser, currentPet, setCurrentPet } =
     useContext(DoggoContext);
 
+  console.log('THIS IS CURRENT USER', currentUser);
+  console.log('THIS IS TOKEN', localStorage.getItem('authToken'));
+
+  const [petData, setPetData] = useState({
+    name: '',
+    breed: '',
+    age: '',
+  });
+
+  const { name, breed, age } = petData;
+
+  const handleChange = e => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    if (name === 'age') fetchBreeds();
+    setPetData(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
   const [count, setCount] = useState(0);
-  const { breeds } = props;
-  const breedNames = breeds.map(breed => breed.name);
   const ageOptions = ['< 1', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, '13+'];
 
   /////// testing dog age/name below, DELETE LATER //////
-  const dogAge = '< 1';
-  const dogName = 'Ralph';
+
+  const handleCreatePet = async e => {
+    e.preventDefault();
+    const pet = await createPet(petData);
+    console.log('this is pet', pet);
+    setCurrentPet(pet);
+  };
 
   const switchScreen = () => {
     switch (count) {
@@ -38,26 +70,20 @@ const Onboard = props => {
           <>
             <div className="onboard-text-small">What is your dog's name?</div>
             <div className="name-form">
-              <form
-                className="dogname-form"
-                onSubmit={e => {
-                  e.preventDefault();
-                  console.log('test');
-                }}
-              >
-                <div>
-                  <input
-                    className="dog-name-input"
-                    type="text"
-                    name="dogName"
-                  />
-                </div>
-                <OnboardNextButton
-                  type="button"
-                  count={count}
-                  setCount={setCount}
+              <div>
+                <input
+                  value={name}
+                  className="dog-name-input"
+                  type="text"
+                  name="name"
+                  onChange={handleChange}
                 />
-              </form>
+              </div>
+              <OnboardNextButton
+                type="button"
+                count={count}
+                setCount={setCount}
+              />
             </div>
           </>
         );
@@ -65,7 +91,9 @@ const Onboard = props => {
         return (
           <>
             <div className="onboard-text-bold">
-              Hi {dogName}!{/* <img></img> */}
+              <h2>
+                Hi {name}!{/* <img></img> */}
+              </h2>
               <div className="onboard-text-small">
                 We just met you and we love you.
               </div>
@@ -78,21 +106,24 @@ const Onboard = props => {
             <div>
               If we may be so bold, how old is <br />
               <span className="dog-name-bold">
-                ****INSERT DOG NAME HERE*****?
+                {name ? name : 'no name showing'}
               </span>
             </div>
             <div className="dropdown-container">
               <form>
                 <div className="age-dropdown">
                   <select
-                    name="dogAge"
+                    name="age"
                     type="text"
-                    // value={dogAge}
-                    // onChange={(e) => setDogAge(e.target.value)}
+                    value={age}
+                    onChange={handleChange}
                   >
-                    <option value="">select</option>
-                    {ageOptions.map((age, i) => {
-                      return <option key={i}>{age}</option>;
+                    {ageOptions.map((a, i) => {
+                      return (
+                        <option key={i} value={i}>
+                          {a}
+                        </option>
+                      );
                     })}
                     ;
                   </select>
@@ -107,18 +138,18 @@ const Onboard = props => {
           <>
             <div>
               <span className="onboard-text-bold">
-                *****INSERT DOG NAME*****
+                {name ? name : 'no name showing'}
               </span>{' '}
-              is {dogAge}?!
+              is {age}?!
               {/* <img src="nothing.png">insert image</img> */}
-              {dogAge > 7 ? (
+              {age > 7 ? (
                 <span>
-                  That's {dogAge * 7} in dog years! Middle aged never looked so
+                  That's {age * 7} in dog years! Middle aged never looked so
                   good!
                 </span>
-              ) : dogAge >= 1 ? (
+              ) : age >= 1 ? (
                 <span>
-                  That's {dogAge * 7} in dog years! Look at you all grown up!
+                  That's {age * 7} in dog years! Look at you all grown up!
                 </span>
               ) : (
                 <span>So many years of tricks and treats ahead of him!</span>
@@ -129,34 +160,55 @@ const Onboard = props => {
       case 5:
         return (
           <>
-            <div className="onboard-text-small">
-              I love that look! What breed is
-              <br />
-              <span className="onboard-text-bold">Ralph?</span>
-            </div>
-            <div className="dropdown-container">
-              <form>
-                <select
-                  name="dogBreed"
-                  type="text"
-                  // value={dogBreed}
-                  // onChange={(e) => setDogBreed(e.target.value)}
-                >
-                  <option value="">select</option>
-                  {breedNames.map((breedName, i) => {
-                    return <option key={i}>{breedName}</option>;
-                  })}
-                  ;
-                </select>
-                <OnboardNextButton count={count} setCount={setCount} />
-              </form>
-            </div>
+            {currentPet ? (
+              <div>
+                <p>{currentPet.name}</p>
+                <p>{currentPet.breed}</p>
+                <p>{currentPet.age}</p>
+              </div>
+            ) : (
+              <>
+                <div className="onboard-text-small">
+                  I love that look! What breed is
+                  <br />
+                  <span className="onboard-text-bold">{name}</span>
+                </div>
+                <div className="dropdown-container">
+                  <form>
+                    <select
+                      name="breed"
+                      type="text"
+                      onChange={handleChange}
+                      value={breed}
+                      // value={dogBreed}
+                      // onChange={(e) => setDogBreed(e.target.value)}
+                    >
+                      {breeds.map(({ name, id, parent }, i) => {
+                        return (
+                          <option key={i} value={id}>
+                            {parent ? `${parent.name} ` : ''}
+                            {name}
+                          </option>
+                        );
+                      })}
+                      ;
+                    </select>
+                    <button onClick={handleCreatePet}>Complete</button>
+                  </form>
+                </div>
+              </>
+            )}
           </>
         );
       case 6:
         return (
           <>
-            <div></div>
+            <div>
+              <h1>Confirmation page:</h1>
+              <h3>{name}</h3>
+              <p>{age}</p>
+              <p>{breeds.filter(b => b.id === breed).pop().name}</p>
+            </div>
           </>
         );
       default:

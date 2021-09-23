@@ -5,7 +5,6 @@ import LandingPage from './pages/landing-page/LandingPage';
 import RegisterPage from './pages/register-page/RegisterPage';
 import HomePage from './pages/home-page/HomePage';
 import LoginPage from './pages/login-page/LoginPage';
-import { getBreeds } from './services/breeds';
 import Task from './pages/task-page/Task';
 import Feedback from './pages/feedback-pages/Feedback';
 import Treat from './pages/feedback-pages/Treat';
@@ -16,18 +15,6 @@ import './App.css';
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [currentPet, setCurrentPet] = useState(null);
-  const [breeds, setBreeds] = useState([]);
-
-  useEffect(() => {
-    fetchBreeds();
-  }, []);
-
-  const fetchBreeds = async () => {
-    const res = await getBreeds();
-    setBreeds(res);
-  };
-
-  console.log(breeds);
 
   return (
     <DoggoContext.Provider
@@ -60,7 +47,7 @@ function App() {
             <Advice />
           </Route>
           <Route path="/Onboard">
-            <Onboard breeds={breeds} />
+            <Onboard />
           </Route>
         </Switch>
       </div>

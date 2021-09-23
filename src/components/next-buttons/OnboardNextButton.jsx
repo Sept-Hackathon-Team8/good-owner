@@ -1,15 +1,17 @@
-import React from "react";
+import React from 'react';
 
-
-const OnboardNextButton = (props) => {
+const OnboardNextButton = props => {
   const { count, setCount } = props;
 
-  const handleClick = (e) => {
+  const handleClick = e => {
+    e.preventDefault();
     setCount(count + 1);
   };
 
   return (
-    <button type="submit" onClick={ handleClick } className="next">Next</button>
+    <button type="submit" onClick={handleClick} className="next">
+      Next
+    </button>
   );
 };
 
