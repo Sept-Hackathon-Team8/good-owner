@@ -4,6 +4,7 @@ import NextButton from "../../components/next-button/NextButton";
 
 const Onboard = () => {
   const [count, setCount] = useState(0);
+  const ageOptions = ['< 1', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, '13+'];
 
   const switchScreen = () => {
     switch (count) {
@@ -54,7 +55,21 @@ const Onboard = () => {
               <span className="dog-name-bold">****INSERT DOG NAME HERE*****?</span>
             </div>
             <div className="age-dropdown">
-              
+              <form>
+                <select
+                  name="dogAge"
+                  type="text"
+                  // value={dogAge}
+                  // onChange={(e) => setDogAge(e.target.value)}
+                >
+                  <option value="">select</option>
+                  {ageOptions.map((age, i) => {
+                    return (
+                      <option key={i}>{age}</option>
+                    );
+                  })};
+                </select>
+              </form>
             </div>
           </>
         );
