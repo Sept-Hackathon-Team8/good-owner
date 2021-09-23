@@ -199,7 +199,8 @@ const Onboard = props => {
                   src={
                     breeds.filter(b => b.id === currentPet.breed).pop().img_url
                   }
-                  alt=""
+                  className="breed-image"
+                  alt="dog-image"
                 />
 
                 <p>{currentPet.age}</p>
@@ -210,6 +211,7 @@ const Onboard = props => {
                   {breeds.filter(b => b.id === breed).pop().name}!
                 </h1>
                 <img
+                  className="breed-image"
                   styleMap={{ maxWidth: '500px' }}
                   src={breeds.filter(b => b.id === breed).pop().img_url}
                   alt=""
@@ -226,6 +228,14 @@ const Onboard = props => {
             )}
           </>
         );
+      case 7:
+        return (
+          <>
+            <div>
+
+            </div>
+          </>
+        );
       default:
       // do nothing
     }
@@ -237,8 +247,10 @@ const Onboard = props => {
       <OnboardHeader />
 
       <div className="onboard-body">{switchScreen(count)}</div>
-      {count % 2 === 0 ? (
+      {count % 2 === 0 && count < 6 ? (
         <OnboardNextButton count={count} setCount={setCount} />
+      ) : count === 6 ? (
+        ''
       ) : (
         ''
       )}
