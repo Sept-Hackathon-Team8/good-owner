@@ -22,6 +22,7 @@ code {
 }
 .onboard-header {
   background-color: #F9C946;
+  width: 100vw;
   height: 124px;
   display: flex;
   justify-content: center;
@@ -76,7 +77,6 @@ code {
   background-color: #FBD157;
   border-style: none;
   border-radius: 10px;
-  
 }
 .homepage-container, .task-page-container, .landing-page-container {
   height: 100vh;

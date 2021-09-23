@@ -5,6 +5,12 @@ import OnboardHeader from '../../components/headers/OnboardHeader';
 import OnboardNextButton from '../../components/next-buttons/OnboardNextButton';
 import { createPet, getBreeds } from '../../services/auth';
 import "./Onboard.css";
+import img1 from "../../Images/OnboardGroup.svg";
+import breed from "../../Images/Onboard6.svg";
+import senior from "../../Images/Onboard4.svg";
+import adult from "../../Images/Onboard3.svg";
+import puppy from "../../Images/Onboard2.svg";
+import img2 from "../../Images/Onboard1.svg";
 
 const Onboard = props => {
   const [breeds, setBreeds] = useState([]);
@@ -56,24 +62,28 @@ const Onboard = props => {
       case 0:
         return (
           <>
-            <div className="onboard-text-small">
-              First thing's first! Let's...
-            </div>
-            <div className="onboard-text-bold">
-              LOG
-              <br />
-              YOUR
-              <br />
-              DOG
+            <div className="first-container">
+              <div className="onboard-text-small">
+                First thing's first!<br />
+                Let's...
+              </div> <br />
+              <div id="logyourdog" className="onboard-text-bold">
+                LOG
+                <br />
+                YOUR
+                <br />
+                DOG
+              </div>
             </div>
           </>
         );
       case 1:
         return (
           <>
-            <div className="onboard-text-small">What is your dog's name?</div>
+            <div className="first-container"><div className="onboard-text-small">What is your <br/> dog's name?</div></div>
             <div className="name-form">
-              <div>
+              <img className="img1" alt="dog group picture" src={img1} />
+              <div className="name-input-container">
                 <input
                   value={name}
                   className="dog-name-input"
@@ -259,14 +269,15 @@ const Onboard = props => {
     <div className="onboard-container">
       <OnboardHeader />
 
-      <div className="onboard-body">{switchScreen(count)}</div>
+      <div className="onboard-body">{switchScreen(count)}
       {count % 2 === 0 && count < 6 ? (
         <OnboardNextButton count={count} setCount={setCount} />
       ) : count === 6 ? (
         ''
       ) : (
         ''
-      )}
+        )}
+      </div>
     </div>
   );
 };
