@@ -58,3 +58,18 @@
   font-size: 2em;
   margin-bottom: 20px;
 }
+
+.onboard-age {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.log-dog-button {
+  width: 304px;
+  height: 49px;
+  background-color: #FBD157;
+  border-style: none;
+  border-radius: 10px;
+  margin-top: 20px;
+}
