@@ -3,25 +3,58 @@ import { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import { DoggoContext } from '../../DoggoContext';
 import { loginUser } from '../../services/auth';
-import "./LoginPage.css";
+import './LoginPage.css';
 import OnboardHeader from '../../components/headers/OnboardHeader';
 
 const LoginPage = props => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [errorData, setErrorData] = useState(null);
+
   const { setCurrentUser, currentUser } = useContext(DoggoContext);
+
+  // const handleSubmit = async e => {
+  //   e.preventDefault();
+  //   const user = await loginUser({ email, password });
+  //   setCurrentUser(user);
+  // };
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const user = await loginUser({ email, password });
-    setCurrentUser(user);
+    const { is_error, data } = await loginUser({ email, password });
+    console.log('WHAT IS THIS IS ERROR', is_error);
+    if (is_error) {
+      setErrorData(data);
+    } else {
+      setCurrentUser(data);
+    }
   };
+
   if (currentUser) return <Redirect to={'/home'} />;
 
   return (
     <div className="login-page-containter">
       <OnboardHeader />
+      <div
+        style={{
+          fontSize: '.8rem',
+          color: 'red',
+          lineHeight: '.7rem',
+          backgroundColor: 'rgba(255,0,0,.2)',
+          width: '100%',
+          // minHeight: '50px',
+        }}
+      >
+        {errorData !== null
+          ? errorData.map((err, i) => (
+              <p style={{ padding: '10px', margin: 0 }} key={i}>
+                <b>{`${err[0]}; ` ? err[0] !== 'non_field_errors' : ''}</b>{' '}
+                {err[1]}
+              </p>
+            ))
+          : ''}
+      </div>
       <div className="login-form-container">
         {/* <h2>Login</h2> */}
         <form onSubmit={handleSubmit} className="login-form">
@@ -33,7 +66,7 @@ const LoginPage = props => {
               placeholder="Email"
               value={email}
               name="username"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
             />
           </div>
           <div className="password-username">
@@ -44,7 +77,7 @@ const LoginPage = props => {
               placeholder="Password"
               value={password}
               name="password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={e => setPassword(e.target.value)}
             />
           </div>
           <button type="submit" className="login-submit">
