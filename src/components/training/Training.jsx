@@ -17,8 +17,8 @@ const Training = (props) => {
           {/* reusable code, create components */}
             <div className="task">
                 <div className="task-image">
-                  {/* <ProgressCircle /> */}
-                  <img alt="mark and reward image" src={mark}/>
+                  <ProgressCircle />
+                  {/* <img alt="mark and reward image" src={mark}/> */}
                 </div>
                 <div className="task-text">
                   Mark and Reward
