@@ -26,6 +26,7 @@ const Training = (props) => {
             </div>
             <div className="task">
                 <div className="task-image">
+                {/* <ProgressCircle /> */}
                   <img alt="auto focus image" src={focus}/>
                 </div>
                 <div className="task-text">
