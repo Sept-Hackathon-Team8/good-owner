@@ -116,34 +116,27 @@ code {
 .task-image {
   /* width: 52px;
   height: 52px; */
-  /* border-style: solid; */
-  border-radius: 50%;
   margin-right: 20px;
   position: relative;
   /* display: inline-block; */
-
 }
 .image-icon {
-  margin-left: 4px;
+  /* margin-left: 4px; */
   margin-top: 4px;
 }
+.progress-container{
+  width: 60px;
+  height: 60px;
+}
 .progress-ring {
+  overflow: visible;
+  height: 60px;
+  width: 60px;
   position: absolute;
   top: 0;
   left: 0;
-  height: 52;
-  width: 52
 }
-.progress-ring-circle {
-  position: absolute;
-  stroke: gray;
-  stroke-width: 5;
-  fill: transparent;
-  stroke-dasharray: 10 20;
-  height: 52;
-  width: 52;
-  stroke-linecap: round;
-}
+
 .task-title {
   text-align: center;
   font-size: 24px;

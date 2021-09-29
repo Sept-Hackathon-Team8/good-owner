@@ -6,16 +6,27 @@ import sit from "../../Images/sit.svg"
 
 
 const ProgressCircle = (props) => {
+
+    function calculateCircumference(radius) {
+        return 2 * Math.PI * radius;
+    }
+    const circumference = calculateCircumference(30)
+    const progress = (5/7) *100
+    const remainingProgress = (100 - progress)
+    // console.log(remainingProgress)
+    const offset = (remainingProgress/100) * circumference
+    // console.log(offset)
     return (
 
-        <div className="task-image">
+        <div className="progress-container">
             <img className="image-icon" alt="mark and reward image" src={mark}/>
-            <svg className="progress-ring">
-                <circle className="progress-ring-circle"
-                    r="30"
-                    cx="30"
-                    cy="30"
-                />
+
+            <svg className="progress-ring" >
+                <g transform="rotate(-90 30 30)"> 
+                    <circle r="28" cx="30" cy="30" fill="transparent" stroke="lightgrey" stroke-width="7px" stroke-dasharray={circumference} stroke-dashoffset="0"></circle>
+                    <circle r="28" cx="30" cy="30" fill="transparent" stroke="blue" stroke-width="7px" stroke-dasharray={circumference} stroke-dashoffset={offset}></circle>
+                </g>
+                
             </svg>
             
         </div>
