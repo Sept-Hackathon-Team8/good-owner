@@ -134,8 +134,8 @@ code {
   height: 60px;
   width: 60px;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -4px;
+  left: -4px;
 }
 
 .task-title {
