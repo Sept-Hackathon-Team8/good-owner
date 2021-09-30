@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { DoggoContext } from '../../DoggoContext';
-import { Link } from 'react-router-dom';
-
 import TrainingUnit from './TrainingUnit.jsx';
+import ConfettiGenerator from 'confetti-js';
 // consider weather data is a request at the app level where the tasks
 // object is downloaded one time with all the lessons data.
 // At least to create the TaskSnippets to illustrate the whole Journey
@@ -41,6 +40,7 @@ const Training = props => {
   }, [setFeedbackData, currentProgress, mockFeedbackData]);
 
   const moveToNextLesson = useCallback(() => {
+    setUnitPassed(true);
     setCurrentProgress(progress => ({ ...progress, unit: progress.unit + 1 }));
   }, [setCurrentProgress]);
 
@@ -52,6 +52,23 @@ const Training = props => {
       if (unitCompleted) moveToNextLesson();
     }
   }, [feedbackData, currentProgress]);
+
+  React.useEffect(() => {
+    if (unitPassed) {
+      const confettiSettings = {
+        target: 'confetti-canvas',
+        respawn: false,
+        clock: '100',
+        rotate: true,
+        max: 1000,
+      };
+      const confetti = new ConfettiGenerator(confettiSettings);
+      confetti.render();
+      setTimeout(() => setUnitPassed(false), 2000);
+
+      return () => confetti.clear();
+    }
+  }, [unitPassed]); // add the var dependencies or not
 
   return (
     <div className="training">
@@ -72,6 +89,17 @@ const Training = props => {
         : 'loading data'}
 
       {/* turn this button functionality into a component instead of a ternary operator */}
+      <canvas
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100vh',
+          zIndex: -1,
+        }}
+        id="confetti-canvas"
+      ></canvas>
     </div>
   );
 };
