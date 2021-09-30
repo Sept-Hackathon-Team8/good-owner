@@ -1,16 +1,16 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { DoggoContext } from '../../DoggoContext';
 import OnboardHeader from '../../components/headers/OnboardHeader';
 import OnboardNextButton from '../../components/next-buttons/OnboardNextButton';
 import { createPet, getBreeds } from '../../services/auth';
-import "./Onboard.css";
-import img1 from "../../Images/OnboardGroup.svg";
-import breed from "../../Images/Onboard6.svg";
-import senior from "../../Images/Onboard4.svg";
-import adult from "../../Images/Onboard3.svg";
-import puppy from "../../Images/Onboard2.svg";
-import img2 from "../../Images/Onboard1.svg";
+import './Onboard.css';
+import img1 from '../../Images/OnboardGroup.svg';
+import breed from '../../Images/Onboard6.svg';
+import senior from '../../Images/Onboard4.svg';
+import adult from '../../Images/Onboard3.svg';
+import puppy from '../../Images/Onboard2.svg';
+import img2 from '../../Images/Onboard1.svg';
 
 const Onboard = props => {
   const [breeds, setBreeds] = useState([]);
@@ -20,8 +20,7 @@ const Onboard = props => {
     setBreeds(res);
   };
 
-  const { setCurrentUser, currentUser, currentPet, setCurrentPet } =
-    useContext(DoggoContext);
+  const { currentUser, currentPet, setCurrentPet } = useContext(DoggoContext);
 
   console.log('THIS IS CURRENT USER', currentUser);
   console.log('THIS IS TOKEN', localStorage.getItem('authToken'));
@@ -64,9 +63,11 @@ const Onboard = props => {
           <>
             <div className="first-container">
               <div className="onboard-text-small">
-                First thing's first!<br />
+                First thing's first!
+                <br />
                 Let's...
-              </div> <br />
+              </div>{' '}
+              <br />
               <div id="logyourdog" className="onboard-text-bold">
                 LOG
                 <br />
@@ -80,9 +81,13 @@ const Onboard = props => {
       case 1:
         return (
           <>
-            <div className="first-container"><div className="onboard-text-small">What is your <br/> dog's name?</div></div>
+            <div className="first-container">
+              <div className="onboard-text-small">
+                What is your <br /> dog's name?
+              </div>
+            </div>
             <div className="name-form">
-              <img className="img1" alt="dog group picture" src={img1} />
+              <img className="img1" alt="dog group" src={img1} />
               <div className="name-input-container">
                 <input
                   value={name}
@@ -108,7 +113,7 @@ const Onboard = props => {
               <h2 className="onboard-text-bold">
                 Hi {name}!{/* <img></img> */}
               </h2>
-              <img alt="dog image" src={img2} />
+              <img alt="dog" src={img2} />
               <div className="onboard-text-small">
                 We just met you and we love you.
               </div>
@@ -132,7 +137,7 @@ const Onboard = props => {
                   value={age}
                   onChange={handleChange}
                 >
-                <option value="">select</option>
+                  <option value="">select</option>
                   {ageOptions.map((a, i) => {
                     return (
                       <option key={i} value={i}>
@@ -152,8 +157,8 @@ const Onboard = props => {
           <>
             <div className="onboard-age">
               <span className="onboard-text-bold">
-                {name ? name : "no name showing"}
-              </span>{" "}
+                {name ? name : 'no name showing'}
+              </span>{' '}
               <span className="onboard-text-small">is {age}?!</span>
               {/* <img src="nothing.png">insert image</img> */}
               {age > 7 ? (
@@ -192,7 +197,7 @@ const Onboard = props => {
                 {breeds.map(({ name, id, parent }, i) => {
                   return (
                     <option key={i} value={id}>
-                      {parent ? `${parent.name} ` : ""}
+                      {parent ? `${parent.name} ` : ''}
                       {name}
                     </option>
                   );
@@ -211,15 +216,15 @@ const Onboard = props => {
                 <div>
                   <p>{currentPet.name}</p>
                   <p>
-                    {breeds.filter((b) => b.id === currentPet.breed).pop().name}
+                    {breeds.filter(b => b.id === currentPet.breed).pop().name}
                   </p>
                   <img
                     src={
-                      breeds.filter((b) => b.id === currentPet.breed).pop()
+                      breeds.filter(b => b.id === currentPet.breed).pop()
                         .img_url
                     }
                     className="breed-image"
-                    alt="dog-image"
+                    alt="dog"
                   />
 
                   <p>{currentPet.age}</p>
@@ -228,12 +233,12 @@ const Onboard = props => {
             ) : (
               <div>
                 <h1 className="onboard-text-bold">
-                  {breeds.filter((b) => b.id === breed).pop().name}!
+                  {breeds.filter(b => b.id === breed).pop().name}!
                 </h1>
                 <img
                   className="breed-image"
-                  styleMap={{ maxWidth: "500px" }}
-                  src={breeds.filter((b) => b.id === breed).pop().img_url}
+                  styleMap={{ maxWidth: '500px' }}
+                  src={breeds.filter(b => b.id === breed).pop().img_url}
                   alt=""
                 />
                 <div className="onboard-text-small">
@@ -242,7 +247,9 @@ const Onboard = props => {
                 </div>
                 {/* <h3>{name}</h3>
                 <p>{age}</p> */}
-                <button className="log-dog-button" onClick={handleCreatePet}>Log Pet</button>
+                <button className="log-dog-button" onClick={handleCreatePet}>
+                  Log Pet
+                </button>
                 {/* The button triggers the event for the creation logic */}
               </div>
             )}
@@ -252,9 +259,14 @@ const Onboard = props => {
         return (
           <>
             <div className="onboard-text-small">
-              We here at Doggo truly believe that there are no bad dogs, but there are inexperienced pet parents. Follow our lead because<br />
-              <span className="onboard-text-bold">{name}</span><br />
-              deserves the best version of you! By the end of our program, we promise that you will be the calm, confident owner you've always wanted to be.
+              We here at Doggo truly believe that there are no bad dogs, but
+              there are inexperienced pet parents. Follow our lead because
+              <br />
+              <span className="onboard-text-bold">{name}</span>
+              <br />
+              deserves the best version of you! By the end of our program, we
+              promise that you will be the calm, confident owner you've always
+              wanted to be.
             </div>
             <Link to="/home">
               <button className="next">Get Started</button>
@@ -271,13 +283,14 @@ const Onboard = props => {
     <div className="onboard-container">
       <OnboardHeader />
 
-      <div className="onboard-body">{switchScreen(count)}
-      {count % 2 === 0 && count < 6 ? (
-        <OnboardNextButton count={count} setCount={setCount} />
-      ) : count === 6 ? (
-        ''
-      ) : (
-        ''
+      <div className="onboard-body">
+        {switchScreen(count)}
+        {count % 2 === 0 && count < 6 ? (
+          <OnboardNextButton count={count} setCount={setCount} />
+        ) : count === 6 ? (
+          ''
+        ) : (
+          ''
         )}
       </div>
     </div>

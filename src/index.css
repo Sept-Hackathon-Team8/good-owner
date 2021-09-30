@@ -13,7 +13,7 @@ code {
 }
 
 .home-header {
-  background-color: #F9C946;
+  background-color: #f9c946;
   height: 124px;
   display: flex;
   flex-direction: column;
@@ -21,13 +21,13 @@ code {
   align-items: center;
 }
 .onboard-header {
-  background-color: #F9C946;
+  background-color: #f9c946;
   width: 100vw;
   height: 124px;
   display: flex;
   justify-content: center;
-  align-items: end;
-  line-height: .80;
+  align-items: flex-end;
+  line-height: 0.8;
 }
 .doggo-home {
   font-size: 1.8em;
@@ -38,12 +38,11 @@ code {
   font-weight: bold;
   margin-left: 30px;
   margin-bottom: 0;
-  
 }
 .user-progress {
   display: flex;
   flex-direction: row;
-  align-items: center
+  align-items: center;
 }
 .progress {
   display: flex;
@@ -67,22 +66,23 @@ code {
 .main-next {
   width: 304px;
   height: 49px;
-  background-color: #FBD157;
+  background-color: #fbd157;
   border-style: none;
-  border-radius: 10px
+  border-radius: 10px;
 }
 .start-lesson {
   width: 222px;
   height: 49px;
-  background-color: #FBD157;
+  background-color: #fbd157;
   border-style: none;
   border-radius: 10px;
 }
-.homepage-container, .task-page-container, .landing-page-container {
+.homepage-container,
+.task-page-container,
+.landing-page-container {
   height: 100vh;
   display: flex;
   flex-direction: column;
-
 }
 .homepage-container {
   background-image: url(Images/Doggo_Journey\ _Line.svg);
@@ -93,6 +93,7 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   /* background-image: url(Images/Doggo_Journey\ _Line.svg); */
 }
 .tasks {
@@ -124,7 +125,7 @@ code {
   /* margin-left: 4px; */
   margin-top: 4px;
 }
-.progress-container{
+.progress-container {
   width: 60px;
   height: 60px;
 }
@@ -141,10 +142,9 @@ code {
   text-align: center;
   font-size: 24px;
   font-weight: 400;
-
 }
 .task-list {
-  width: 300px
+  width: 300px;
 }
 li {
   text-align: left;

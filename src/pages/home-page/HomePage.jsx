@@ -1,12 +1,8 @@
-import React from "react";
-import Training from "../../components/training/Training";
-import HomeHeader from "../../components/headers/HomeHeader";
-import tasksData from "../../trainingdata";
+import React from 'react';
+import Training from '../../components/training/Training';
+import HomeHeader from '../../components/headers/HomeHeader';
 
-const HomePage = (props) => {
-  const { currentProgress, setCurrentProgress } = props;
-  console.log(tasksData)
-
+const HomePage = props => {
   return (
     <div className="homepage-container">
       <HomeHeader />

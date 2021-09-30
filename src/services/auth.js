@@ -37,6 +37,7 @@ export const registerUser = async registerData => {
   }
 };
 
+// TODO: move regular APIs out of the auth module and make sure to correct imports wherever affected
 export const getBreeds = async () => {
   const token = localStorage.getItem('authToken');
   if (token) {
@@ -46,14 +47,21 @@ export const getBreeds = async () => {
 };
 
 export const createPet = async petCreationData => {
-  console.log('AAAAA INSIDE CREATE PET');
   const token = localStorage.getItem('authToken');
-  console.log('THIS IS GET BREEDS TOKEN', token);
-  console.log('THIS IS GET PET DATA', petCreationData);
   if (token) {
     api.defaults.headers.common.authorization = `Token ${token}`;
     const resp = await api.post('/pets/', petCreationData);
-    console.log(resp.data);
+    return resp.data;
+  }
+};
+
+// TODO: In backend complete the getOwnerPet, think how will this affect flow when more than one pet
+export const getPet = async () => {
+  const token = localStorage.getItem('authToken');
+  if (token) {
+    api.defaults.headers.common.authorization = `Token ${token}`;
+    const resp = await api.get('/pets/');
+    console.log(resp);
     return resp.data;
   }
 };
