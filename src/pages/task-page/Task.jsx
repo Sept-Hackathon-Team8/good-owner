@@ -8,11 +8,10 @@ import { DoggoContext } from '../../DoggoContext';
 import { useState } from 'react';
 
 const Task = props => {
-  const { currentProgress, setCurrentProgress, tasks } =
-    useContext(DoggoContext);
+  const { activeUnit, tasks } = useContext(DoggoContext);
 
   const [taskData, setTaskData] = useState(
-    tasks[currentProgress.unit].tasks[currentProgress.task - 1]
+    tasks[activeUnit.unit - 1].tasks[activeUnit.task - 1]
   );
 
   return (

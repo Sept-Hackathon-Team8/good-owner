@@ -4,34 +4,28 @@ import { DoggoContext } from '../../DoggoContext';
 import HomeHeader from '../../components/headers/HomeHeader';
 
 const Feedback = () => {
-  const {
-    currentPet,
-    currentProgress,
-    setCurrentProgress,
-    tasks,
-    mockFeedbackData,
-    setMockFeedbackData,
-  } = useContext(DoggoContext);
+  const { currentPet, activeUnit, setActiveUnit, mockFeedbackData } =
+    useContext(DoggoContext);
 
   function handleClick(ev) {
     // modify the feedback val
     // move to next task
     console.log(
       'BEFORE INCREMENT OF MOCKFEEDBACK',
-      mockFeedbackData[currentProgress.unit - 1][currentProgress.task - 1]
+      mockFeedbackData[activeUnit.unit - 1][activeUnit.task - 1]
     );
     const feedbackObj =
-      mockFeedbackData[currentProgress.unit - 1][currentProgress.task - 1];
+      mockFeedbackData[activeUnit.unit - 1][activeUnit.task - 1];
     if (ev.target.name === 'ruff') feedbackObj.ruff++;
     else feedbackObj.great++;
     console.log(
       'AFTER INCREMENT OF MOCKFEEDBACK',
-      mockFeedbackData[currentProgress.unit - 1][currentProgress.task - 1]
+      mockFeedbackData[activeUnit.unit - 1][activeUnit.task - 1]
     );
 
-    if (currentProgress.task < 4) currentProgress.task++;
-    else currentProgress.task = 1;
-    setCurrentProgress(currentProgress);
+    if (activeUnit.task < 4) activeUnit.task++;
+    else activeUnit.task = 1;
+    setActiveUnit(activeUnit);
   }
 
   return (

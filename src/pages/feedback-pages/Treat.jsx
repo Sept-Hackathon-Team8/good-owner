@@ -5,14 +5,14 @@ import HomeHeader from '../../components/headers/HomeHeader';
 import NextButton from '../../components/next-buttons/MainNextButton';
 
 const Treat = props => {
-  const { currentProgress } = useContext(DoggoContext);
+  const { activeUnit } = useContext(DoggoContext);
 
   return (
     <div className="treat-page">
       <HomeHeader />
       <h2>What a good doggo! Here's a treat!</h2>
       <img alt="" src="" />
-      {currentProgress.task === 1 ? (
+      {activeUnit.task === 1 ? (
         <Link to="/home">
           <NextButton />
         </Link>

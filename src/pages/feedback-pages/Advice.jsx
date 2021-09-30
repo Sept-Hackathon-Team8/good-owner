@@ -5,14 +5,14 @@ import HomeHeader from '../../components/headers/HomeHeader';
 import NextButton from '../../components/next-buttons/MainNextButton';
 
 const Advice = props => {
-  const { currentProgress } = useContext(DoggoContext);
+  const { activeUnit } = useContext(DoggoContext);
   return (
     <div className="advice-page">
       <HomeHeader />
       <h3>
         No worries, here are some extra tips to help you and your best friend:
       </h3>
-      {currentProgress.task === 1 ? (
+      {activeUnit.task === 1 ? (
         <Link to="/home">
           <NextButton />
         </Link>

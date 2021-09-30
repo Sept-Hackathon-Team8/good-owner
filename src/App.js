@@ -58,10 +58,9 @@ function App() {
   const [currentPet, setCurrentPet] = useState(null);
   // Current progress should also be a server response currently using journeyMockData
   const [currentProgress, setCurrentProgress] = useState(journeyMockData);
+  const [activeUnit, setActiveUnit] = useState(journeyMockData);
   // taskData will be a server response, currently hard coded in trainingdata.js
-  const [tasks, setTasks] = useState(
-    ['0 Unit - shift index'].concat(tasksData)
-  );
+  const [tasks, setTasks] = useState(tasksData);
   const [mockFeedbackData, setMockFeedbackData] = useState(mockFeedbackDataObj);
 
   const getPets = useCallback(async () => {
@@ -90,6 +89,8 @@ function App() {
         currentPet,
         setCurrentPet,
         currentProgress,
+        activeUnit,
+        setActiveUnit,
         setCurrentProgress,
         tasks,
         setTasks,

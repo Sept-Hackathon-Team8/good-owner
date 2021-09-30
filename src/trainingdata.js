@@ -1,6 +1,7 @@
 const tasks = [
   {
     title: 'Unit One',
+    number: 1,
     tasks: [
       {
         title: 'Mark and Reward',
@@ -21,7 +22,7 @@ const tasks = [
             'If not, the wrong behavior can be reinforced.',
           ],
         },
-        unit: '1',
+        unit: 1,
       },
       {
         title: 'Automatic Focus',
@@ -41,7 +42,7 @@ const tasks = [
             'If your dog dislikes something, it will decrease his desire to repeat a behavior.',
           ],
         },
-        unit: '1',
+        unit: 1,
       },
       {
         title: 'Hand Target',
@@ -61,7 +62,7 @@ const tasks = [
             'Using a “marker” — like a whistle or a clicker — when you train can give you incredible precision with your timing.',
           ],
         },
-        unit: '1',
+        unit: 1,
       },
       {
         title: 'Sit',
@@ -82,12 +83,13 @@ const tasks = [
             'Your other option is to increase the value of the treat reward or consider using toys and play as a reward.',
           ],
         },
-        unit: '1',
+        unit: 1,
       },
     ],
   },
   {
     title: 'Unit Two',
+    number: 2,
     tasks: [
       {
         title: 'Leash Skills',
@@ -98,7 +100,7 @@ const tasks = [
           title: ' ',
           text: [' ', ' ', ' ', ' '],
         },
-        unit: '2',
+        unit: 2,
       },
       {
         title: 'Loose Leash Walk',
@@ -109,7 +111,7 @@ const tasks = [
           title: ' ',
           text: [' ', ' ', ' ', ' '],
         },
-        unit: '2',
+        unit: 2,
       },
       {
         title: "Pet/Don't Pet",
@@ -120,7 +122,7 @@ const tasks = [
           title: ' ',
           text: [' ', ' ', ' ', ' '],
         },
-        unit: '2',
+        unit: 2,
       },
       {
         title: 'Handling/Desensitizing',
@@ -131,7 +133,7 @@ const tasks = [
           title: ' ',
           text: [' ', ' ', ' ', ' '],
         },
-        unit: '2',
+        unit: 2,
       },
     ],
   },
