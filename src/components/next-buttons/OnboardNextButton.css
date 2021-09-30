@@ -1,4 +1,8 @@
-.ob {
-  position: relative;
-  bottom: 40px;
+.next {
+  width: 304px;
+  height: 49px;
+  background-color: #FBD157;
+  border-style: none;
+  border-radius: 10px;
+  margin-top: 20px;
 }

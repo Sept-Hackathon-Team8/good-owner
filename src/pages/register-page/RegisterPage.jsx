@@ -3,10 +3,12 @@ import { Redirect } from 'react-router';
 import { DoggoContext } from '../../DoggoContext';
 import OnboardHeader from '../../components/headers/OnboardHeader';
 import { registerUser } from '../../services/auth';
+import './RegisterPage.css';
 
 const RegisterPage = () => {
   const { setCurrentUser, currentUser } = useContext(DoggoContext);
 
+  const [errorData, setErrorData] = useState(null);
   const [regData, setRegData] = useState({
     email: '',
     password1: '',
@@ -25,9 +27,13 @@ const RegisterPage = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const user = await registerUser(regData);
-    console.log(user);
-    setCurrentUser(user);
+    const { is_error, data } = await registerUser(regData);
+    console.log('WHAT IS THIS IS ERROR', is_error);
+    if (is_error) {
+      setErrorData(data);
+    } else {
+      setCurrentUser(data);
+    }
   };
 
   if (currentUser) return <Redirect to={'/onboard'} />;
@@ -35,14 +41,32 @@ const RegisterPage = () => {
   return (
     <div className="register-page-container">
       <OnboardHeader />
-      <h1>Register</h1>
+      <div
+        style={{
+          fontSize: '.8rem',
+          color: 'red',
+          lineHeight: '.7rem',
+          backgroundColor: 'rgba(255,0,0,.2)',
+          width: '100%',
+        }}
+      >
+        {errorData !== null
+          ? errorData.map((err, i) => (
+              <p key={i}>
+                <b>{err[0]}:</b> {err[1]}
+              </p>
+            ))
+          : ''}
+      </div>
+      {/* <h1>Register</h1> */}
       <div className="register-form-container">
         <form className="register-form" onSubmit={handleSubmit}>
-          <div>
+          <div className="email-input">
             <label>
-              Email:
+              {/* Email: */}
               <input
                 className="register-input"
+                placeholder="Email"
                 type="text"
                 value={email}
                 name="email"
@@ -50,11 +74,12 @@ const RegisterPage = () => {
               />
             </label>
           </div>
-          <div>
+          <div className="password-input">
             <label>
-              Password:
+              {/* Password: */}
               <input
                 className="register-input"
+                placeholder="Password"
                 type="password"
                 value={password1}
                 name="password1"
@@ -62,11 +87,12 @@ const RegisterPage = () => {
               />
             </label>
           </div>
-          <div>
+          <div className="password-input">
             <label>
-              Confirm password:
+              {/* Confirm password: */}
               <input
                 className="register-input"
+                placeholder="Re-type Password"
                 type="password"
                 value={password2}
                 name="password2"
@@ -79,7 +105,7 @@ const RegisterPage = () => {
               ''
             )}
           </div>
-          <button className="register-submit">Sign Up</button>
+          <button className="register-submit">Create Account</button>
         </form>
       </div>
     </div>

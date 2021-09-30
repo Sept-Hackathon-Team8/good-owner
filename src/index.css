@@ -22,6 +22,7 @@ code {
 }
 .onboard-header {
   background-color: #f9c946;
+  width: 100vw;
   height: 124px;
   display: flex;
   justify-content: center;
@@ -114,17 +115,38 @@ code {
   margin: 0px 20px 20px 20px;
 }
 .task-image {
-  width: 52px;
-  height: 52px;
-  border-style: solid;
-  border-radius: 50%;
+  /* width: 52px;
+  height: 52px; */
   margin-right: 20px;
+  position: relative;
+  /* display: inline-block; */
 }
+.image-icon {
+  /* margin-left: 4px; */
+  margin-top: 4px;
+}
+.progress-container {
+  width: 60px;
+  height: 60px;
+}
+.progress-ring {
+  overflow: visible;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .task-title {
   text-align: center;
   font-size: 24px;
   font-weight: 400;
 }
 .task-list {
-  width: 375px;
+  width: 300px;
+}
+li {
+  text-align: left;
+  margin-bottom: 20px;
 }

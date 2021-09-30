@@ -1,8 +1,75 @@
 .onboard-text-small {
-  font-size: 32px;
+  font-size: 2em;
 }
 
 .onboard-text-bold {
-  font-size: 32px;
+  font-size: 2em;
   font-weight: bold;
+}
+
+.onboard-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50vh;
+}
+
+.onboard-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.first-container {
+  margin-top: 85px;
+}
+
+#logyourdog {
+  display: flex;
+  font-size: 2.5em;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name-input-container{
+  margin: 40px;
+}
+
+.img1 {
+  margin-top: 20px;
+}
+
+.dog-name-input {
+  width: 280px;
+  height: 41px;
+  border-style: none;
+  border-radius: 15px;
+  background: #F5F4F6;
+}
+
+.dog-name-input::placeholder {
+  padding-left: 12px;
+  color: grey;
+}
+
+.bold-container {
+  margin-top: 20px;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.onboard-age {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.log-dog-button {
+  width: 304px;
+  height: 49px;
+  background-color: #FBD157;
+  border-style: none;
+  border-radius: 10px;
+  margin-top: 20px;
 }
