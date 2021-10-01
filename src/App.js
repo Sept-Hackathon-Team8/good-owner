@@ -13,6 +13,7 @@ import Onboard from './pages/onboard-pages/Onboard';
 import './App.css';
 import tasksData from './trainingdata';
 import { getPet } from './services/auth';
+import HomeHeader from './components/headers/HomeHeader';
 
 // This is meant to be coming from the Journey model in the backend
 // TODO: There should be one more step of choosing which pet are you choosing a journey for
@@ -106,11 +107,19 @@ function App() {
           <Route path="/register">
             <RegisterPage />
           </Route>
-          <Route path="/home">
-            <HomePage />
+          <Route path="/Onboard">
+            <Onboard />
           </Route>
           <Route path="/login">
             <LoginPage />
+          </Route>
+        </Switch>
+        <Route path="/">
+          <HomeHeader />
+        </Route>
+        <Switch>
+          <Route path="/home">
+            <HomePage />
           </Route>
           <Route path="/task">
             <Task />
@@ -123,9 +132,6 @@ function App() {
           </Route>
           <Route path="/advice">
             <Advice />
-          </Route>
-          <Route path="/Onboard">
-            <Onboard />
           </Route>
         </Switch>
       </div>
