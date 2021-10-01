@@ -107,16 +107,18 @@ function App() {
           <Route path="/register">
             <RegisterPage />
           </Route>
-          <Route path="/Onboard">
+          <Route path="/onboard">
             <Onboard />
           </Route>
           <Route path="/login">
             <LoginPage />
           </Route>
         </Switch>
-        <Route path="/">
-          <HomeHeader />
-        </Route>
+        {/* The route below uses regex to reject all routes in the Switch above as a match */}
+        <Route
+          path={new RegExp('^/(?!(login|onboard|register|$)).*$')}
+          component={HomeHeader}
+        />
         <Switch>
           <Route path="/home">
             <HomePage />
