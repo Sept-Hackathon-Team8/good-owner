@@ -10,18 +10,10 @@ const Feedback = () => {
   function handleClick(ev) {
     // modify the feedback val
     // move to next task
-    console.log(
-      'BEFORE INCREMENT OF MOCKFEEDBACK',
-      mockFeedbackData[activeUnit.unit - 1][activeUnit.task - 1]
-    );
     const feedbackObj =
       mockFeedbackData[activeUnit.unit - 1][activeUnit.task - 1];
     if (ev.target.name === 'ruff') feedbackObj.ruff++;
     else feedbackObj.great++;
-    console.log(
-      'AFTER INCREMENT OF MOCKFEEDBACK',
-      mockFeedbackData[activeUnit.unit - 1][activeUnit.task - 1]
-    );
 
     if (activeUnit.task < 4) activeUnit.task++;
     else activeUnit.task = 1;

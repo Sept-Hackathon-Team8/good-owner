@@ -8,6 +8,9 @@ import api from './apiConfig';
 // };
 
 export const loginUser = async loginData => {
+  // TODO: Move line below to global auth wrapper when created
+  localStorage.removeItem('authToken');
+
   try {
     const resp = await api.post('/dj-rest-auth/login/', loginData);
     localStorage.setItem('authToken', resp.data.key);
@@ -30,6 +33,8 @@ export const loginUser = async loginData => {
 };
 
 export const registerUser = async registerData => {
+  // TODO: Move line below to global auth wrapper when created
+  localStorage.removeItem('authToken');
   try {
     const resp = await api.post('/dj-rest-auth/registration/', registerData);
     localStorage.setItem('authToken', resp.data.key);

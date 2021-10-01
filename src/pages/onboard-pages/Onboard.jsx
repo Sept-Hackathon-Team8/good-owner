@@ -20,10 +20,7 @@ const Onboard = props => {
     setBreeds(res);
   };
 
-  const { currentUser, currentPet, setCurrentPet } = useContext(DoggoContext);
-
-  console.log('THIS IS CURRENT USER', currentUser);
-  console.log('THIS IS TOKEN', localStorage.getItem('authToken'));
+  const { currentPet, setCurrentPet } = useContext(DoggoContext);
 
   const [petData, setPetData] = useState({
     name: '',
@@ -46,12 +43,9 @@ const Onboard = props => {
   const [count, setCount] = useState(0);
   const ageOptions = ['< 1', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, '13+'];
 
-  /////// testing dog age/name below, DELETE LATER //////
-
   const handleCreatePet = async e => {
     e.preventDefault();
     const pet = await createPet(petData);
-    console.log('this is pet', pet);
     setCurrentPet(pet);
     setCount(count + 1);
   };
@@ -162,16 +156,25 @@ const Onboard = props => {
               <span className="onboard-text-small">is {age}?!</span>
               {/* <img src="nothing.png">insert image</img> */}
               {age > 7 ? (
-                <span className="onboard-text-small">
-                  That's {age * 7} in dog years! Middle aged never looked so
-                  good!
-                </span>
+                <>
+                  <img src={senior} alt="senior dog" />
+                  <span className="onboard-text-small">
+                    That's {age * 7} in dog years! Middle aged never looked so
+                    good!
+                  </span>
+                </>
               ) : age >= 1 ? (
-                <span className="onboard-text-small">
-                  That's {age * 7} in dog years! Look at you all grown up!
-                </span>
+                <>
+                  <img src={adult} alt="adult dog" />
+                  <span className="onboard-text-small">
+                    That's {age * 7} in dog years! Look at you all grown up!
+                  </span>
+                </>
               ) : (
-                <span>So many years of tricks and treats ahead of him!</span>
+                <>
+                  <img src={puppy} alt="puppy dog" />
+                  <span>So many years of tricks and treats ahead of him!</span>
+                </>
               )}
             </div>
           </>
@@ -225,6 +228,7 @@ const Onboard = props => {
                     }
                     className="breed-image"
                     alt="dog"
+                    width="500px"
                   />
 
                   <p>{currentPet.age}</p>
@@ -237,7 +241,7 @@ const Onboard = props => {
                 </h1>
                 <img
                   className="breed-image"
-                  styleMap={{ maxWidth: '500px' }}
+                  style={{ maxWidth: '500px' }}
                   src={breeds.filter(b => b.id === breed).pop().img_url}
                   alt=""
                 />
@@ -277,7 +281,6 @@ const Onboard = props => {
       // do nothing
     }
   };
-  console.log(count);
 
   return (
     <div className="onboard-container">
