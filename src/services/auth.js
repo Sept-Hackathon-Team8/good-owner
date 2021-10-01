@@ -14,11 +14,18 @@ export const loginUser = async loginData => {
     api.defaults.headers.common.authorization = `Token ${resp.data.key}`;
     return { is_error: false, data: resp.data.user };
   } catch (err) {
-    console.log(err.response);
-    return {
-      is_error: err.isAxiosError,
-      data: Array.from(Object.entries(err.response.data)),
-    };
+    console.log('PRINT ERROR DATA LOGIN', err.response);
+    if (err.response) {
+      return {
+        is_error: err.isAxiosError,
+        data: Array.from(Object.entries(err.response.data)),
+      };
+    } else {
+      return {
+        is_error: true,
+        data: [['Custom Unknown Error', 'Server not responding']],
+      };
+    }
   }
 };
 
@@ -29,7 +36,7 @@ export const registerUser = async registerData => {
     api.defaults.headers.common.authorization = `Token ${resp.data.key}`;
     return { is_error: false, data: resp.data.user };
   } catch (err) {
-    console.log(err.response);
+    console.log('PRINT ERROR DATA REGISTER', err.response);
     return {
       is_error: err.isAxiosError,
       data: Array.from(Object.entries(err.response.data)),
