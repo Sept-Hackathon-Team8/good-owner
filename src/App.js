@@ -66,7 +66,7 @@ function App() {
   const getPets = useCallback(async () => {
     const pets = await getPet();
     console.log(pets);
-    if (pets.length) {
+    if (pets && pets.length) {
       setCurrentPet(pets[0]);
       setCurrentProgress(progress => ({ ...progress, pet_id: pets[0].id }));
     }
