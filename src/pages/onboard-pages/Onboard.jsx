@@ -6,7 +6,7 @@ import OnboardNextButton from '../../components/next-buttons/OnboardNextButton';
 import { createPet, getBreeds } from '../../services/auth';
 import './Onboard.css';
 import img1 from '../../Images/OnboardGroup.svg';
-import breed from '../../Images/Onboard6.svg';
+import breedImg from '../../Images/Onboard6.svg';
 import senior from '../../Images/Onboard4.svg';
 import adult from '../../Images/Onboard3.svg';
 import puppy from '../../Images/Onboard2.svg';
@@ -183,6 +183,7 @@ const Onboard = props => {
         return (
           <>
             <div className="onboard-text-small">
+              <img src={breedImg} alt="dog breed banner" />
               I love that look! What breed is
               <br />
               <span className="onboard-text-bold">{name}</span>

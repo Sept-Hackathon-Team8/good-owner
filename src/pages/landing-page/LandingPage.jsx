@@ -1,16 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import OnboardHeader from "../../components/headers/OnboardHeader";
-import "./LandingPage.css";
-import logo from "../../Images/Doggo.svg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './LandingPage.css';
+import logo from '../../Images/Doggo.svg';
 
-const LandingPage = (props) => {
-
+const LandingPage = props => {
   return (
     <div className="landing-page-container">
       <div className="landing">
         <div className="landing-logo-container">
-          <img src={logo} />
+          <img alt="doggo logo" src={logo} />
           <div className="landing-doggo">DOGGO</div>
         </div>
         <div className="landing-links">

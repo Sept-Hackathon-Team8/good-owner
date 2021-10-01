@@ -1,15 +1,13 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { DoggoContext } from '../../DoggoContext';
-import HomeHeader from '../../components/headers/HomeHeader';
 
 const Feedback = () => {
   const { currentPet, activeUnit, setActiveUnit, mockFeedbackData } =
     useContext(DoggoContext);
 
   function handleClick(ev) {
-    // modify the feedback val
-    // move to next task
+    // modify the feedback val to move to next task or exit tasks
     const feedbackObj =
       mockFeedbackData[activeUnit.unit - 1][activeUnit.task - 1];
     if (ev.target.name === 'ruff') feedbackObj.ruff++;
@@ -22,8 +20,6 @@ const Feedback = () => {
 
   return (
     <div className="feedback-page">
-      {/* TODO: The homeheader need to exist in the wrapping container for the app */}
-      {/* <HomeHeader /> */}
       <h1>
         How did <em>{currentPet ? currentPet.name : 'doggo'}</em> do?
       </h1>

@@ -51,7 +51,7 @@ const Training = props => {
         .every(score => score > 3);
       if (unitCompleted) moveToNextLesson();
     }
-  }, [feedbackData, currentProgress]);
+  }, [feedbackData, currentProgress, moveToNextLesson]);
 
   React.useEffect(() => {
     if (unitPassed) {

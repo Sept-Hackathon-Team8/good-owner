@@ -1,16 +1,13 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import HomeHeader from '../../components/headers/HomeHeader';
 import MainNextButton from '../../components/next-buttons/MainNextButton';
-import mark from '../../Images/mark.svg';
-import mark2 from '../../Images/mark2.svg';
 import { DoggoContext } from '../../DoggoContext';
 import { useState } from 'react';
 
 const Task = props => {
   const { activeUnit, tasks } = useContext(DoggoContext);
 
-  const [taskData, setTaskData] = useState(
+  const [taskData] = useState(
     tasks[activeUnit.unit - 1].tasks[activeUnit.task - 1]
   );
 
