@@ -28,7 +28,6 @@ const RegisterPage = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     const { is_error, data } = await registerUser(regData);
-    console.log('WHAT IS THIS IS ERROR', is_error);
     if (is_error) {
       setErrorData(data);
     } else {

@@ -27,9 +27,7 @@ const ProgressCircle = ({ succesfulTasks }) => {
   const circumference = calculateCircumference(30);
   const progress = (succesfulTasks / 7) * 100;
   const remainingProgress = 100 - progress;
-  // console.log(remainingProgress)
   const offset = (remainingProgress / 100) * circumference;
-  // console.log(offset)
   return (
     <>
       {/* <img className="image-icon" alt="mark and reward" src={mark} /> */}
@@ -42,9 +40,9 @@ const ProgressCircle = ({ succesfulTasks }) => {
             cy="30"
             fill="transparent"
             stroke="lightgrey"
-            stroke-width="7px"
-            stroke-dasharray={circumference}
-            stroke-dashoffset="0"
+            strokeWidth="7px"
+            strokeDasharray={circumference}
+            strokeDashoffset="0"
           ></circle>
           <circle
             r="28"
@@ -52,9 +50,9 @@ const ProgressCircle = ({ succesfulTasks }) => {
             cy="30"
             fill="transparent"
             stroke={colors[succesfulTasks < 5 ? succesfulTasks : 4]}
-            stroke-width="7px"
-            stroke-dasharray={circumference}
-            stroke-dashoffset={offset}
+            strokeWidth="7px"
+            strokeDasharray={circumference}
+            strokeDashoffset={offset}
           ></circle>
         </g>
       </svg>

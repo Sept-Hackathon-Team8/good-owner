@@ -17,7 +17,6 @@ export const loginUser = async loginData => {
     api.defaults.headers.common.authorization = `Token ${resp.data.key}`;
     return { is_error: false, data: resp.data.user };
   } catch (err) {
-    console.log('PRINT ERROR DATA LOGIN', err.response);
     if (err.response) {
       return {
         is_error: err.isAxiosError,
@@ -41,7 +40,6 @@ export const registerUser = async registerData => {
     api.defaults.headers.common.authorization = `Token ${resp.data.key}`;
     return { is_error: false, data: resp.data.user };
   } catch (err) {
-    console.log('PRINT ERROR DATA REGISTER', err.response);
     return {
       is_error: err.isAxiosError,
       data: Array.from(Object.entries(err.response.data)),
@@ -73,7 +71,6 @@ export const getPet = async () => {
   if (token) {
     api.defaults.headers.common.authorization = `Token ${token}`;
     const resp = await api.get('/pets/');
-    console.log(resp);
     return resp.data;
   }
 };
