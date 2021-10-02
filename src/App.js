@@ -26,8 +26,8 @@ const mockFeedbackDataObj = [
   // unit 1
   [
     { ruff: 0, great: 4 },
-    { ruff: 1, great: 2 },
-    { ruff: 0, great: 1 },
+    { ruff: 1, great: 3 },
+    { ruff: 0, great: 3 },
     { ruff: 0, great: 3 },
   ],
   // unit 2

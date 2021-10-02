@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { DoggoContext } from '../../DoggoContext';
 import TrainingUnit from './TrainingUnit.jsx';
-import { getPet } from '../../services/auth';
+import { getPet, updateJourney } from '../../services/auth';
 import ConfettiGenerator from 'confetti-js';
 // consider weather data is a request at the app level where the tasks
 // object is downloaded one time with all the lessons data.
@@ -65,10 +65,15 @@ const Training = props => {
 
   const moveToNextLesson = useCallback(() => {
     setUnitPassed(true);
-    setCurrentProgress(progress => ({ ...progress, unit: progress.unit + 1 }));
+    setCurrentProgress(progress => {
+      console.log(progress);
+      updateJourney({ unit: progress.unit + 1 }, progress.id);
+      return { ...progress, unit: progress.unit + 1 };
+    });
   }, [setCurrentProgress]);
 
   useEffect(() => {
+    console.log('THIS IS CURRENT PROGRESS', currentProgress.unit);
     if (feedbackData.length) {
       const unitCompleted = feedbackData[currentProgress.unit - 1]
         .map(feedback => feedback.great)

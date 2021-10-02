@@ -137,6 +137,56 @@ const tasks = [
       },
     ],
   },
+  {
+    title: 'Unit Three',
+    number: 3,
+    tasks: [
+      {
+        title: 'Leash 3',
+        icon: ' ',
+        image: ' ',
+        instructions: [' ', ' ', ' '],
+        tips: {
+          title: ' ',
+          text: [' ', ' ', ' ', ' '],
+        },
+        unit: 3,
+      },
+      {
+        title: 'Loose 3',
+        icon: ' ',
+        image: ' ',
+        instructions: [' ', ' ', ' '],
+        tips: {
+          title: ' ',
+          text: [' ', ' ', ' ', ' '],
+        },
+        unit: 3,
+      },
+      {
+        title: "Pet/Don't 3",
+        icon: ' ',
+        image: ' ',
+        instructions: [' ', ' ', ' '],
+        tips: {
+          title: ' ',
+          text: [' ', ' ', ' ', ' '],
+        },
+        unit: 3,
+      },
+      {
+        title: 'Handling 3',
+        icon: ' ',
+        image: ' ',
+        instructions: [' ', ' ', ' '],
+        tips: {
+          title: ' ',
+          text: [' ', ' ', ' ', ' '],
+        },
+        unit: 3,
+      },
+    ],
+  },
 ];
 // {
 //     "title": "save for template",

@@ -70,6 +70,15 @@ export const getPet = async () => {
   }
 };
 
+export const updateJourney = async (journeyData, uuid) => {
+  const token = localStorage.getItem('authToken');
+  if (token) {
+    api.defaults.headers.common.authorization = `Token ${token}`;
+    const resp = await api.patch(`/journey/${uuid}`, journeyData);
+    return resp.data;
+  }
+};
+
 // export const verifyUser = async () => {
 //   const token = localStorage.getItem('authToken');
 //   if (token) {

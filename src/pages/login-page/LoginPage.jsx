@@ -38,7 +38,7 @@ const LoginPage = props => {
       localStorage.setItem('authToken', currentUser.key);
       api.defaults.headers.common.authorization = `Token ${currentUser.key}`;
     }
-  }, [currentUser]);
+  }, [currentUser, setLoggedIn]);
 
   if (currentUser) return <Redirect to={'/home'} />;
 
