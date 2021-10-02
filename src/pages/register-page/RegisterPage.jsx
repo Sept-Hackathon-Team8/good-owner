@@ -37,7 +37,10 @@ const RegisterPage = () => {
   };
 
   useEffect(() => {
+    console.log('INSIDE REGISTER USE EFFECT');
+    console.log(currentUser);
     if (currentUser && currentUser.key) {
+      console.log('THIS IS CURRENT USER');
       setLoggedIn(true);
       localStorage.setItem('authToken', currentUser.key);
       api.defaults.headers.common.authorization = `Token ${currentUser.key}`;

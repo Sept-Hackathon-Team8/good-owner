@@ -36,6 +36,7 @@ const tasks = [
           'Repeat the above steps five times, this time varying your hand and body position.',
         ],
         tips: {
+          success: true,
           title: 'Rewards From A Dog’s Point of View',
           text: [
             'Make sure you choose something truly rewarding from your dog’s point of view. Rewards can even be praise, a toy, or a chance to play a game — anything your dog loves makes a great reinforcement.',
@@ -56,6 +57,7 @@ const tasks = [
           'When your dog sits, mark and reward from the hand opposite your lure hand, then release.',
         ],
         tips: {
+          success: false,
           title: 'Timing',
           text: [
             'If you take too long to deliver the treat, your dog can become confused about what exactly he’s being rewarded for.',
@@ -77,6 +79,7 @@ const tasks = [
           'Ask your dog to “Sit” as many times as possible throughout the day.',
         ],
         tips: {
+          success: true,
           title: 'Add Distance and Increase Value',
           text: [
             'If your dog doesn’t sit when asked because they are too distracted, simply add distance between you and the distraction before trying again.',
@@ -97,6 +100,7 @@ const tasks = [
         image: ' ',
         instructions: [' ', ' ', ' '],
         tips: {
+          success: true,
           title: ' ',
           text: [' ', ' ', ' ', ' '],
         },
@@ -108,6 +112,7 @@ const tasks = [
         image: ' ',
         instructions: [' ', ' ', ' '],
         tips: {
+          success: true,
           title: ' ',
           text: [' ', ' ', ' ', ' '],
         },
@@ -119,6 +124,7 @@ const tasks = [
         image: ' ',
         instructions: [' ', ' ', ' '],
         tips: {
+          success: true,
           title: ' ',
           text: [' ', ' ', ' ', ' '],
         },
@@ -130,6 +136,7 @@ const tasks = [
         image: ' ',
         instructions: [' ', ' ', ' '],
         tips: {
+          success: true,
           title: ' ',
           text: [' ', ' ', ' ', ' '],
         },
@@ -147,6 +154,7 @@ const tasks = [
         image: ' ',
         instructions: [' ', ' ', ' '],
         tips: {
+          success: true,
           title: ' ',
           text: [' ', ' ', ' ', ' '],
         },
@@ -158,6 +166,7 @@ const tasks = [
         image: ' ',
         instructions: [' ', ' ', ' '],
         tips: {
+          success: true,
           title: ' ',
           text: [' ', ' ', ' ', ' '],
         },

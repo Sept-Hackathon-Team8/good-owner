@@ -31,14 +31,19 @@ export const registerUser = async registerData => {
   // TODO: Move line below to global auth wrapper when created
   try {
     const resp = await api.post('/dj-rest-auth/registration/', registerData);
-    localStorage.setItem('authToken', resp.data.key);
-    api.defaults.headers.common.authorization = `Token ${resp.data.key}`;
-    return { is_error: false, data: resp.data.user };
+    return { is_error: false, data: resp.data };
   } catch (err) {
-    return {
-      is_error: err.isAxiosError,
-      data: Array.from(Object.entries(err.response.data)),
-    };
+    if (err.response) {
+      return {
+        is_error: err.isAxiosError,
+        data: Array.from(Object.entries(err.response.data)),
+      };
+    } else {
+      return {
+        is_error: true,
+        data: [['Custom Unknown Error', 'Server not responding']],
+      };
+    }
   }
 };
 
