@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { DoggoContext } from '../../DoggoContext';
 import TrainingUnit from './TrainingUnit.jsx';
+import { getPet } from '../../services/auth';
 import ConfettiGenerator from 'confetti-js';
 // consider weather data is a request at the app level where the tasks
 // object is downloaded one time with all the lessons data.
@@ -20,7 +21,30 @@ const Training = props => {
     tasks,
     mockFeedbackData,
     setActiveUnit,
+    setCurrentPet,
+    currentUser,
   } = useContext(DoggoContext);
+
+  const getPets = useCallback(async () => {
+    const pets = await getPet();
+    if (pets && pets.length) {
+      // Currently using only the first pet, change this when selecting the pet is an option
+      const { journey, ...petData } = pets[0];
+      setCurrentPet(petData);
+      setCurrentProgress({ ...journey, task: 1 });
+      setActiveUnit({ ...journey, task: 1 });
+      setCurrentProgress(progress => ({ ...progress, pet_id: pets[0].id }));
+    }
+  }, [setCurrentPet, setCurrentProgress, setActiveUnit]);
+
+  // TODO: this will be the same as above but will run after currentPet is available most likely in its own useEffect hook
+  // const getJourney = null
+
+  useEffect(() => {
+    // TODO: Currently we will use the first pet until we create a menu to select the journey for specific pet, change when that feature is added
+    getPets();
+    // TODO: After getting the pet id, we should request its respective Journey obejct (journeyMockData)
+  }, [getPets]);
 
   const [feedbackData, setFeedbackData] = useState([]);
   const [unitPassed, setUnitPassed] = useState(false);

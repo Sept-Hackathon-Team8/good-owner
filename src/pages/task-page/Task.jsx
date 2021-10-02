@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MainNextButton from '../../components/next-buttons/MainNextButton';
 import { DoggoContext } from '../../DoggoContext';
@@ -6,10 +6,12 @@ import { useState } from 'react';
 
 const Task = props => {
   const { activeUnit, tasks } = useContext(DoggoContext);
+  const [taskData, setTaskData] = useState(null);
 
-  const [taskData] = useState(
-    tasks[activeUnit.unit - 1].tasks[activeUnit.task - 1]
-  );
+  useEffect(() => {
+    if (Object.entries(activeUnit).length)
+      setTaskData(tasks[activeUnit.unit - 1].tasks[activeUnit.task - 1]);
+  }, [activeUnit, tasks]);
 
   return (
     taskData && (
@@ -30,9 +32,11 @@ const Task = props => {
           </div>
 
           <ul className="task-list">
-            {taskData.instructions.map((instruction, i) => (
-              <li key={i}>{instruction}</li>
-            ))}
+            {taskData
+              ? taskData.instructions.map((instruction, i) => (
+                  <li key={i}>{instruction}</li>
+                ))
+              : null}
           </ul>
 
           <Link to="/feedback">

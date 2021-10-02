@@ -5,6 +5,8 @@ import { DoggoContext } from '../../DoggoContext';
 import { loginUser } from '../../services/auth';
 import './LoginPage.css';
 import OnboardHeader from '../../components/headers/OnboardHeader';
+import api from '../../services/apiConfig';
+import { useEffect } from 'react/cjs/react.development';
 
 const LoginPage = props => {
   const [email, setEmail] = useState('');
@@ -12,7 +14,7 @@ const LoginPage = props => {
 
   const [errorData, setErrorData] = useState(null);
 
-  const { setCurrentUser, currentUser } = useContext(DoggoContext);
+  const { setCurrentUser, currentUser, setLoggedIn } = useContext(DoggoContext);
 
   // const handleSubmit = async e => {
   //   e.preventDefault();
@@ -29,6 +31,14 @@ const LoginPage = props => {
       setCurrentUser(data);
     }
   };
+
+  useEffect(() => {
+    if (currentUser && currentUser.key) {
+      setLoggedIn(true);
+      localStorage.setItem('authToken', currentUser.key);
+      api.defaults.headers.common.authorization = `Token ${currentUser.key}`;
+    }
+  }, [currentUser]);
 
   if (currentUser) return <Redirect to={'/home'} />;
 

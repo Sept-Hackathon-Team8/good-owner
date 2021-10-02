@@ -9,13 +9,9 @@ import api from './apiConfig';
 
 export const loginUser = async loginData => {
   // TODO: Move line below to global auth wrapper when created
-  localStorage.removeItem('authToken');
-
   try {
     const resp = await api.post('/dj-rest-auth/login/', loginData);
-    localStorage.setItem('authToken', resp.data.key);
-    api.defaults.headers.common.authorization = `Token ${resp.data.key}`;
-    return { is_error: false, data: resp.data.user };
+    return { is_error: false, data: resp.data };
   } catch (err) {
     if (err.response) {
       return {
@@ -33,7 +29,6 @@ export const loginUser = async loginData => {
 
 export const registerUser = async registerData => {
   // TODO: Move line below to global auth wrapper when created
-  localStorage.removeItem('authToken');
   try {
     const resp = await api.post('/dj-rest-auth/registration/', registerData);
     localStorage.setItem('authToken', resp.data.key);

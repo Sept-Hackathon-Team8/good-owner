@@ -1,12 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Redirect } from 'react-router';
 import { DoggoContext } from '../../DoggoContext';
 import OnboardHeader from '../../components/headers/OnboardHeader';
 import { registerUser } from '../../services/auth';
+import api from '../../services/apiConfig';
 import './RegisterPage.css';
 
 const RegisterPage = () => {
-  const { setCurrentUser, currentUser } = useContext(DoggoContext);
+  const { setCurrentUser, currentUser, setLoggedIn } = useContext(DoggoContext);
 
   const [errorData, setErrorData] = useState(null);
   const [regData, setRegData] = useState({
@@ -34,6 +35,14 @@ const RegisterPage = () => {
       setCurrentUser(data);
     }
   };
+
+  useEffect(() => {
+    if (currentUser && currentUser.key) {
+      setLoggedIn(true);
+      localStorage.setItem('authToken', currentUser.key);
+      api.defaults.headers.common.authorization = `Token ${currentUser.key}`;
+    }
+  }, [currentUser, setLoggedIn]);
 
   if (currentUser) return <Redirect to={'/onboard'} />;
 
