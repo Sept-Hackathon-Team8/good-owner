@@ -61,7 +61,8 @@ function App() {
   const [currentProgress, setCurrentProgress] = useState({});
   const [activeUnit, setActiveUnit] = useState({});
   // taskData will be a server response, currently hard coded in trainingdata.js
-  const [tasks, setTasks] = useState(tasksData);
+  const [tasks, setTasks] = useState(null);
+  // const [tasks, setTasks] = useState(tasksData);
   const [mockFeedbackData, setMockFeedbackData] = useState(mockFeedbackDataObj);
 
   return (

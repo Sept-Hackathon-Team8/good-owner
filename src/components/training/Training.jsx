@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { DoggoContext } from '../../DoggoContext';
 import TrainingUnit from './TrainingUnit.jsx';
-import { getPet, updateJourney } from '../../services/auth';
+import { getPet, updateJourney, getTasks } from '../../services/auth';
 import ConfettiGenerator from 'confetti-js';
 // consider weather data is a request at the app level where the tasks
 // object is downloaded one time with all the lessons data.
@@ -23,7 +23,17 @@ const Training = props => {
     setActiveUnit,
     setCurrentPet,
     currentUser,
+    setTasks,
   } = useContext(DoggoContext);
+
+  const loadUnitsData = useCallback(async () => {
+    const tasksData = await getTasks();
+    setTasks(tasksData);
+  }, []);
+
+  useEffect(() => {
+    loadUnitsData();
+  }, [loadUnitsData]);
 
   const getPets = useCallback(async () => {
     const pets = await getPet();
@@ -31,6 +41,7 @@ const Training = props => {
       // Currently using only the first pet, change this when selecting the pet is an option
       const { journey, ...petData } = pets[0];
       setCurrentPet(petData);
+      console.log(petData);
       setCurrentProgress({ ...journey, task: 1 });
       setActiveUnit({ ...journey, task: 1 });
       setCurrentProgress(progress => ({ ...progress, pet_id: pets[0].id }));
@@ -101,14 +112,14 @@ const Training = props => {
 
   return (
     <div className="training">
-      {tasks.length && feedbackData.length
+      {tasks && tasks.length && feedbackData.length
         ? tasks.map((unit, i) => {
             return (
               <TrainingUnit
                 key={i}
                 unitData={unit.tasks}
                 unitTitle={unit.title}
-                unitNum={unit.number}
+                unitNum={unit.order}
                 unitFeedback={feedbackData[i]}
                 setActiveUnit={setActiveUnit}
                 currentProgress={currentProgress}

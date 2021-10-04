@@ -33,9 +33,9 @@ const Task = props => {
 
           <ul className="task-list">
             {taskData
-              ? taskData.instructions.map((instruction, i) => (
-                  <li key={i}>{instruction}</li>
-                ))
+              ? taskData.instructions
+                  .split('\n')
+                  .map((instruction, i) => <li key={i}>{instruction}</li>)
               : null}
           </ul>
 
