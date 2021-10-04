@@ -1,6 +1,6 @@
 import React from "react";
 import Hamburger from "../hamburger/Hamburger";
-import icon from "../../Images/carbon_user-avatar.svg"
+// import icon from "../../Images/carbon_user-avatar.svg"
 import fire from "../../Images/FlameNoNumber.svg"
 
 const HomeHeader = (props) => {
