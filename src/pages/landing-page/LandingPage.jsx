@@ -2,12 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './LandingPage.css';
 import logo from '../../Images/Doggo.svg';
+import hamburger from "../../Images/hamburger.svg";
 
 const LandingPage = props => {
   return (
     <div className="landing-page-container">
       <div className="landing">
         <div className="landing-logo-container">
+          <img src={hamburger}/>
           <img alt="doggo logo" src={logo} />
           <div className="landing-doggo">DOGGO</div>
         </div>
