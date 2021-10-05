@@ -7,8 +7,7 @@ import HomePage from './pages/home-page/HomePage';
 import LoginPage from './pages/login-page/LoginPage';
 import Task from './pages/task-page/Task';
 import Feedback from './pages/feedback-pages/Feedback';
-import Treat from './pages/feedback-pages/Treat';
-import Advice from './pages/feedback-pages/Advice';
+import Tip from './pages/feedback-pages/Tip';
 import Onboard from './pages/onboard-pages/Onboard';
 import './App.css';
 import tasksData from './trainingdata';
@@ -61,7 +60,9 @@ function App() {
   const [currentProgress, setCurrentProgress] = useState({});
   const [activeUnit, setActiveUnit] = useState({});
   // taskData will be a server response, currently hard coded in trainingdata.js
-  const [tasks, setTasks] = useState(tasksData);
+  const [tasks, setTasks] = useState(null);
+  const [tipData, setTipData] = useState(null);
+  // const [tasks, setTasks] = useState(tasksData);
   const [mockFeedbackData, setMockFeedbackData] = useState(mockFeedbackDataObj);
 
   return (
@@ -81,6 +82,8 @@ function App() {
         mockFeedbackData,
         setMockFeedbackData,
         setLoggedIn,
+        tipData,
+        setTipData,
       }}
     >
       <div className="App">
@@ -116,11 +119,8 @@ function App() {
           <Route path="/feedback">
             <Feedback />
           </Route>
-          <Route path="/treat">
-            <Treat />
-          </Route>
-          <Route path="/advice">
-            <Advice />
+          <Route path="/tip">
+            <Tip />
           </Route>
         </Switch>
       </div>

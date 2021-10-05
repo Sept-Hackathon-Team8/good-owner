@@ -84,10 +84,15 @@ export const updateJourney = async (journeyData, uuid) => {
   }
 };
 
+export const getTasks = async () => {
+  const resp = await api.get('/units/');
+  console.log(resp.data);
+  return resp.data;
+};
+
 export const removeToken = () => {
   api.defaults.headers.common.authorization = null;
-}
-
+};
 // export const verifyUser = async () => {
 //   const token = localStorage.getItem('authToken');
 //   if (token) {
