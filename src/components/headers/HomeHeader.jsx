@@ -8,10 +8,11 @@ const HomeHeader = (props) => {
     <div className="home-header">
       <div className="doggo-home">DOGGO</div>
       <div className="user-progress">
-        <div className="icon">
-          <Hamburger />
+        <Hamburger />
+        {/* <div className="icon"> */}
+          {/* <Hamburger /> */}
         {/* <img alt="user vector icon" src={icon}/> */}
-        </div>
+        {/* </div> */}
         <div className="progress">
           <div className="circle one">1</div>
           <div className="circle two">2</div>

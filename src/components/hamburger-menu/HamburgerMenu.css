@@ -1,0 +1,33 @@
+.hamburger-menu {
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f9c946;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ham-logo-container {
+  margin-top: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ham-doggo-logo {
+  max-height: 6.1vh;
+}
+
+.ham-doggo {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: -6px;
+}
+
+.back {
+  height: 6.1vh;
+  position: absolute;
+  left: 5.5vw;
+  top: 4vh;
+}

@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { DoggoContext } from "../../DoggoContext";
 import hamburgericon from "../../Images/hamburger.svg";
-import "../hamburger/Hamburger.css";
+import HamburgerMenu from "../../components/hamburger-menu/HamburgerMenu";
+import "./Hamburger.css";
 
 const Hamburger = () => {
   const { currentPet, setCurrentPet } = useContext(DoggoContext);
@@ -32,7 +33,9 @@ const Hamburger = () => {
         }
       >
         <Link className="hamburger-menu-closed">closed</Link>
-        <div className="hamburger-menu-open">open</div>
+        <div className="hamburger-menu-open">
+          <HamburgerMenu />
+        </div>
       </div>
     </div>
   )
