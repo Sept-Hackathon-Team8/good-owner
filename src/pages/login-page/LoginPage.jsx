@@ -67,7 +67,7 @@ const LoginPage = props => {
       <div className="login-form-container">
         {/* <h2>Login</h2> */}
         <form onSubmit={handleSubmit} className="login-form">
-          <div classname="login-email">
+          <div className="login-email">
             {/* <label>Email:</label> */}
             <input
               type="email"
