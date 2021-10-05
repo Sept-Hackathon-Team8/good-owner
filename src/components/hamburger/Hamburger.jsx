@@ -34,7 +34,7 @@ const Hamburger = () => {
       >
         <Link className="hamburger-menu-closed">closed</Link>
         <div className="hamburger-menu-open">
-          <HamburgerMenu />
+          <HamburgerMenu openHamburger={openHamburger} changeOpenHamburger={changeOpenHamburger}/>
         </div>
       </div>
     </div>
