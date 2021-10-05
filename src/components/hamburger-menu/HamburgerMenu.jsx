@@ -8,8 +8,7 @@ import { removeToken } from '../../services/auth';
 
 const HamburgerMenu = props => {
   const { changeOpenHamburger, openHamburger } = props;
-  const { currentPet, setCurrentPet } = useContext(DoggoContext);
-  const { currentUser, setCurrentUser } = useContext(DoggoContext);
+  const { currentPet, setCurrentUser } = useContext(DoggoContext);
 
   const handleLogout = () => {
     setCurrentUser(null);
@@ -29,7 +28,7 @@ const HamburgerMenu = props => {
         <img className="ham-doggo-logo" alt="doggo logo" src={logo} />
         <div className="ham-doggo">DOGGO</div>
       </div>
-      <div className="ham-petname">{currentPet.name}</div>
+      {currentPet ? <div className="ham-petname">{currentPet.name}</div> : ''}
       <div className="ham-streak-container">
         <div>Streak will go here</div>
       </div>
