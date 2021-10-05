@@ -1,0 +1,66 @@
+.hamburger-menu {
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f9c946;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ham-logo-container {
+  margin-top: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ham-doggo-logo {
+  max-height: 6.1vh;
+}
+
+.ham-doggo {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: -6px;
+}
+
+.back {
+  height: 6.1vh;
+  position: absolute;
+  left: 5.5vw;
+  top: 4vh;
+}
+
+.ham-petname {
+  font-size: 3.75em;
+  font-weight: bold;
+  margin-top: 10vh;
+  margin-bottom: 2vh;
+}
+
+.sign-out-container {
+  margin-top: 7vh;
+}
+
+.sign-out {
+  width: 304px;
+  height: 49px;
+  border-radius: 10px;
+  border-style: none;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+  background-color: black;
+  color: white;
+  font-size: 1em;
+}
+
+.ham-streak-container {
+  width: 303px;
+  height: 153px;
+  background-color: #F5F4F6;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}

@@ -90,6 +90,9 @@ export const getTasks = async () => {
   return resp.data;
 };
 
+export const removeToken = () => {
+  api.defaults.headers.common.authorization = null;
+};
 // export const verifyUser = async () => {
 //   const token = localStorage.getItem('authToken');
 //   if (token) {

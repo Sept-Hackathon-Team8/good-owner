@@ -1,5 +1,6 @@
 import React from "react";
-import icon from "../../Images/carbon_user-avatar.svg"
+import Hamburger from "../hamburger/Hamburger";
+// import icon from "../../Images/carbon_user-avatar.svg"
 import fire from "../../Images/FlameNoNumber.svg"
 
 const HomeHeader = (props) => {
@@ -7,9 +8,11 @@ const HomeHeader = (props) => {
     <div className="home-header">
       <div className="doggo-home">DOGGO</div>
       <div className="user-progress">
-        <div className="icon">
-        <img alt="user vector icon" src={icon}/>
-        </div>
+        <Hamburger />
+        {/* <div className="icon"> */}
+          {/* <Hamburger /> */}
+        {/* <img alt="user vector icon" src={icon}/> */}
+        {/* </div> */}
         <div className="progress">
           <div className="circle one">1</div>
           <div className="circle two">2</div>
