@@ -3,15 +3,33 @@ import { Link } from 'react-router-dom';
 import { DoggoContext } from '../../DoggoContext';
 
 const Feedback = () => {
-  const { currentPet, activeUnit, setActiveUnit, mockFeedbackData } =
-    useContext(DoggoContext);
+  const {
+    currentPet,
+    activeUnit,
+    setActiveUnit,
+    mockFeedbackData,
+    setTipData,
+    tasks,
+  } = useContext(DoggoContext);
 
   function handleClick(ev) {
     // modify the feedback val to move to next task or exit tasks
     const feedbackObj =
       mockFeedbackData[activeUnit.unit - 1][activeUnit.task - 1];
-    if (ev.target.name === 'ruff') feedbackObj.ruff++;
-    else feedbackObj.great++;
+
+    const task = tasks[activeUnit.unit - 1].tasks[activeUnit.task - 1];
+
+    const success = Boolean(Number(ev.target.value));
+
+    const tip = task['tip'].filter(tip => tip.success === success).pop();
+    setTipData(tip);
+    console.log(tip);
+
+    if (success) {
+      feedbackObj.great++;
+    } else {
+      feedbackObj.ruff++;
+    }
 
     if (activeUnit.task < 4) activeUnit.task++;
     else activeUnit.task = 1;
@@ -23,13 +41,11 @@ const Feedback = () => {
       <h1>
         How did <em>{currentPet ? currentPet.name : 'doggo'}</em> do?
       </h1>
-      <Link to="/advice">
-        <button onClick={handleClick} className="ruffff" name="ruff">
+      <Link to="/tip">
+        <button value="0" onClick={handleClick} className="ruffff">
           Ruffff
         </button>
-      </Link>
-      <Link to="/treat">
-        <button onClick={handleClick} className="great" name="great">
+        <button value="1" onClick={handleClick} className="great">
           Great
         </button>
       </Link>
