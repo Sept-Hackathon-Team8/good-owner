@@ -13,7 +13,7 @@ import puppy from '../../Images/Onboard2.svg';
 import img2 from '../../Images/Onboard1.svg';
 
 const Onboard = props => {
-  const [breeds, setBreeds] = useState([]);
+  const [breeds, setBreeds] = useState(null);
 
   const fetchBreeds = async () => {
     const res = await getBreeds();
@@ -215,7 +215,7 @@ const Onboard = props => {
       case 6:
         return (
           <>
-            {currentPet ? (
+            {currentPet & breeds ? (
               <div>
                 <div>
                   <p>{currentPet.name}</p>
