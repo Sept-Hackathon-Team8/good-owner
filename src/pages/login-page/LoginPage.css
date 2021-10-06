@@ -1,3 +1,7 @@
+input {
+  padding-left: 12px
+}
+
 .login-page-container {
   display: flex;
   flex-direction: column;
@@ -22,7 +26,6 @@
 }
 
 .login-input::placeholder {
-  padding-left: 12px;
   color: grey;
 }
 

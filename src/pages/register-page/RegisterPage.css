@@ -1,3 +1,6 @@
+input {
+  padding-left: 12px
+}
 .register-page-container {
   display: flex;
   flex-direction: column;
@@ -19,7 +22,6 @@
 }
 
 .register-input::placeholder {
-  padding-left: 12px;
   color: grey;
 }
 

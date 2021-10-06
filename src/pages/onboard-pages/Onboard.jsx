@@ -60,8 +60,7 @@ const Onboard = props => {
                 First thing's first!
                 <br />
                 Let's...
-              </div>{' '}
-              <br />
+              </div>
               <div id="logyourdog" className="onboard-text-bold">
                 LOG
                 <br />
@@ -86,7 +85,7 @@ const Onboard = props => {
                 <input
                   value={name}
                   className="dog-name-input"
-                  placeholder="Your Dog's Name"
+                  placeholder="Dog name?"
                   type="text"
                   name="name"
                   onChange={handleChange}
@@ -108,8 +107,8 @@ const Onboard = props => {
                 Hi {name}!{/* <img></img> */}
               </h2>
               <img alt="dog" src={img2} />
-              <div className="onboard-text-small">
-                We just met you and we love you.
+              <div className="onboard-text-small love-you">
+                We just met you <br /> and we love you.
               </div>
             </div>
           </>
@@ -118,10 +117,10 @@ const Onboard = props => {
         return (
           <>
             <div className="bold-container">
-              If we may be so bold, how old is <br />
-              <span className="onboard-text-bold">
+              If we may be so <br />bold, how old is <br />
+              <h2 className="ralph">
                 {name ? name : 'no name showing'}?
-              </span>
+              </h2>
             </div>
             <div className="dropdown-container">
               <div className="age-dropdown">
@@ -131,7 +130,7 @@ const Onboard = props => {
                   value={age}
                   onChange={handleChange}
                 >
-                  <option value="">select</option>
+                  <option value="">How old is your dog?</option>
                   {ageOptions.map((a, i) => {
                     return (
                       <option key={i} value={i}>

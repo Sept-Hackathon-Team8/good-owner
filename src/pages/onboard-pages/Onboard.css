@@ -1,7 +1,16 @@
+input {
+  padding-left: 12px
+}
 .onboard-text-small {
   font-size: 2em;
 }
-
+.love-you {
+  margin-bottom: 50px;
+  margin-top: 50px
+}
+.ralph {
+  margin: 20px
+}
 .onboard-text-bold {
   font-size: 2em;
   font-weight: bold;
@@ -11,7 +20,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 50vh;
 }
 
 .onboard-container {
@@ -23,9 +31,11 @@
 
 .first-container {
   margin-top: 85px;
+  margin-bottom: 70px
 }
 
 #logyourdog {
+  margin-top: 70px;
   display: flex;
   font-size: 2.5em;
   flex-direction: column;
@@ -38,6 +48,8 @@
 
 .img1 {
   margin-top: 20px;
+  width: 318;
+  height: 118px
 }
 
 .dog-name-input {
@@ -49,7 +61,6 @@
 }
 
 .dog-name-input::placeholder {
-  padding-left: 12px;
   color: grey;
 }
 
@@ -72,4 +83,11 @@
   border-style: none;
   border-radius: 10px;
   margin-top: 20px;
+}
+.age-dropdown {
+  width: 280px;
+  height: 41px;
+  border-style: none;
+  border-radius: 15px;
+  background: #F5F4F6;
 }
