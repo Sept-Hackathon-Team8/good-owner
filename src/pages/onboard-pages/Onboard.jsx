@@ -17,8 +17,25 @@ const Onboard = props => {
 
   const fetchBreeds = async () => {
     const res = await getBreeds();
-    console.log(res);
-    setBreeds(res);
+    setBreeds(
+      res
+        .map(({ name, id, parent }) => {
+          return {
+            name: `${parent ? parent.name + ' ' : ''}${name}`,
+            id,
+          };
+        })
+        .sort((a, b) => a.name.codePointAt() - b.name.codePointAt())
+        .map(({ name, id }, i) => {
+          return {
+            name: name
+              .split(' ')
+              .map(n => n[0].toUpperCase() + n.slice(1))
+              .join(' '),
+            id,
+          };
+        })
+    );
   };
 
   useEffect(() => {
@@ -152,7 +169,7 @@ const Onboard = props => {
         );
       case 4:
         return (
-          <>
+          <div style={{ maxWidth: '75%', margin: 'auto' }}>
             <div className="onboard-age">
               <span className="onboard-text-bold">
                 {name ? name : 'no name showing'}
@@ -181,16 +198,16 @@ const Onboard = props => {
                 </>
               )}
             </div>
-          </>
+          </div>
         );
       case 5:
         return (
-          <>
+          <div style={{ maxWidth: '75%', margin: 'auto' }}>
+            <img src={breedImg} alt="dog breed banner" />
             <div className="onboard-text-small">
-              <img src={breedImg} alt="dog breed banner" />
               I love that look! What breed is
               <br />
-              <span className="onboard-text-bold">{name}</span>
+              <span className="onboard-text-bold">{name}?</span>
             </div>
             <div className="dropdown-container">
               <select
@@ -203,29 +220,17 @@ const Onboard = props => {
               >
                 <option value="">select</option>
 
-                {breeds
-                  .map(({ name, id, parent }) => {
-                    return {
-                      name: `${parent ? parent.name + ' ' : ''}${name}`,
-                      id,
-                    };
-                  })
-                  .sort((a, b) => a.name.codePointAt() - b.name.codePointAt())
-                  .map(({ name, id }, i) => {
-                    console.log(name);
-                    return (
-                      <option key={i} value={id}>
-                        {name
-                          .split(' ')
-                          .map(n => n[0].toUpperCase() + n.slice(1))
-                          .join(' ')}
-                      </option>
-                    );
-                  })}
+                {breeds.map(({ name, id }, i) => {
+                  return (
+                    <option key={i} value={id}>
+                      {name}
+                    </option>
+                  );
+                })}
               </select>
               <OnboardNextButton count={count} setCount={setCount} />
             </div>
-          </>
+          </div>
         );
       case 6:
         return (
