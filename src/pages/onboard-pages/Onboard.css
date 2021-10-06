@@ -6,6 +6,11 @@ input {
   font-size: 2em;
 }
 
+.onboard-text-super-small {
+  font-size: 19px;
+  text-align: left;
+}
+
 #name {
   margin-top: 0;
   margin-bottom: 39px
@@ -32,6 +37,7 @@ input {
   font-size: 32px;
   font-weight: 400;
 }
+
 .onboard-container {
   min-height: 100vh;
   display: flex;
@@ -53,6 +59,7 @@ input {
 .first-container {
   margin-top: 48px;
 }
+
 #logyourdog {
   margin-top: 24px;
   margin-bottom: 68px;
@@ -121,9 +128,41 @@ input {
   color:  #666666;
 
 }
+
 .age-image {
   max-width: 151px;
   max-height: 151px;
   margin-top: 21px;
   margin-bottom: 21px;
+}
+
+.breed-question {
+  margin-bottom: 42px
+}
+
+.breed-dropdown {
+  margin-bottom: 157px;
+}
+.select-breed {
+  width: 280px;
+  height: 41px;
+  border-style: none;
+  border-radius: 15px;
+  background: #F5F4F6;
+  padding-left: 12px;
+  padding-right: 12px;
+  color:  #666666;
+}
+
+.breed-image {
+  margin-top: 26px;
+  margin-bottom: 26px
+}
+
+.breed-love {
+  margin-bottom: 16px
+}
+.onboarding-message {
+  background-color: #F5F4F6;
+  padding
 }

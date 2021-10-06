@@ -208,7 +208,7 @@ const Onboard = props => {
                     {name ? name : 'no name showing'} <span className="un-bold">is a puppy?!</span>
                   </div>
                   <img className="age-image" src={puppy} alt="puppy dog" />
-                  <span className="onboard-text-small">So many years of <br />tricks and treats <br />ahead of him!</span>
+                  <span className="onboard-text-small">So many years of <br />tricks and treats <br />ahead of them!</span>
                 </>
               )}
             </div>
@@ -217,31 +217,33 @@ const Onboard = props => {
       case 5:
         return (
           <div >
-            <img src={breedImg} alt="dog breed banner" />
-            <div className="onboard-text-small">
-              I love that look! What breed is
+            {/* <img src={breedImg} alt="dog breed banner" /> */}
+            <div className="breed-question onboard-text-small">
+              I love that look! <br />What breed is
               <br />
               <span className="onboard-text-bold">{name}?</span>
             </div>
             <div className="dropdown-container">
-              <select
-                name="breed"
-                type="text"
-                onChange={handleChange}
-                value={breed}
-                // value={dogBreed}
-                // onChange={(e) => setDogBreed(e.target.value)}
-              >
-                <option value="">select</option>
-
-                {/* {breeds.map(({ name, id }, i) => {
-                  return (
-                    <option key={i} value={id}>
-                      {name}
-                    </option>
-                  );
-                })} */}
-              </select>
+              <div className="breed-dropdown">
+                <select
+                  className="select-breed"
+                  name="breed"
+                  type="text"
+                  onChange={handleChange}
+                  value={breed}
+                  // value={dogBreed}
+                  // onChange={(e) => setDogBreed(e.target.value)}
+                >
+                  <option value="">Select your dog's breed</option>
+                  {/* {breeds.map(({ name, id }, i) => {
+                    return (
+                      <option key={i} value={id}>
+                        {name}
+                      </option>
+                    );
+                  })} */}
+                </select>
+              </div>
               <OnboardNextButton count={count} setCount={setCount} />
             </div>
           </div>
@@ -252,10 +254,9 @@ const Onboard = props => {
             {currentPet & breeds ? (
               <div>
                 <div>
-                  <p>{currentPet.name}</p>
-                  <p>
+                  <div className="onboard-text-bold">
                     {/* {breeds.filter(b => b.id === currentPet.breed).pop().name} */}
-                  </p>
+                  </div>
                   <img
                     // src={
                     //   breeds.filter(b => b.id === currentPet.breed).pop()
@@ -271,17 +272,18 @@ const Onboard = props => {
               </div>
             ) : (
               <div>
-                <h1 className="onboard-text-bold">
+                <div className="onboard-text-bold">
+                  Poodle
                   {/* {breeds.filter(b => b.id === breed).pop().name}! */}
-                </h1>
+                </div>
                 <img
                   className="breed-image"
                   style={{ maxWidth: '500px' }}
                   // src={breeds.filter(b => b.id === breed).pop().img_url}
-                  alt=""
+                  alt="breed image"
                 />
-                <div className="onboard-text-small">
-                  We love them!! This is going to be fun.
+                <div className="breed-love onboard-text-small">
+                  We LOVE them!! <br />This is going to <br />be fun.
                   <br />
                 </div>
                 {/* <h3>{name}</h3>
@@ -296,13 +298,13 @@ const Onboard = props => {
         );
       case 7:
         return (
-          <>
-            <div className="onboard-text-small">
+          <div className="onboarding-message">
+            <div className="onboard-text-super-small">
               We here at Doggo truly believe that there are no bad dogs, but
               there are inexperienced pet parents. Follow our lead because
-              <br />
-              <span className="onboard-text-bold">{name}</span>
-              <br />
+            </div>
+            <div className="onboard-text-bold">{name}</div>
+            <div className="onboard-text-super-small">
               deserves the best version of you! By the end of our program, we
               promise that you will be the calm, confident owner you've always
               wanted to be.
@@ -310,7 +312,7 @@ const Onboard = props => {
             <Link to="/home">
               <button className="next">Get Started</button>
             </Link>
-          </>
+          </div>
         );
       default:
       // do nothing
