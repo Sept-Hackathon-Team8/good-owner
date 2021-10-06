@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { DoggoContext } from '../../DoggoContext';
 import OnboardHeader from '../../components/headers/OnboardHeader';
@@ -19,6 +19,10 @@ const Onboard = props => {
     const res = await getBreeds();
     setBreeds(res);
   };
+
+  useEffect(() => {
+    fetchBreeds();
+  }, []);
 
   const { currentPet, setCurrentPet } = useContext(DoggoContext);
 
