@@ -17,6 +17,7 @@ const Onboard = props => {
 
   const fetchBreeds = async () => {
     const res = await getBreeds();
+    console.log(res);
     setBreeds(res);
   };
 
@@ -184,39 +185,47 @@ const Onboard = props => {
         );
       case 5:
         return (
-          breeds && (
-            <>
-              <div className="onboard-text-small">
-                <img src={breedImg} alt="dog breed banner" />
-                I love that look! What breed is
-                <br />
-                <span className="onboard-text-bold">{name}</span>
-              </div>
-              <div className="dropdown-container">
-                <select
-                  name="breed"
-                  type="text"
-                  onChange={handleChange}
-                  value={breed}
-                  // value={dogBreed}
-                  // onChange={(e) => setDogBreed(e.target.value)}
-                >
-                  <option value="">select</option>
+          <>
+            <div className="onboard-text-small">
+              <img src={breedImg} alt="dog breed banner" />
+              I love that look! What breed is
+              <br />
+              <span className="onboard-text-bold">{name}</span>
+            </div>
+            <div className="dropdown-container">
+              <select
+                name="breed"
+                type="text"
+                onChange={handleChange}
+                value={breed}
+                // value={dogBreed}
+                // onChange={(e) => setDogBreed(e.target.value)}
+              >
+                <option value="">select</option>
 
-                  {breeds.map(({ name, id, parent }, i) => {
+                {breeds
+                  .map(({ name, id, parent }) => {
+                    return {
+                      name: `${parent ? parent.name + ' ' : ''}${name}`,
+                      id,
+                    };
+                  })
+                  .sort((a, b) => a.name.codePointAt() - b.name.codePointAt())
+                  .map(({ name, id }, i) => {
                     console.log(name);
                     return (
                       <option key={i} value={id}>
-                        {parent ? `${parent.name} ` : ''}
-                        {name}
+                        {name
+                          .split(' ')
+                          .map(n => n[0].toUpperCase() + n.slice(1))
+                          .join(' ')}
                       </option>
                     );
                   })}
-                </select>
-                <OnboardNextButton count={count} setCount={setCount} />
-              </div>
-            </>
-          )
+              </select>
+              <OnboardNextButton count={count} setCount={setCount} />
+            </div>
+          </>
         );
       case 6:
         return (
