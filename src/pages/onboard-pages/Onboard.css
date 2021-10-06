@@ -1,27 +1,37 @@
 input {
   padding-left: 12px
 }
+
 .onboard-text-small {
   font-size: 2em;
 }
+
+#name {
+  margin-top: 0;
+  margin-bottom: 39px
+}
+
 .love-you {
-  margin-bottom: 50px;
-  margin-top: 50px
+  margin-bottom: 48px;
+  margin-top: 39px
 }
-.ralph {
-  margin: 20px
-}
-.onboard-text-bold {
+
+.name-two{
+  margin-top: 13px;
+  margin-bottom: 41px;
   font-size: 2em;
   font-weight: bold;
 }
 
-.onboard-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.onboard-text-bold {
+  font-size: 44px;
+  font-weight: 700;
 }
 
+.un-bold {
+  font-size: 32px;
+  font-weight: 400;
+}
 .onboard-container {
   min-height: 100vh;
   display: flex;
@@ -29,27 +39,39 @@ input {
   align-items: center;
 }
 
-.first-container {
-  margin-top: 85px;
-  margin-bottom: 70px
+.onboard-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 37px;
+  margin-bottom: 70px;
+  /* height: 718px; */
+  max-width: 75%;
+  /* margin: auto */
 }
 
+.first-container {
+  margin-top: 48px;
+}
 #logyourdog {
-  margin-top: 70px;
+  margin-top: 24px;
+  margin-bottom: 68px;
   display: flex;
   font-size: 2.5em;
   flex-direction: column;
   justify-content: center;
 }
 
-.name-input-container{
-  margin: 40px;
-}
-
 .img1 {
   margin-top: 20px;
   width: 318;
-  height: 118px
+  height: 118px;
+  margin-bottom: 50px;
+  margin-top: 50px
+}
+
+.name-input-container {
+  margin-bottom: 40px;
 }
 
 .dog-name-input {
@@ -65,15 +87,14 @@ input {
 }
 
 .bold-container {
-  margin-top: 20px;
   font-size: 2em;
-  margin-bottom: 20px;
 }
 
 .onboard-age {
   display: flex;
   flex-direction: column;
-  margin-bottom: 50px;
+  align-items: center;
+  margin-bottom: 43px;
 }
 
 .log-dog-button {
@@ -84,10 +105,25 @@ input {
   border-radius: 10px;
   margin-top: 20px;
 }
+
 .age-dropdown {
+  margin-bottom: 150px
+}
+
+.select-age {
   width: 280px;
   height: 41px;
   border-style: none;
   border-radius: 15px;
   background: #F5F4F6;
+  padding-left: 12px;
+  padding-right: 12px;
+  color:  #666666;
+
+}
+.age-image {
+  max-width: 151px;
+  max-height: 151px;
+  margin-top: 21px;
+  margin-bottom: 21px;
 }
