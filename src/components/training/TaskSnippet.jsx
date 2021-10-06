@@ -14,9 +14,12 @@ const TaskSnippet = ({ task, feedback }) => {
             />
           </div>
           <h3 className="task-text">{task.title}&nbsp;</h3>
+          {/* 
+          Uncomment this to show state of feedback
           <p
             style={{ fontSize: '.8rem', color: '#666' }}
           >{`gr ${feedback.great} | rf: ${feedback.ruff}`}</p>
+          */}
         </div>
       )}
     </>
