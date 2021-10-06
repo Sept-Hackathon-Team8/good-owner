@@ -198,14 +198,16 @@ const Onboard = props => {
                 // onChange={(e) => setDogBreed(e.target.value)}
               >
                 <option value="">select</option>
-                {breeds.map(({ name, id, parent }, i) => {
-                  return (
-                    <option key={i} value={id}>
-                      {parent ? `${parent.name} ` : ''}
-                      {name}
-                    </option>
-                  );
-                })}
+                {breeds
+                  ? breeds.map(({ name, id, parent }, i) => {
+                      return (
+                        <option key={i} value={id}>
+                          {parent ? `${parent.name} ` : ''}
+                          {name}
+                        </option>
+                      );
+                    })
+                  : ''}
                 ;
               </select>
               <OnboardNextButton count={count} setCount={setCount} />
