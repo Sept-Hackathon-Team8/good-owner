@@ -20,7 +20,7 @@ const TrainingUnit = ({
     <div style={{ position: 'relative' }}>
       {currentProgress.unit >= unitNum ? (
         ''
-      ) : (
+      ) : currentProgress.unit + 1 === unitNum ? (
         <div
           style={{
             width: '100%',
@@ -29,6 +29,18 @@ const TrainingUnit = ({
               'linear-gradient(180deg, rgba(0,0,0,0) 2% , gray 18%)',
             position: 'absolute',
             mixBlendMode: 'saturation',
+            zIndex: 100,
+          }}
+        ></div>
+      ) : (
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'gray',
+            position: 'absolute',
+            mixBlendMode: 'saturation',
+            zIndex: 100,
           }}
         ></div>
       )}
