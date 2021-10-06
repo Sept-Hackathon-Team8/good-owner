@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { DoggoContext } from '../../DoggoContext';
+import { postFeedback } from '../../services/auth.js';
 
 const Feedback = () => {
   const {
@@ -12,7 +13,7 @@ const Feedback = () => {
     tasks,
   } = useContext(DoggoContext);
 
-  function handleClick(ev) {
+  async function handleClick(ev) {
     // modify the feedback val to move to next task or exit tasks
     const feedbackObj =
       mockFeedbackData[activeUnit.unit - 1][activeUnit.task - 1];
@@ -20,8 +21,11 @@ const Feedback = () => {
     const task = tasks[activeUnit.unit - 1].tasks[activeUnit.task - 1];
 
     const success = Boolean(Number(ev.target.value));
-
     const tip = task['tip'].filter(tip => tip.success === success).pop();
+
+    const assessmentData = { task: task.id, pet: currentPet.id, success };
+    postFeedback(assessmentData);
+
     setTipData(tip);
 
     if (success) {

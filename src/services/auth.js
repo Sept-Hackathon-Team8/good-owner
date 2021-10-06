@@ -98,6 +98,15 @@ export const getPetFeedback = async petID => {
   }
 };
 
+export const postFeedback = async feedbackData => {
+  const token = localStorage.getItem('authToken');
+  if (token) {
+    api.defaults.headers.common.authorization = `Token ${token}`;
+    const resp = await api.post(`/assessments/`, feedbackData);
+    return resp.data;
+  }
+};
+
 export const removeToken = () => {
   api.defaults.headers.common.authorization = null;
 };

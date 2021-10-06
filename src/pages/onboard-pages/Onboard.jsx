@@ -37,7 +37,6 @@ const Onboard = props => {
   const handleChange = e => {
     e.preventDefault();
     const { name, value } = e.target;
-    if (name === 'age') fetchBreeds();
     setPetData(prevState => ({
       ...prevState,
       [name]: value,

@@ -27,7 +27,6 @@ const Hamburger = () => {
           openHamburger ? 'hamburger-menu-open' : 'hamburger-menu-closed'
         }
       >
-        <Link className="hamburger-menu-closed">closed</Link>
         <div className="hamburger-menu-open">
           <HamburgerMenu
             openHamburger={openHamburger}
