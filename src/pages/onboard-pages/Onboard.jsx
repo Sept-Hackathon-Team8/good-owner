@@ -181,38 +181,39 @@ const Onboard = props => {
         );
       case 5:
         return (
-          <>
-            <div className="onboard-text-small">
-              <img src={breedImg} alt="dog breed banner" />
-              I love that look! What breed is
-              <br />
-              <span className="onboard-text-bold">{name}</span>
-            </div>
-            <div className="dropdown-container">
-              <select
-                name="breed"
-                type="text"
-                onChange={handleChange}
-                value={breed}
-                // value={dogBreed}
-                // onChange={(e) => setDogBreed(e.target.value)}
-              >
-                <option value="">select</option>
-                {breeds
-                  ? breeds.map(({ name, id, parent }, i) => {
-                      return (
-                        <option key={i} value={id}>
-                          {parent ? `${parent.name} ` : ''}
-                          {name}
-                        </option>
-                      );
-                    })
-                  : ''}
-                ;
-              </select>
-              <OnboardNextButton count={count} setCount={setCount} />
-            </div>
-          </>
+          breeds && (
+            <>
+              <div className="onboard-text-small">
+                <img src={breedImg} alt="dog breed banner" />
+                I love that look! What breed is
+                <br />
+                <span className="onboard-text-bold">{name}</span>
+              </div>
+              <div className="dropdown-container">
+                <select
+                  name="breed"
+                  type="text"
+                  onChange={handleChange}
+                  value={breed}
+                  // value={dogBreed}
+                  // onChange={(e) => setDogBreed(e.target.value)}
+                >
+                  <option value="">select</option>
+
+                  {breeds.map(({ name, id, parent }, i) => {
+                    console.log(name);
+                    return (
+                      <option key={i} value={id}>
+                        {parent ? `${parent.name} ` : ''}
+                        {name}
+                      </option>
+                    );
+                  })}
+                </select>
+                <OnboardNextButton count={count} setCount={setCount} />
+              </div>
+            </>
+          )
         );
       case 6:
         return (
