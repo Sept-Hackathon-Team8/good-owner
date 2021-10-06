@@ -1,18 +1,13 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { DoggoContext } from '../../DoggoContext';
 import TrainingUnit from './TrainingUnit.jsx';
-import { getPet, updateJourney, getTasks } from '../../services/auth';
+import {
+  getPet,
+  updateJourney,
+  getTasks,
+  getPetFeedback,
+} from '../../services/auth';
 import ConfettiGenerator from 'confetti-js';
-// consider weather data is a request at the app level where the tasks
-// object is downloaded one time with all the lessons data.
-// At least to create the TaskSnippets to illustrate the whole Journey
-// See comments inside useEffect
-
-// This could also make sense to be a request at app load
-// and added to currentProgress state variable then
-
-// TODO: convert mockFeedback into API call that returns feedback for specific unit, also change mockFeedback implementations
-// each array in mockFeedbackData represents a unit and each object in said array represents the task
 
 const Training = props => {
   const {
@@ -20,51 +15,49 @@ const Training = props => {
     setCurrentProgress,
     tasks,
     mockFeedbackData,
+    setMockFeedbackData,
     setActiveUnit,
     setCurrentPet,
-    currentUser,
     setTasks,
   } = useContext(DoggoContext);
 
+  // FeedbackData
+  const getPetFeedbackData = useCallback(async petData => {
+    const response = await getPetFeedback({ pet: petData.id });
+    setMockFeedbackData(response.data);
+  }, []);
+
+  // Unit training data API request and state logic
   const loadUnitsData = useCallback(async () => {
     const tasksData = await getTasks();
     setTasks(tasksData);
-  }, []);
+  }, [setTasks]);
 
   useEffect(() => {
     loadUnitsData();
   }, [loadUnitsData]);
 
+  // Pet and Journey data API request and state logic
   const getPets = useCallback(async () => {
     const pets = await getPet();
     if (pets && pets.length) {
       // Currently using only the first pet, change this when selecting the pet is an option
       const { journey, ...petData } = pets[0];
       setCurrentPet(petData);
-      console.log(petData);
+      getPetFeedbackData(petData);
       setCurrentProgress({ ...journey, task: 1 });
       setActiveUnit({ ...journey, task: 1 });
       setCurrentProgress(progress => ({ ...progress, pet_id: pets[0].id }));
     }
   }, [setCurrentPet, setCurrentProgress, setActiveUnit]);
 
-  // TODO: this will be the same as above but will run after currentPet is available most likely in its own useEffect hook
-  // const getJourney = null
-
   useEffect(() => {
-    // TODO: Currently we will use the first pet until we create a menu to select the journey for specific pet, change when that feature is added
+    // TODO: Currently we will use the first pet until we create a menu to select the journey for specific pet
     getPets();
-    // TODO: After getting the pet id, we should request its respective Journey obejct (journeyMockData)
   }, [getPets]);
 
   const [feedbackData, setFeedbackData] = useState([]);
   const [unitPassed, setUnitPassed] = useState(false);
-  // useEffect(() => {
-  //   if (currentProgress && currentProgress.unit) {
-  //     setUnitTitle(tasks[currentProgress.unit].title);
-  //     setUnitData(tasks[currentProgress.unit].tasks);
-  //   }
-  // }, [currentProgress, tasks]);
 
   // TODO: another API call to get the feedback values for each task in order to create the circle progress UI element
   useEffect(() => {
@@ -77,15 +70,13 @@ const Training = props => {
   const moveToNextLesson = useCallback(() => {
     setUnitPassed(true);
     setCurrentProgress(progress => {
-      console.log(progress);
       updateJourney({ unit: progress.unit + 1 }, progress.id);
       return { ...progress, unit: progress.unit + 1 };
     });
   }, [setCurrentProgress]);
 
   useEffect(() => {
-    console.log('THIS IS CURRENT PROGRESS', currentProgress.unit);
-    if (feedbackData.length) {
+    if (feedbackData && feedbackData.length) {
       const unitCompleted = feedbackData[currentProgress.unit - 1]
         .map(feedback => feedback.great)
         .every(score => score > 3);
@@ -112,7 +103,7 @@ const Training = props => {
 
   return (
     <div className="training">
-      {tasks && tasks.length && feedbackData.length
+      {tasks && tasks.length && feedbackData && feedbackData.length
         ? tasks.map((unit, i) => {
             return (
               <TrainingUnit

@@ -10,60 +10,17 @@ import Feedback from './pages/feedback-pages/Feedback';
 import Tip from './pages/feedback-pages/Tip';
 import Onboard from './pages/onboard-pages/Onboard';
 import './App.css';
-import tasksData from './trainingdata';
 import HomeHeader from './components/headers/HomeHeader';
-
-// This is meant to be coming from the Journey model in the backend
-// TODO: There should be one more step of choosing which pet are you choosing a journey for
-// const journeyMockData = {
-//   unit: 1,
-//   task: 1,
-//   // pet_id: null, this pet id should come from getting the journey via pet_id in the useEffect below
-// };
-
-const mockFeedbackDataObj = [
-  // unit 1
-  [
-    { ruff: 0, great: 4 },
-    { ruff: 1, great: 3 },
-    { ruff: 0, great: 3 },
-    { ruff: 0, great: 3 },
-  ],
-  // unit 2
-  [
-    { ruff: 0, great: 0 },
-    { ruff: 0, great: 0 },
-    { ruff: 0, great: 0 },
-    { ruff: 0, great: 0 },
-  ],
-  // unit 3
-  [
-    { ruff: 0, great: 0 },
-    { ruff: 0, great: 0 },
-    { ruff: 0, great: 0 },
-    { ruff: 0, great: 0 },
-  ],
-  // unit 4
-  [
-    { ruff: 0, great: 0 },
-    { ruff: 0, great: 0 },
-    { ruff: 0, great: 0 },
-    { ruff: 0, great: 0 },
-  ],
-];
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [currentPet, setCurrentPet] = useState(null);
   const [loggedIn, setLoggedIn] = useState(null);
-  // Current progress should also be a server response currently using journeyMockData
   const [currentProgress, setCurrentProgress] = useState({});
   const [activeUnit, setActiveUnit] = useState({});
-  // taskData will be a server response, currently hard coded in trainingdata.js
   const [tasks, setTasks] = useState(null);
   const [tipData, setTipData] = useState(null);
-  // const [tasks, setTasks] = useState(tasksData);
-  const [mockFeedbackData, setMockFeedbackData] = useState(mockFeedbackDataObj);
+  const [mockFeedbackData, setMockFeedbackData] = useState(null);
 
   return (
     <DoggoContext.Provider

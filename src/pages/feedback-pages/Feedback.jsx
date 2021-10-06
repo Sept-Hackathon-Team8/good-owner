@@ -23,7 +23,6 @@ const Feedback = () => {
 
     const tip = task['tip'].filter(tip => tip.success === success).pop();
     setTipData(tip);
-    console.log(tip);
 
     if (success) {
       feedbackObj.great++;

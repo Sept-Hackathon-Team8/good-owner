@@ -86,8 +86,16 @@ export const updateJourney = async (journeyData, uuid) => {
 
 export const getTasks = async () => {
   const resp = await api.get('/units/');
-  console.log(resp.data);
   return resp.data;
+};
+
+export const getPetFeedback = async petID => {
+  const token = localStorage.getItem('authToken');
+  if (token) {
+    api.defaults.headers.common.authorization = `Token ${token}`;
+    const resp = await api.post(`/pet/assessments/`, petID);
+    return resp.data;
+  }
 };
 
 export const removeToken = () => {
