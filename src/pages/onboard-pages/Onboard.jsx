@@ -7,7 +7,8 @@ import { createPet, getBreeds } from '../../services/auth';
 import './Onboard.css';
 import img1 from '../../Images/OnboardGroup.svg';
 import breedImg from '../../Images/Onboard6.svg';
-import senior from '../../Images/Onboard4.svg';
+import senior from '../../Images/Onboard5.svg';
+import adult2 from '../../Images/Onboard4.svg';
 import adult from '../../Images/Onboard3.svg';
 import puppy from '../../Images/Onboard2.svg';
 import img2 from '../../Images/Onboard1.svg';
@@ -75,28 +76,26 @@ const Onboard = props => {
     switch (count) {
       case 0:
         return (
-          <>
-            <div className="first-container">
-              <div className="onboard-text-small">
-                First thing's first!
-                <br />
-                Let's...
-              </div>
-              <div id="logyourdog" className="onboard-text-bold">
-                LOG
-                <br />
-                YOUR
-                <br />
-                DOG
-              </div>
+          <div>
+            <div className="first-container onboard-text-small">
+              First thing's
+              <br />
+              first! Let's...
             </div>
-          </>
+            <div id="logyourdog" className="onboard-text-bold">
+              LOG
+              <br />
+              YOUR
+              <br />
+              DOG
+            </div>
+          </div>
         );
       case 1:
         return (
-          <>
-            <div className="first-container">
-              <div className="onboard-text-small">
+          <div>
+            <div>
+              <div className="dog-name onboard-text-small">
                 What is your <br /> dog's name?
               </div>
             </div>
@@ -118,13 +117,13 @@ const Onboard = props => {
                 setCount={setCount}
               />
             </div>
-          </>
+          </div>
         );
       case 2:
         return (
           <>
             <div>
-              <h2 className="onboard-text-bold">
+              <h2 id="name" className="onboard-text-bold">
                 Hi {name}!{/* <img></img> */}
               </h2>
               <img alt="dog" src={img2} />
@@ -139,13 +138,14 @@ const Onboard = props => {
           <>
             <div className="bold-container">
               If we may be so <br />bold, how old is <br />
-              <h2 className="ralph">
-                {name ? name : 'no name showing'}?
-              </h2>
             </div>
+            <h2 className="name-two onboard-text-bold ">
+              {name ? name : 'no name showing'}?
+            </h2>
             <div className="dropdown-container">
               <div className="age-dropdown">
                 <select
+                  className="select-age"
                   name="age"
                   type="text"
                   value={age}
@@ -168,32 +168,47 @@ const Onboard = props => {
         );
       case 4:
         return (
-          <div style={{ maxWidth: '75%', margin: 'auto' }}>
+          <div>
             <div className="onboard-age">
-              <span className="onboard-text-bold">
-                {name ? name : 'no name showing'}
-              </span>{' '}
-              <span className="onboard-text-small">is {age}?!</span>
               {/* <img src="nothing.png">insert image</img> */}
-              {age > 7 ? (
+              {age > 8 ? (
                 <>
-                  <img src={senior} alt="senior dog" />
+                  <div className="onboard-text-bold">
+                    {name ? name : 'no name showing'} <span className="un-bold">is {age}?!</span>
+                  </div>
+                  <img className="age-image" src={senior} alt="senior dog" />
                   <span className="onboard-text-small">
-                    That's {age * 7} in dog years! Middle aged never looked so
+                    That's {age * 7} in dog <br />years! You CAN <br />teach an old dog <br />new tricks!
+                  </span>
+                </>
+                ) : age > 5 ? (
+                <>
+                  <div className="onboard-text-bold">
+                    {name ? name : 'no name showing'} <span className="un-bold">is {age}?!</span>
+                  </div>
+                  <img className="age-image" src={adult2} alt="senior dog" />
+                  <span className="onboard-text-small">
+                    That's {age * 7} in dog <br />years! Middle <br />aged never <br />looked so
                     good!
                   </span>
                 </>
-              ) : age >= 1 ? (
+              ) : age >= 2 ? (
                 <>
-                  <img src={adult} alt="adult dog" />
+                  <div className="onboard-text-bold">
+                    {name ? name : 'no name showing'} <span className="un-bold">is {age}?!</span>
+                  </div>
+                  <img className="age-image" src={adult} alt="adult dog" />
                   <span className="onboard-text-small">
-                    That's {age * 7} in dog years! Look at you all grown up!
+                    That's {age * 7} in dog <br />years! Look at <br />you all grown up!
                   </span>
                 </>
               ) : (
                 <>
-                  <img src={puppy} alt="puppy dog" />
-                  <span>So many years of tricks and treats ahead of him!</span>
+                  <div className="onboard-text-bold">
+                    {name ? name : 'no name showing'} <span className="un-bold">is a puppy?!</span>
+                  </div>
+                  <img className="age-image" src={puppy} alt="puppy dog" />
+                  <span className="onboard-text-small">So many years of <br />tricks and treats <br />ahead of them!</span>
                 </>
               )}
             </div>
@@ -201,32 +216,34 @@ const Onboard = props => {
         );
       case 5:
         return (
-          <div style={{ maxWidth: '75%', margin: 'auto' }}>
+          <div >
             <img src={breedImg} alt="dog breed banner" />
-            <div className="onboard-text-small">
-              I love that look! What breed is
+            <div className="breed-question onboard-text-small">
+              I love that look! <br />What breed is
               <br />
               <span className="onboard-text-bold">{name}?</span>
             </div>
             <div className="dropdown-container">
-              <select
-                name="breed"
-                type="text"
-                onChange={handleChange}
-                value={breed}
-                // value={dogBreed}
-                // onChange={(e) => setDogBreed(e.target.value)}
-              >
-                <option value="">select</option>
-
-                {breeds.map(({ name, id }, i) => {
-                  return (
-                    <option key={i} value={id}>
-                      {name}
-                    </option>
-                  );
-                })}
-              </select>
+              <div className="breed-dropdown">
+                <select
+                  className="select-breed"
+                  name="breed"
+                  type="text"
+                  onChange={handleChange}
+                  value={breed}
+                  value={dogBreed}
+                  onChange={(e) => setDogBreed(e.target.value)}
+                >
+                  <option value="">Select your dog's breed</option>
+                  {breeds.map(({ name, id }, i) => {
+                    return (
+                      <option key={i} value={id}>
+                        {name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
               <OnboardNextButton count={count} setCount={setCount} />
             </div>
           </div>
@@ -237,10 +254,9 @@ const Onboard = props => {
             {currentPet & breeds ? (
               <div>
                 <div>
-                  <p>{currentPet.name}</p>
-                  <p>
+                  <div className="onboard-text-bold">
                     {breeds.filter(b => b.id === currentPet.breed).pop().name}
-                  </p>
+                  </div>
                   <img
                     src={
                       breeds.filter(b => b.id === currentPet.breed).pop()
@@ -256,23 +272,23 @@ const Onboard = props => {
               </div>
             ) : (
               <div>
-                <h1 className="onboard-text-bold">
+                <div className="onboard-text-bold">
                   {breeds.filter(b => b.id === breed).pop().name}!
-                </h1>
+                </div>
                 <img
                   className="breed-image"
                   style={{ maxWidth: '500px' }}
                   src={breeds.filter(b => b.id === breed).pop().img_url}
-                  alt=""
+                  alt="breed image"
                 />
-                <div className="onboard-text-small">
-                  We love them!! This is going to be fun.
+                <div className="breed-love onboard-text-small">
+                  We LOVE them!! <br />This is going to <br />be fun.
                   <br />
                 </div>
                 {/* <h3>{name}</h3>
                 <p>{age}</p> */}
                 <button className="log-dog-button" onClick={handleCreatePet}>
-                  Log Pet
+                  Next
                 </button>
                 {/* The button triggers the event for the creation logic */}
               </div>
@@ -281,21 +297,23 @@ const Onboard = props => {
         );
       case 7:
         return (
-          <>
-            <div className="onboard-text-small">
-              We here at Doggo truly believe that there are no bad dogs, but
-              there are inexperienced pet parents. Follow our lead because
-              <br />
-              <span className="onboard-text-bold">{name}</span>
-              <br />
-              deserves the best version of you! By the end of our program, we
-              promise that you will be the calm, confident owner you've always
-              wanted to be.
+          <div>
+            <div className="onboarding-message">
+              <div className="onboard-text-super-small">
+                We here at Doggo truly believe that there are no bad dogs, but
+                there are inexperienced pet parents. Follow our lead because
+              </div>
+              <div className="name-three onboard-text-bold">{name}</div>
+              <div className="onboard-text-super-small">
+                deserves the best version of you! By the end of our program, we
+                promise that you will be the calm, confident owner you've always
+                wanted to be.
+              </div>
             </div>
             <Link to="/home">
               <button className="next">Get Started</button>
             </Link>
-          </>
+          </div>
         );
       default:
       // do nothing
