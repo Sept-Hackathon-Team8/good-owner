@@ -164,5 +164,10 @@ input {
 }
 .onboarding-message {
   background-color: #F5F4F6;
-  padding
+  padding: 16px 24px;
+  line-height: 23px;
+  margin-bottom: 31px
+}
+.name-three {
+  margin: 39px 0px
 }

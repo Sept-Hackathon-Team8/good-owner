@@ -16,32 +16,32 @@ import img2 from '../../Images/Onboard1.svg';
 const Onboard = props => {
   const [breeds, setBreeds] = useState(null);
 
-  // const fetchBreeds = async () => {
-  //   const res = await getBreeds();
-  //   setBreeds(
-  //     res
-  //       .map(({ name, id, parent }) => {
-  //         return {
-  //           name: `${parent ? parent.name + ' ' : ''}${name}`,
-  //           id,
-  //         };
-  //       })
-  //       .sort((a, b) => a.name.codePointAt() - b.name.codePointAt())
-  //       .map(({ name, id }, i) => {
-  //         return {
-  //           name: name
-  //             .split(' ')
-  //             .map(n => n[0].toUpperCase() + n.slice(1))
-  //             .join(' '),
-  //           id,
-  //         };
-  //       })
-  //   );
-  // };
+  const fetchBreeds = async () => {
+    const res = await getBreeds();
+    setBreeds(
+      res
+        .map(({ name, id, parent }) => {
+          return {
+            name: `${parent ? parent.name + ' ' : ''}${name}`,
+            id,
+          };
+        })
+        .sort((a, b) => a.name.codePointAt() - b.name.codePointAt())
+        .map(({ name, id }, i) => {
+          return {
+            name: name
+              .split(' ')
+              .map(n => n[0].toUpperCase() + n.slice(1))
+              .join(' '),
+            id,
+          };
+        })
+    );
+  };
 
-  // useEffect(() => {
-  //   fetchBreeds();
-  // }, []);
+  useEffect(() => {
+    fetchBreeds();
+  }, []);
 
   const { currentPet, setCurrentPet } = useContext(DoggoContext);
 
@@ -217,7 +217,7 @@ const Onboard = props => {
       case 5:
         return (
           <div >
-            {/* <img src={breedImg} alt="dog breed banner" /> */}
+            <img src={breedImg} alt="dog breed banner" />
             <div className="breed-question onboard-text-small">
               I love that look! <br />What breed is
               <br />
@@ -231,17 +231,17 @@ const Onboard = props => {
                   type="text"
                   onChange={handleChange}
                   value={breed}
-                  // value={dogBreed}
-                  // onChange={(e) => setDogBreed(e.target.value)}
+                  value={dogBreed}
+                  onChange={(e) => setDogBreed(e.target.value)}
                 >
                   <option value="">Select your dog's breed</option>
-                  {/* {breeds.map(({ name, id }, i) => {
+                  {breeds.map(({ name, id }, i) => {
                     return (
                       <option key={i} value={id}>
                         {name}
                       </option>
                     );
-                  })} */}
+                  })}
                 </select>
               </div>
               <OnboardNextButton count={count} setCount={setCount} />
@@ -255,13 +255,13 @@ const Onboard = props => {
               <div>
                 <div>
                   <div className="onboard-text-bold">
-                    {/* {breeds.filter(b => b.id === currentPet.breed).pop().name} */}
+                    {breeds.filter(b => b.id === currentPet.breed).pop().name}
                   </div>
                   <img
-                    // src={
-                    //   breeds.filter(b => b.id === currentPet.breed).pop()
-                    //     .img_url
-                    // }
+                    src={
+                      breeds.filter(b => b.id === currentPet.breed).pop()
+                        .img_url
+                    }
                     className="breed-image"
                     alt="dog"
                     width="500px"
@@ -273,13 +273,12 @@ const Onboard = props => {
             ) : (
               <div>
                 <div className="onboard-text-bold">
-                  Poodle
-                  {/* {breeds.filter(b => b.id === breed).pop().name}! */}
+                  {breeds.filter(b => b.id === breed).pop().name}!
                 </div>
                 <img
                   className="breed-image"
                   style={{ maxWidth: '500px' }}
-                  // src={breeds.filter(b => b.id === breed).pop().img_url}
+                  src={breeds.filter(b => b.id === breed).pop().img_url}
                   alt="breed image"
                 />
                 <div className="breed-love onboard-text-small">
@@ -289,7 +288,7 @@ const Onboard = props => {
                 {/* <h3>{name}</h3>
                 <p>{age}</p> */}
                 <button className="log-dog-button" onClick={handleCreatePet}>
-                  Log Pet
+                  Next
                 </button>
                 {/* The button triggers the event for the creation logic */}
               </div>
@@ -298,16 +297,18 @@ const Onboard = props => {
         );
       case 7:
         return (
-          <div className="onboarding-message">
-            <div className="onboard-text-super-small">
-              We here at Doggo truly believe that there are no bad dogs, but
-              there are inexperienced pet parents. Follow our lead because
-            </div>
-            <div className="onboard-text-bold">{name}</div>
-            <div className="onboard-text-super-small">
-              deserves the best version of you! By the end of our program, we
-              promise that you will be the calm, confident owner you've always
-              wanted to be.
+          <div>
+            <div className="onboarding-message">
+              <div className="onboard-text-super-small">
+                We here at Doggo truly believe that there are no bad dogs, but
+                there are inexperienced pet parents. Follow our lead because
+              </div>
+              <div className="name-three onboard-text-bold">{name}</div>
+              <div className="onboard-text-super-small">
+                deserves the best version of you! By the end of our program, we
+                promise that you will be the calm, confident owner you've always
+                wanted to be.
+              </div>
             </div>
             <Link to="/home">
               <button className="next">Get Started</button>
