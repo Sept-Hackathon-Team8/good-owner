@@ -108,7 +108,7 @@ const RegisterPage = () => {
               />
             </label>
             {password1 !== password2 ? (
-              <p>Confirmation password does not match</p>
+              <p style={{ position: 'absolute', }}>Confirmation password does not match</p>
             ) : (
               ''
             )}

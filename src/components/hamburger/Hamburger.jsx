@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { DoggoContext } from '../../DoggoContext';
 import hamburgericon from '../../Images/hamburger.svg';
 import HamburgerMenu from '../../components/hamburger-menu/HamburgerMenu';
@@ -27,12 +26,7 @@ const Hamburger = () => {
           openHamburger ? 'hamburger-menu-open' : 'hamburger-menu-closed'
         }
       >
-        <div className="hamburger-menu-open">
-          <HamburgerMenu
-            openHamburger={openHamburger}
-            changeOpenHamburger={changeOpenHamburger}
-          />
-        </div>
+        <HamburgerMenu changeOpenHamburger={changeOpenHamburger} />
       </div>
     </div>
   );

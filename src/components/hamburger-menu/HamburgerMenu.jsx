@@ -7,7 +7,7 @@ import backarrow from '../../Images/back.svg';
 import { removeToken } from '../../services/auth';
 
 const HamburgerMenu = props => {
-  const { changeOpenHamburger, openHamburger } = props;
+  const { changeOpenHamburger } = props;
   const { currentPet, setCurrentUser } = useContext(DoggoContext);
 
   const handleLogout = () => {
@@ -16,9 +16,6 @@ const HamburgerMenu = props => {
     removeToken();
   };
 
-  ////////////testing for dog////////////////
-  // console.log(currentPet.name)
-  //////////////////////////////
   return (
     <div className="hamburger-menu">
       <img
