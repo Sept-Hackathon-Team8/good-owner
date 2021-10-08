@@ -162,8 +162,6 @@ const Onboard = props => {
                   ;
                 </select>
               </div>
-              <button onClick={handleClick}>test</button>
-              {/* <OnboardNextButton count={count} setCount={setCount} /> */}
             </div>
           </>
         );
@@ -274,12 +272,12 @@ const Onboard = props => {
               <div>
                 <div className="onboard-text-bold">
                   {breeds.filter((b) => b.id === breed).pop().name}!
-                  {breeds.filter((b) => b.id === breed).img_url}
+                  {breeds.filter((b) => b.id === breed).pop().img_url}
                 </div>
                 <img
                   className="breed-image"
                   style={{ maxWidth: '500px' }}
-                  src={breeds.filter((b) => b.id === breed).img_url}
+                  src={breeds.filter((b) => b.id === breed).pop().img_url}
                   alt="breed image"
                 />
                 <div className="breed-love onboard-text-small">
