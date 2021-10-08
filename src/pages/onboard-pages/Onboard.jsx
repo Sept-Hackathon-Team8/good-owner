@@ -277,7 +277,7 @@ const Onboard = props => {
                 </div>
                 <img
                   className="breed-image"
-                  style={{ maxWidth: "500px" }}
+                  style={{ maxWidth: "80vw" }}
                   src={breeds.filter((b) => b.id === breed).pop().img_url}
                   alt={breeds.filter((b) => b.id === breed).pop().name}
                 />
