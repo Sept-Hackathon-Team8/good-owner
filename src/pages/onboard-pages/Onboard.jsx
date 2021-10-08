@@ -20,20 +20,22 @@ const Onboard = props => {
     const res = await getBreeds();
     setBreeds(
       res
-        .map(({ name, id, parent }) => {
+        .map(({ name, id, parent, img_url }) => {
           return {
             name: `${parent ? parent.name + ' ' : ''}${name}`,
             id,
+            img_url,
           };
         })
         .sort((a, b) => a.name.codePointAt() - b.name.codePointAt())
-        .map(({ name, id }, i) => {
+        .map(({ name, id, img_url }, i) => {
           return {
             name: name
               .split(' ')
               .map(n => n[0].toUpperCase() + n.slice(1))
               .join(' '),
             id,
+            img_url,
           };
         })
     );
@@ -53,6 +55,11 @@ const Onboard = props => {
 
   const { name, breed, age } = petData;
 
+    // const handleClick = (e) => {
+    //   e.preventDefault();
+    //   setCount(count + 1);
+    // };
+
   const handleChange = e => {
     e.preventDefault();
     const { name, value } = e.target;
@@ -71,7 +78,7 @@ const Onboard = props => {
     setCurrentPet(pet);
     setCount(count + 1);
   };
-
+  // console.log(breeds)
   const switchScreen = () => {
     switch (count) {
       case 0:
@@ -111,11 +118,6 @@ const Onboard = props => {
                   onChange={handleChange}
                 />
               </div>
-              <OnboardNextButton
-                type="button"
-                count={count}
-                setCount={setCount}
-              />
             </div>
           </div>
         );
@@ -162,7 +164,6 @@ const Onboard = props => {
                   ;
                 </select>
               </div>
-              <OnboardNextButton count={count} setCount={setCount} />
             </div>
           </>
         );
@@ -229,9 +230,6 @@ const Onboard = props => {
                   name="breed"
                   type="text"
                   onChange={handleChange}
-                  // value={breed}
-                  value={breeds}
-                  onChange={(e) => setBreeds(e.target.value)}
                 >
                   <option value="">Select your dog's breed</option>
                   {breeds.map(({ name, id }, i) => {
@@ -243,7 +241,6 @@ const Onboard = props => {
                   })}
                 </select>
               </div>
-              <OnboardNextButton count={count} setCount={setCount} />
             </div>
           </div>
         );
@@ -254,11 +251,15 @@ const Onboard = props => {
               <div>
                 <div>
                   <div className="onboard-text-bold">
-                    {breeds.filter(b => b.id === currentPet.breed).pop().name}
+                    {breeds.filter((b) => b.id === currentPet.breed).pop().name}
+                    {
+                      breeds.filter((b) => b.id === currentPet.breed).pop()
+                        .img_url
+                    }
                   </div>
                   <img
                     src={
-                      breeds.filter(b => b.id === currentPet.breed).pop()
+                      breeds.filter((b) => b.id === currentPet.breed).pop()
                         .img_url
                     }
                     className="breed-image"
@@ -272,24 +273,22 @@ const Onboard = props => {
             ) : (
               <div>
                 <div className="onboard-text-bold">
-                  {breeds.filter(b => b.id === breed).pop().name}!
+                  {breeds.filter((b) => b.id === breed).pop().name}!
                 </div>
                 <img
                   className="breed-image"
-                  style={{ maxWidth: '500px' }}
-                  src={breeds.filter(b => b.id === breed).pop().img_url}
-                  alt="breed image"
+                  style={{ maxWidth: "500px" }}
+                  src={breeds.filter((b) => b.id === breed).pop().img_url}
+                  alt={breeds.filter((b) => b.id === breed).pop().name}
                 />
                 <div className="breed-love onboard-text-small">
-                  We LOVE them!! <br />This is going to <br />be fun.
+                  We LOVE them!! <br />
+                  This is going to <br />
+                  be fun.
                   <br />
                 </div>
                 {/* <h3>{name}</h3>
                 <p>{age}</p> */}
-                <button className="log-dog-button" onClick={handleCreatePet}>
-                  Next
-                </button>
-                {/* The button triggers the event for the creation logic */}
               </div>
             )}
           </>
@@ -309,9 +308,6 @@ const Onboard = props => {
                 wanted to be.
               </div>
             </div>
-            <Link to="/home">
-              <button className="next">Get Started</button>
-            </Link>
           </div>
         );
       default:
@@ -325,12 +321,16 @@ const Onboard = props => {
 
       <div className="onboard-body">
         {switchScreen(count)}
-        {count % 2 === 0 && count < 6 ? (
-          <OnboardNextButton count={count} setCount={setCount} />
-        ) : count === 6 ? (
-          ''
+        {count === 6 ? (
+          <button className="log-dog-button" onClick={handleCreatePet}>
+            Next
+          </button>
+        ) : count === 7 ? (
+          <Link to="/home">
+            <button className="next">Get Started</button>
+          </Link>
         ) : (
-          ''
+          <OnboardNextButton count={count} setCount={setCount} />
         )}
       </div>
     </div>
