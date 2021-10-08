@@ -26,7 +26,7 @@ const Hamburger = () => {
           openHamburger ? 'hamburger-menu-open' : 'hamburger-menu-closed'
         }
       >
-        <HamburgerMenu openHamburger={openHamburger} changeOpenHamburger={changeOpenHamburger} />
+        <HamburgerMenu changeOpenHamburger={changeOpenHamburger} />
       </div>
     </div>
   );
