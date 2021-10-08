@@ -230,9 +230,6 @@ const Onboard = props => {
                   name="breed"
                   type="text"
                   onChange={handleChange}
-                  // value={breed}
-                  value={breeds}
-                  onChange={(e) => setBreeds(e.target.value)}
                 >
                   <option value="">Select your dog's breed</option>
                   {breeds.map(({ name, id }, i) => {

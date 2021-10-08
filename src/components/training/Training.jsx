@@ -101,6 +101,10 @@ const Training = props => {
     }
   }, [unitPassed]); // add the var dependencies or not
 
+  /////////////////// checking why no data is showing up delete later //////////
+  // console.log(feedbackData)
+  // console.log(tasks)
+  ////////////////////////////////////
   return (
     <div className="training">
       {tasks && tasks.length && feedbackData && feedbackData.length

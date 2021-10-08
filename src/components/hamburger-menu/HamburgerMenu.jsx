@@ -16,6 +16,9 @@ const HamburgerMenu = props => {
     removeToken();
   };
 
+  ////////////testing for dog////////////////
+  // console.log(currentPet.name)
+  //////////////////////////////
   return (
     <div className="hamburger-menu">
       <img
