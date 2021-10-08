@@ -217,7 +217,6 @@ const Onboard = props => {
       case 5:
         return (
           <div >
-            <img src={breedImg} alt="dog breed banner" />
             <div className="breed-question onboard-text-small">
               I love that look! <br />What breed is
               <br />
