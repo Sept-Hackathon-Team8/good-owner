@@ -53,6 +53,11 @@ const Onboard = props => {
 
   const { name, breed, age } = petData;
 
+    const handleClick = (e) => {
+      e.preventDefault();
+      setCount(count + 1);
+    };
+
   const handleChange = e => {
     e.preventDefault();
     const { name, value } = e.target;
@@ -111,11 +116,6 @@ const Onboard = props => {
                   onChange={handleChange}
                 />
               </div>
-              <OnboardNextButton
-                type="button"
-                count={count}
-                setCount={setCount}
-              />
             </div>
           </div>
         );
@@ -162,7 +162,8 @@ const Onboard = props => {
                   ;
                 </select>
               </div>
-              <OnboardNextButton count={count} setCount={setCount} />
+              <button onClick={handleClick}>test</button>
+              {/* <OnboardNextButton count={count} setCount={setCount} /> */}
             </div>
           </>
         );
@@ -240,7 +241,6 @@ const Onboard = props => {
                   })}
                 </select>
               </div>
-              <OnboardNextButton count={count} setCount={setCount} />
             </div>
           </div>
         );
@@ -251,11 +251,15 @@ const Onboard = props => {
               <div>
                 <div>
                   <div className="onboard-text-bold">
-                    {breeds.filter(b => b.id === currentPet.breed).pop().name}
+                    {breeds.filter((b) => b.id === currentPet.breed).pop().name}
+                    {
+                      breeds.filter((b) => b.id === currentPet.breed).pop()
+                        .img_url
+                    }
                   </div>
                   <img
                     src={
-                      breeds.filter(b => b.id === currentPet.breed).pop()
+                      breeds.filter((b) => b.id === currentPet.breed).pop()
                         .img_url
                     }
                     className="breed-image"
@@ -269,24 +273,23 @@ const Onboard = props => {
             ) : (
               <div>
                 <div className="onboard-text-bold">
-                  {breeds.filter(b => b.id === breed).pop().name}!
+                  {breeds.filter((b) => b.id === breed).pop().name}!
+                  {breeds.filter((b) => b.id === breed).img_url}
                 </div>
                 <img
                   className="breed-image"
                   style={{ maxWidth: '500px' }}
-                  src={breeds.filter(b => b.id === breed).pop().img_url}
+                  src={breeds.filter((b) => b.id === breed).img_url}
                   alt="breed image"
                 />
                 <div className="breed-love onboard-text-small">
-                  We LOVE them!! <br />This is going to <br />be fun.
+                  We LOVE them!! <br />
+                  This is going to <br />
+                  be fun.
                   <br />
                 </div>
                 {/* <h3>{name}</h3>
                 <p>{age}</p> */}
-                <button className="log-dog-button" onClick={handleCreatePet}>
-                  Next
-                </button>
-                {/* The button triggers the event for the creation logic */}
               </div>
             )}
           </>
@@ -306,9 +309,6 @@ const Onboard = props => {
                 wanted to be.
               </div>
             </div>
-            <Link to="/home">
-              <button className="next">Get Started</button>
-            </Link>
           </div>
         );
       default:
@@ -322,12 +322,16 @@ const Onboard = props => {
 
       <div className="onboard-body">
         {switchScreen(count)}
-        {count % 2 === 0 && count < 6 ? (
-          <OnboardNextButton count={count} setCount={setCount} />
-        ) : count === 6 ? (
-          ''
+        {count === 6 ? (
+          <button className="log-dog-button" onClick={handleCreatePet}>
+            Next
+          </button>
+        ) : count === 7 ? (
+          <Link to="/home">
+            <button className="next">Get Started</button>
+          </Link>
         ) : (
-          ''
+          <OnboardNextButton count={count} setCount={setCount} />
         )}
       </div>
     </div>
