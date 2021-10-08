@@ -20,20 +20,22 @@ const Onboard = props => {
     const res = await getBreeds();
     setBreeds(
       res
-        .map(({ name, id, parent }) => {
+        .map(({ name, id, parent, img_url }) => {
           return {
             name: `${parent ? parent.name + ' ' : ''}${name}`,
             id,
+            img_url,
           };
         })
         .sort((a, b) => a.name.codePointAt() - b.name.codePointAt())
-        .map(({ name, id }, i) => {
+        .map(({ name, id, img_url }, i) => {
           return {
             name: name
               .split(' ')
               .map(n => n[0].toUpperCase() + n.slice(1))
               .join(' '),
             id,
+            img_url,
           };
         })
     );
@@ -53,10 +55,10 @@ const Onboard = props => {
 
   const { name, breed, age } = petData;
 
-    const handleClick = (e) => {
-      e.preventDefault();
-      setCount(count + 1);
-    };
+    // const handleClick = (e) => {
+    //   e.preventDefault();
+    //   setCount(count + 1);
+    // };
 
   const handleChange = e => {
     e.preventDefault();
@@ -76,7 +78,7 @@ const Onboard = props => {
     setCurrentPet(pet);
     setCount(count + 1);
   };
-
+  // console.log(breeds)
   const switchScreen = () => {
     switch (count) {
       case 0:
@@ -272,13 +274,12 @@ const Onboard = props => {
               <div>
                 <div className="onboard-text-bold">
                   {breeds.filter((b) => b.id === breed).pop().name}!
-                  {breeds.filter((b) => b.id === breed).pop().img_url}
                 </div>
                 <img
                   className="breed-image"
-                  style={{ maxWidth: '500px' }}
+                  style={{ maxWidth: "500px" }}
                   src={breeds.filter((b) => b.id === breed).pop().img_url}
-                  alt="breed image"
+                  alt={breeds.filter((b) => b.id === breed).pop().name}
                 />
                 <div className="breed-love onboard-text-small">
                   We LOVE them!! <br />
