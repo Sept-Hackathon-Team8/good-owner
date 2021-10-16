@@ -21,6 +21,7 @@ function App() {
   const [tasks, setTasks] = useState(null);
   const [tipData, setTipData] = useState(null);
   const [mockFeedbackData, setMockFeedbackData] = useState(null);
+  const [streak, setStreak] = useState(null);
 
   return (
     <DoggoContext.Provider
@@ -41,6 +42,8 @@ function App() {
         setLoggedIn,
         tipData,
         setTipData,
+        streak,
+        setStreak,
       }}
     >
       <div className="App">
