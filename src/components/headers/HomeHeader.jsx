@@ -4,6 +4,18 @@ import Hamburger from '../hamburger/Hamburger';
 // import icon from "../../Images/carbon_user-avatar.svg"
 import fire from '../../Images/FlameNoNumber.svg';
 
+const streakNumArr = count =>
+  Object.keys(new Array(count).fill).map(num => Number(num));
+
+const CircleComponent = ({ num, streakNum }) => {
+  console.log('NUM AND STREAKNUM', num, streakNum);
+  return (
+    <div className={num <= streakNum ? `circle tennis` : 'circle'}>
+      {num > streakNum ? num : ''}
+    </div>
+  );
+};
+
 const HomeHeader = props => {
   const { streak } = useContext(DoggoContext);
 
@@ -12,29 +24,27 @@ const HomeHeader = props => {
       <div className="doggo-home">DOGGO</div>
       <div className="user-progress">
         <Hamburger />
-        {/* <div className="icon"> */}
-        {/* <Hamburger /> */}
-        {/* <img alt="user vector icon" src={icon}/> */}
-        {/* </div> */}
         <div className="progress">
-          <div className="circle one">1</div>
-          <div className="circle two">2</div>
-          <div className="circle three">3</div>
-          <div className="circle four">4</div>
-          <div className="circle five">5</div>
-          <div className="circle six">6</div>
-          <div className="circle seven">7</div>
+          {streak !== null
+            ? [1, 2, 3, 4, 5, 6, 7].map(num => {
+                return <CircleComponent num={num} streakNum={streak} />;
+              })
+            : ''}
         </div>
-        <div className="flame">
-          <img alt="user vector icon" src={fire} />
-        </div>
+        {streak !== null ? (
+          <div className="flame">
+            <span>{streak > 7 ? streak : ''}</span>
+            <img
+              style={{ mixBlendMode: streak > 7 ? 'hard-light' : 'hue' }}
+              alt="user vector icon"
+              src={fire}
+            />
+          </div>
+        ) : (
+          'no fire'
+        )}
       </div>
       {/* DELETE STREAK DIV BELOW AND WRITE LOGIC FOR STREAK PRESENTATION */}
-      {streak !== null ? (
-        <div> The current streak is: {streak}</div>
-      ) : (
-        'no streak'
-      )}
     </div>
   );
 };
