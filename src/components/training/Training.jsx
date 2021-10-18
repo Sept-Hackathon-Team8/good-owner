@@ -53,11 +53,16 @@ const Training = props => {
       setCurrentProgress({ ...journey, task: 1 });
       setActiveUnit({ ...journey, task: 1 });
       const strk = await getStreak({ pet: pets[0].id });
-      console.log(strk);
       setStreak(strk.streak_value);
       setCurrentProgress(progress => ({ ...progress, pet_id: pets[0].id }));
     }
-  }, [setCurrentPet, setCurrentProgress, setActiveUnit, getPetFeedbackData]);
+  }, [
+    setCurrentPet,
+    setCurrentProgress,
+    setActiveUnit,
+    getPetFeedbackData,
+    setStreak,
+  ]);
 
   useEffect(() => {
     // TODO: Currently we will use the first pet until we create a menu to select the journey for specific pet
@@ -107,10 +112,6 @@ const Training = props => {
     }
   }, [unitPassed]); // add the var dependencies or not
 
-  /////////////////// checking why no data is showing up delete later //////////
-  // console.log(feedbackData)
-  // console.log(tasks)
-  ////////////////////////////////////
   return (
     <div className="training">
       {tasks && tasks.length && feedbackData && feedbackData.length
