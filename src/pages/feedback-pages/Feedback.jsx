@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { DoggoContext } from '../../DoggoContext';
-import { postFeedback } from '../../services/auth.js';
+import { postFeedback, getStreak } from '../../services/auth.js';
 
 const Feedback = () => {
   const {
@@ -11,6 +11,7 @@ const Feedback = () => {
     mockFeedbackData,
     setTipData,
     tasks,
+    setStreak,
   } = useContext(DoggoContext);
 
   async function handleClick(ev) {
@@ -35,7 +36,11 @@ const Feedback = () => {
     }
 
     if (activeUnit.task < 4) activeUnit.task++;
-    else activeUnit.task = 1;
+    else {
+      activeUnit.task = 1;
+      const strk = await getStreak({ pet: currentPet.id, calculate: true });
+      setStreak(strk.streak_value);
+    }
     setActiveUnit(activeUnit);
   }
 
