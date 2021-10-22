@@ -327,7 +327,7 @@ const Onboard = props => {
           </button>
         ) : count === 7 ? (
           <Link to="/home">
-            <button className="next">Get Started</button>
+            <button className="next">Next</button>
           </Link>
         ) : (
           <OnboardNextButton count={count} setCount={setCount} />
