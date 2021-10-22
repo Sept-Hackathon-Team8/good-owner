@@ -47,7 +47,7 @@ const Feedback = () => {
   return (
     <div className="feedback-page">
       <h1>
-        How did <em>{currentPet ? currentPet.name : 'doggo'}</em> do?
+        How did  {currentPet ? currentPet.name : 'doggo'} do?
       </h1>
       <Link to="/tip">
         <button value="0" onClick={handleClick} className="ruffff">
