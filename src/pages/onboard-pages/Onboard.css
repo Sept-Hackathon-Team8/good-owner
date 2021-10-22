@@ -87,6 +87,7 @@ input {
   border-style: none;
   border-radius: 15px;
   background: #F5F4F6;
+  font-size: 16px
 }
 
 .dog-name-input::placeholder {
