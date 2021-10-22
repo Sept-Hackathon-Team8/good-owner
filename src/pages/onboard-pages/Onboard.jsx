@@ -295,7 +295,7 @@ const Onboard = props => {
         );
       case 7:
         return (
-          <div>
+          <div className="message-container">
             <div className="onboarding-message">
               <div className="onboard-text-super-small">
                 We here at Doggo truly believe that there are no bad dogs, but

@@ -171,11 +171,15 @@ input {
 .breed-love {
   margin-bottom: 16px
 }
+.message-container {
+  width: 327px;
+}
 .onboarding-message {
   background-color: #F5F4F6;
   padding: 16px 24px;
   line-height: 23px;
-  margin-bottom: 31px
+  margin-bottom: 31px;
+  /* width: 327px; */
 }
 .name-three {
   margin: 39px 0px
