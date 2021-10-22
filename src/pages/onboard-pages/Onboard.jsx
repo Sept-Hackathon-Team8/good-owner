@@ -172,7 +172,7 @@ const Onboard = props => {
           <div>
             <div className="onboard-age">
               {/* <img src="nothing.png">insert image</img> */}
-              {age > 8 ? (
+              {age > 10 ? (
                 <>
                   <div className="onboard-text-bold">
                     {name ? name : 'no name showing'} <span className="un-bold">is {age}?!</span>
@@ -182,12 +182,12 @@ const Onboard = props => {
                     That's {age * 7} in dog <br />years! You CAN <br />teach an old dog <br />new tricks!
                   </span>
                 </>
-                ) : age > 5 ? (
+                ) : age > 6 ? (
                 <>
                   <div className="onboard-text-bold">
                     {name ? name : 'no name showing'} <span className="un-bold">is {age}?!</span>
                   </div>
-                  <img className="age-image" src={adult2} alt="senior dog" />
+                  <img className="age-image" src={adult2} alt="adult dog" />
                   <span className="onboard-text-small">
                     That's {age * 7} in dog <br />years! Middle <br />aged never <br />looked so
                     good!
