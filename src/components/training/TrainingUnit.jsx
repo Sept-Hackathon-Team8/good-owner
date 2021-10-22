@@ -46,7 +46,7 @@ const TrainingUnit = ({
             : 'There is no Unitdata'}
 
           <Link to="/task">
-            <button onClick={setUnit} className="start-lesson next">
+            <button onClick={setUnit} className="start-lesson">
               Start Lesson
             </button>
           </Link>

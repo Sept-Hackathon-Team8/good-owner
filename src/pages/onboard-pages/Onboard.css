@@ -87,6 +87,7 @@ input {
   border-style: none;
   border-radius: 15px;
   background: #F5F4F6;
+  font-size: 16px
 }
 
 .dog-name-input::placeholder {
@@ -105,6 +106,14 @@ input {
 }
 
 .log-dog-button {
+  width: 304px;
+  height: 49px;
+  background-color: #FBD157;
+  border-style: none;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.next {
   width: 304px;
   height: 49px;
   background-color: #FBD157;
@@ -162,11 +171,15 @@ input {
 .breed-love {
   margin-bottom: 16px
 }
+.message-container {
+  width: 327px;
+}
 .onboarding-message {
   background-color: #F5F4F6;
   padding: 16px 24px;
   line-height: 23px;
-  margin-bottom: 31px
+  margin-bottom: 31px;
+  /* width: 327px; */
 }
 .name-three {
   margin: 39px 0px

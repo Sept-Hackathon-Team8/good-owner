@@ -8,10 +8,31 @@ import { removeToken } from '../../services/auth';
 
 const HamburgerMenu = props => {
   const { changeOpenHamburger } = props;
-  const { currentPet, setCurrentUser } = useContext(DoggoContext);
+  const {
+    currentPet,
+    setCurrentUser,
+    setCurrentPet,
+    setActiveUnit,
+    setCurrentProgress,
+    setTasks,
+    setLoggedIn,
+    setTipData,
+    setStreak,
+  } = useContext(DoggoContext);
 
+  // TODO: Move handleLogout logic out of component
   const handleLogout = () => {
-    setCurrentUser(null);
+    const setterArr = [
+      setCurrentUser,
+      setCurrentPet,
+      setActiveUnit,
+      setCurrentProgress,
+      setTasks,
+      setLoggedIn,
+      setTipData,
+      setStreak,
+    ];
+    setterArr.forEach(setter => setter(null));
     localStorage.removeItem('authToken');
     removeToken();
   };

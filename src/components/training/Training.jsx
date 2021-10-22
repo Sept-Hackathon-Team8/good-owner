@@ -6,6 +6,7 @@ import {
   updateJourney,
   getTasks,
   getPetFeedback,
+  getStreak,
 } from '../../services/auth';
 import ConfettiGenerator from 'confetti-js';
 
@@ -19,13 +20,17 @@ const Training = props => {
     setActiveUnit,
     setCurrentPet,
     setTasks,
+    setStreak,
   } = useContext(DoggoContext);
 
   // FeedbackData
-  const getPetFeedbackData = useCallback(async petData => {
-    const response = await getPetFeedback({ pet: petData.id });
-    setMockFeedbackData(response.data);
-  }, []);
+  const getPetFeedbackData = useCallback(
+    async petData => {
+      const response = await getPetFeedback({ pet: petData.id });
+      setMockFeedbackData(response.data);
+    },
+    [setMockFeedbackData]
+  );
 
   // Unit training data API request and state logic
   const loadUnitsData = useCallback(async () => {
@@ -47,9 +52,17 @@ const Training = props => {
       getPetFeedbackData(petData);
       setCurrentProgress({ ...journey, task: 1 });
       setActiveUnit({ ...journey, task: 1 });
+      const strk = await getStreak({ pet: pets[0].id });
+      setStreak(strk.streak_value);
       setCurrentProgress(progress => ({ ...progress, pet_id: pets[0].id }));
     }
-  }, [setCurrentPet, setCurrentProgress, setActiveUnit]);
+  }, [
+    setCurrentPet,
+    setCurrentProgress,
+    setActiveUnit,
+    getPetFeedbackData,
+    setStreak,
+  ]);
 
   useEffect(() => {
     // TODO: Currently we will use the first pet until we create a menu to select the journey for specific pet
@@ -59,11 +72,9 @@ const Training = props => {
   const [feedbackData, setFeedbackData] = useState([]);
   const [unitPassed, setUnitPassed] = useState(false);
 
-  // TODO: another API call to get the feedback values for each task in order to create the circle progress UI element
   useEffect(() => {
     if (currentProgress && currentProgress.unit) {
       setFeedbackData(mockFeedbackData);
-      // setFeedbackData(mockFeedbackData[currentProgress.unit - 1]);
     }
   }, [setFeedbackData, currentProgress, mockFeedbackData]);
 
@@ -101,10 +112,6 @@ const Training = props => {
     }
   }, [unitPassed]); // add the var dependencies or not
 
-  /////////////////// checking why no data is showing up delete later //////////
-  // console.log(feedbackData)
-  // console.log(tasks)
-  ////////////////////////////////////
   return (
     <div className="training">
       {tasks && tasks.length && feedbackData && feedbackData.length
