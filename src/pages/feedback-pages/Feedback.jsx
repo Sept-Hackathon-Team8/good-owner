@@ -35,7 +35,8 @@ const Feedback = () => {
       feedbackObj.ruff++;
     }
 
-    if (activeUnit.task < 4) activeUnit.task++;
+    if (activeUnit.task < tasks[activeUnit.unit - 1].tasks.length)
+      activeUnit.task++;
     else {
       activeUnit.task = 1;
       const strk = await getStreak({ pet: currentPet.id, calculate: true });
@@ -46,9 +47,7 @@ const Feedback = () => {
 
   return (
     <div className="feedback-page">
-      <h1>
-        How did  {currentPet ? currentPet.name : 'doggo'} do?
-      </h1>
+      <h1>How did {currentPet ? currentPet.name : 'doggo'} do?</h1>
       <Link to="/tip">
         <button value="0" onClick={handleClick} className="ruffff">
           Ruffff
