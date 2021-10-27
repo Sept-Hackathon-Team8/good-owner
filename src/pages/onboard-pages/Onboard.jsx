@@ -299,7 +299,7 @@ const Onboard = props => {
                 We here at Doggo truly believe that there are no bad dogs, but
                 there are inexperienced pet parents. Follow our lead because
               </div>
-              <div className="name-three onboard-text-bold">{name}</div>
+              <div className="name-three onboard-text-bold">{name ? name : 'no name'}</div>
               <div className="onboard-text-super-small">
                 deserves the best version of you! By the end of our program, we
                 promise that you will be the calm, confident owner you've always
