@@ -14,16 +14,19 @@ const Tip = props => {
 
   return (
     <div className="advice-page">
+      <div className="advice-intro">No worries - here<br />are some extra tips<br />to help you and your<br />best friend next time. </div>
       {tipData ? (
         <>
-          <h3>{tipData.title}</h3>
-          <div className="tips-container">
-            <ul className="tip-bullets">
-              {tipData.text
-                .split('\n')
-                .map((tip, i) => <li key={i}> {tip} </li>)
-              }
-            </ul>
+          <div className="tips-background">
+            <div className="tip-title">{tipData.title}</div>
+            <div className="tips-container">
+              <ul className="tip-bullets">
+                {tipData.text
+                  .split('\n')
+                  .map((tip, i) => <li key={i}> {tip} </li>)
+                }
+              </ul>
+            </div>
           </div>
         </>
       ) : (

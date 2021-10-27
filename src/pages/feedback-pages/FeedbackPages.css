@@ -1,13 +1,29 @@
+.advice-intro {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 24px
+}
 .advice-page {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.tips-container {
+.tips-background {
     background-color: #F5F4F6;
-    padding: 16px 24px;
+    padding: 16px;
     line-height: 23px;
     margin-bottom: 31px;
     width: 327px;
+}
+
+.tip-title {
+    font-size: 19px;
+    font-weight: 700;
+    text-align: left;
+}
+.tips-container {
+    width: 295px
 }
