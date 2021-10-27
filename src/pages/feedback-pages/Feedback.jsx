@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { DoggoContext } from '../../DoggoContext';
 import { postFeedback, getStreak } from '../../services/auth.js';
-
+import ruff from '../../Images/RuffButtonMaster.svg';
+import great from '../../Images/GreatButton.svg';
 const Feedback = () => {
   const {
     currentPet,
@@ -50,10 +51,10 @@ const Feedback = () => {
       <h1>How did {currentPet ? currentPet.name : 'doggo'} do?</h1>
       <Link to="/tip">
         <button value="0" onClick={handleClick} className="ruffff">
-          Ruffff
+          <img className="ruff" alt="Ruffff" src={ruff} />
         </button>
         <button value="1" onClick={handleClick} className="great">
-          Great
+          <img className="great" alt="Great" src={great} />
         </button>
       </Link>
     </div>

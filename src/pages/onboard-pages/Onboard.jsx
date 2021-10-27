@@ -126,7 +126,7 @@ const Onboard = props => {
           <>
             <div>
               <h2 id="name" className="onboard-text-bold">
-                Hi {name}!{/* <img></img> */}
+                Hi {name ? name : 'no name'}!{/* <img></img> */}
               </h2>
               <img alt="dog" src={img2} />
               <div className="onboard-text-small love-you">
@@ -142,7 +142,7 @@ const Onboard = props => {
               If we may be so <br />bold, how old is <br />
             </div>
             <h2 className="name-two onboard-text-bold ">
-              {name ? name : 'no name showing'}?
+              {name ? name : 'no name'}?
             </h2>
             <div className="dropdown-container">
               <div className="age-dropdown">
@@ -175,7 +175,7 @@ const Onboard = props => {
               {age > 10 ? (
                 <>
                   <div className="onboard-text-bold">
-                    {name ? name : 'no name showing'} <span className="un-bold">is {age}?!</span>
+                    {name ? name : 'no name'} <span className="un-bold">is {age}?!</span>
                   </div>
                   <img className="age-image" src={senior} alt="senior dog" />
                   <span className="onboard-text-small">
@@ -185,7 +185,7 @@ const Onboard = props => {
                 ) : age > 6 ? (
                 <>
                   <div className="onboard-text-bold">
-                    {name ? name : 'no name showing'} <span className="un-bold">is {age}?!</span>
+                    {name ? name : 'no name'} <span className="un-bold">is {age}?!</span>
                   </div>
                   <img className="age-image" src={adult2} alt="adult dog" />
                   <span className="onboard-text-small">
@@ -196,7 +196,7 @@ const Onboard = props => {
               ) : age >= 2 ? (
                 <>
                   <div className="onboard-text-bold">
-                    {name ? name : 'no name showing'} <span className="un-bold">is {age}?!</span>
+                    {name ? name : 'no name'} <span className="un-bold">is {age}?!</span>
                   </div>
                   <img className="age-image" src={adult} alt="adult dog" />
                   <span className="onboard-text-small">
@@ -206,7 +206,7 @@ const Onboard = props => {
               ) : (
                 <>
                   <div className="onboard-text-bold">
-                    {name ? name : 'no name showing'} <span className="un-bold">is a puppy?!</span>
+                    {name ? name : 'no name'} <span className="un-bold">is a puppy?!</span>
                   </div>
                   <img className="age-image" src={puppy} alt="puppy dog" />
                   <span className="onboard-text-small">So many years of <br />tricks and treats <br />ahead of them!</span>
@@ -221,7 +221,7 @@ const Onboard = props => {
             <div className="breed-question onboard-text-small">
               I love that look! <br />What breed is
               <br />
-              <span className="onboard-text-bold">{name}?</span>
+              <span className="onboard-text-bold">{name ? name : 'no name'}?</span>
             </div>
             <div className="dropdown-container">
               <div className="breed-dropdown">
@@ -264,7 +264,6 @@ const Onboard = props => {
                     }
                     className="breed-image"
                     alt="dog"
-                    width="500px"
                   />
 
                   <p>{currentPet.age}</p>
@@ -277,7 +276,6 @@ const Onboard = props => {
                 </div>
                 <img
                   className="breed-image"
-                  style={{ maxWidth: "80vw" }}
                   src={breeds.filter((b) => b.id === breed).pop().img_url}
                   alt={breeds.filter((b) => b.id === breed).pop().name}
                 />
@@ -301,7 +299,7 @@ const Onboard = props => {
                 We here at Doggo truly believe that there are no bad dogs, but
                 there are inexperienced pet parents. Follow our lead because
               </div>
-              <div className="name-three onboard-text-bold">{name}</div>
+              <div className="name-three onboard-text-bold">{name ? name : 'no name'}</div>
               <div className="onboard-text-super-small">
                 deserves the best version of you! By the end of our program, we
                 promise that you will be the calm, confident owner you've always
