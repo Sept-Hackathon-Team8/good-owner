@@ -264,7 +264,6 @@ const Onboard = props => {
                     }
                     className="breed-image"
                     alt="dog"
-                    width="500px"
                   />
 
                   <p>{currentPet.age}</p>
