@@ -16,7 +16,14 @@ const Tip = props => {
       {tipData ? (
         <>
           <h3>{tipData.title}</h3>
-          <p>{tipData.text}</p>
+          <div className="tips-container">
+            <ul className="tip-bullets">
+              {tipData.text
+                .split('\n')
+                .map((tip, i) => <li key={i}> {tip} </li>)
+              }
+            </ul>
+          </div>
         </>
       ) : (
         <p>
