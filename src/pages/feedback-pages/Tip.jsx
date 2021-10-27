@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DoggoContext } from '../../DoggoContext';
 import NextButton from '../../components/next-buttons/MainNextButton';
+import './FeedbackPages.css';
 
 const Tip = props => {
   const { activeUnit, tipData, setTipData } = useContext(DoggoContext);
