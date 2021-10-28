@@ -52,11 +52,11 @@ const Feedback = () => {
     <div className="feedback-page">
       <h1>How did {currentPet ? currentPet.name : 'doggo'} do?</h1>
       <Link to="/tip">
-        <button value="0" onClick={handleClick} className="ruffff">
-          <img className="ruff button" alt="Ruffff" src={ruff} />
+        <button value="0" onClick={handleClick} className="button">
+          <img alt="Rufff" src={ruff} />
         </button>
-        <button value="1" onClick={handleClick} className="great">
-          <img className="great button" alt="Great" src={great} />
+        <button value="1" onClick={handleClick} className="button">
+          <img alt="Great" src={great} />
         </button>
       </Link>
     </div>
