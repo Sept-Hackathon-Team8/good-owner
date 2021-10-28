@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { DoggoContext } from '../../DoggoContext';
 import NextButton from '../../components/next-buttons/MainNextButton';
 import './FeedbackPages.css';
+import success from '../../Images/MarkSuccess.svg'
 
 const Tip = props => {
   const { activeUnit, tipData, setTipData } = useContext(DoggoContext);
@@ -18,7 +19,8 @@ const Tip = props => {
       {tipData ? (
         tipData.success ? (
           <div>
-            Hello Success!
+            <h1>What a good<br />doggo!<br />Here's a treat!</h1>
+            <img className="success-image" src={success} alt="treat-image" />
           </div>
         ) : (
           <>
