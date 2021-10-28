@@ -7,7 +7,7 @@ import success from '../../Images/MarkSuccess.svg'
 
 const Tip = props => {
   const { activeUnit, tipData, setTipData } = useContext(DoggoContext);
-  {console.log("🤞"+ tipData.success, activeUnit)}
+
   function resetTipData() {
     // reset tip data
     setTipData(null);

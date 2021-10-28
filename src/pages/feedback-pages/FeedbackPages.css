@@ -21,7 +21,7 @@
     padding: 16px;
     line-height: 23px;
     margin-bottom: 31px;
-    width: 327px;
+    max-width: 327px;
 }
 
 .tip-title {
@@ -31,6 +31,9 @@
 }
 .tips-container {
     width: 295px
+}
+ul.tip-bullets {
+    padding-left: 25px
 }
 .feedback-buttons-container {
     display: flex;
