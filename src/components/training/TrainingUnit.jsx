@@ -15,7 +15,7 @@ const TrainingUnit = ({
       setActiveUnit(currentData => ({ ...currentData, unit: unitNum }));
     // TODO: create else to redirect client to tell them this unit is not available this case shouldn't happen but then again
   }, [unitNum, setActiveUnit, currentProgress]);
-
+// console.log(unitNum)
   return (
     <div style={{ position: 'relative' }}>
       {currentProgress.unit >= unitNum ? (
@@ -42,7 +42,7 @@ const TrainingUnit = ({
         <div className="tasks">
           {unitData && unitFeedback && unitData.length && unitFeedback.length
             ? unitData.map((t, i) => (
-                <TaskSnippet key={i} task={t} feedback={unitFeedback[i]} />
+                <TaskSnippet key={i} task={t} order={unitNum} feedback={unitFeedback[i]} />
               ))
             : 'There is no Unitdata'}
 

@@ -176,7 +176,10 @@ code {
   margin: 0px 20px 20px 20px;
 }
 .task-reverse {
-  flex-direction: row-reverse
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin: 0px 20px 20px 20px;
 }
 .task-image {
   /* width: 52px;
