@@ -52,10 +52,10 @@ const Feedback = () => {
     <div className="feedback-page">
       <h1>How did {currentPet ? currentPet.name : 'doggo'} do?</h1>
       <Link to="/tip">
-        <button value="0" onClick={handleClick} className="button">
-          <img alt="Rufff" src={ruff} />
+        <button value="0" onClick={handleClick} className="ruffff">
+          <img alt="Ruffff" src={ruff} />
         </button>
-        <button value="1" onClick={handleClick} className="button">
+        <button value="1" onClick={handleClick} className="great">
           <img alt="Great" src={great} />
         </button>
       </Link>
