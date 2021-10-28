@@ -6,7 +6,7 @@ import './FeedbackPages.css';
 
 const Tip = props => {
   const { activeUnit, tipData, setTipData } = useContext(DoggoContext);
-
+  {console.log("🤞"+ tipData.success, activeUnit)}
   function resetTipData() {
     // reset tip data
     setTipData(null);
@@ -14,21 +14,28 @@ const Tip = props => {
 
   return (
     <div className="advice-page">
-      <div className="advice-intro">No worries - here<br />are some extra tips<br />to help you and your<br />best friend next time. </div>
+      {console.log("🤞"+tipData.success, activeUnit)}
       {tipData ? (
-        <>
-          <div className="tips-background">
-            <div className="tip-title">{tipData.title}</div>
-            <div className="tips-container">
-              <ul className="tip-bullets">
-                {tipData.text
-                  .split('\n')
-                  .map((tip, i) => <li key={i}> {tip} </li>)
-                }
-              </ul>
-            </div>
+        tipData.success ? (
+          <div>
+            Hello Success!
           </div>
-        </>
+        ) : (
+          <>
+            <div className="advice-intro">No worries - here<br />are some extra tips<br />to help you and your<br />best friend next time. </div>
+            <div className="tips-background">
+              <div className="tip-title">{tipData.title}</div>
+              <div className="tips-container">
+                <ul className="tip-bullets">
+                  {tipData.text
+                    .split('\n')
+                    .map((tip, i) => <li key={i}> {tip} </li>)
+                  }
+                </ul>
+              </div>
+            </div>
+          </>
+        )
       ) : (
         <p>
           <b>Error: </b>No tip data available
