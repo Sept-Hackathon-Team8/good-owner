@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { DoggoContext } from '../../DoggoContext';
 import { postFeedback, getStreak } from '../../services/auth.js';
-import ruff from '../../Images/RuffButtonMaster.svg';
-import great from '../../Images/GreatButton.svg';
+import ruffImg from '../../Images/RuffButtonMaster.svg';
+import greatImg from '../../Images/GreatButton.svg';
 import './FeedbackPages.css';
 
 const Feedback = () => {
@@ -16,14 +16,14 @@ const Feedback = () => {
     tasks,
     setStreak,
   } = useContext(DoggoContext);
-
+ 
   async function handleClick(ev) {
     // modify the feedback val to move to next task or exit tasks
     const feedbackObj =
       mockFeedbackData[activeUnit.unit - 1][activeUnit.task - 1];
 
     const task = tasks[activeUnit.unit - 1].tasks[activeUnit.task - 1];
-
+    
     const success = Boolean(Number(ev.target.value));
     const tip = task['tip'].filter(tip => tip.success === success).pop();
 
@@ -52,12 +52,24 @@ const Feedback = () => {
     <div className="feedback-page">
       <h1>How did {currentPet ? currentPet.name : 'doggo'} do?</h1>
       <Link to="/tip">
-        <button value="0" onClick={handleClick} className="button">
-          <img alt="Rufff" src={ruff} />
-        </button>
-        <button value="1" onClick={handleClick} className="button">
-          <img alt="Great" src={great} />
-        </button>
+        <div className="feedback-buttons-container">
+          <button onClick={handleClick} className="ruffff">
+            <input 
+              type="image" 
+              value="0"
+              src={ruffImg}
+              alt="Rufff"
+            />
+          </button>
+          <button onClick={handleClick} className="great">
+            <input 
+              type="image" 
+              value="1"
+              src={greatImg}
+              alt="Great"
+            />
+          </button>
+        </div>
       </Link>
     </div>
   );
