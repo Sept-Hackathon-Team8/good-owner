@@ -4,6 +4,8 @@ import { DoggoContext } from '../../DoggoContext';
 import { postFeedback, getStreak } from '../../services/auth.js';
 import ruff from '../../Images/RuffButtonMaster.svg';
 import great from '../../Images/GreatButton.svg';
+import './FeedbackPages.css';
+
 const Feedback = () => {
   const {
     currentPet,
@@ -50,11 +52,11 @@ const Feedback = () => {
     <div className="feedback-page">
       <h1>How did {currentPet ? currentPet.name : 'doggo'} do?</h1>
       <Link to="/tip">
-        <button value="0" onClick={handleClick} className="ruffff">
-          <img className="ruff" alt="Ruffff" src={ruff} />
+        <button value="0" onClick={handleClick} className="button">
+          <img alt="Rufff" src={ruff} />
         </button>
-        <button value="1" onClick={handleClick} className="great">
-          <img className="great" alt="Great" src={great} />
+        <button value="1" onClick={handleClick} className="button">
+          <img alt="Great" src={great} />
         </button>
       </Link>
     </div>
