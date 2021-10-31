@@ -38,6 +38,7 @@ const TrainingUnit = ({
         <div className="unit">
           <h1>{unitTitle ? unitTitle : ''}</h1>
         </div>
+        {/* apply class task-reverse to every other Unit */}
         <div className="tasks">
           {unitData && unitFeedback && unitData.length && unitFeedback.length
             ? unitData.map((t, i) => (
