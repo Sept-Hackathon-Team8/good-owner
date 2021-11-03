@@ -335,6 +335,10 @@ const Onboard = props => {
           <button className="log-dog-button" onClick={() => alert("Please select your dog's age.")}>
               Next
           </button>
+              ) : count === 5 && breed === '' ? (
+          <button className="log-dog-button" onClick={() => alert("Please enter your dog's breed.")}>
+              Next
+          </button>
         ) : (
           <OnboardNextButton count={count} setCount={setCount} />
         )}
