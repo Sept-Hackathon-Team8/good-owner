@@ -8,7 +8,7 @@ const TaskSnippet = ({ task, feedback }) => {
         <div className="task">
           {/* TODO: use feedback to create progress circle UI element here */}
           <div className="task-image">
-            <img alt={task.title} src={task.icon} />
+            <img style={{ width: '52px' }} alt={task.title} src={task.icon} />
             <ProgressCircle
               succesfulTasks={feedback.great < 8 ? feedback.great : 7}
             />
